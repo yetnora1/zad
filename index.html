@@ -38,12 +38,25 @@ body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-
 .nav-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--br);background:transparent;color:var(--mu);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;}
 .nav-btn:hover{background:var(--or);color:#fff;border-color:var(--or);}
 .search-box{position:relative;display:flex;align-items:center;}
-.search-box input{padding:.5rem 1rem .5rem 2.5rem;border-radius:50px;border:1px solid var(--br);background:var(--ca);color:var(--tx);font-family:'Poppins',sans-serif;width:140px;transition:.3s;font-size:.85rem;}
-.search-box input:focus{width:200px;outline:none;border-color:var(--or);}
-.search-box i{position:absolute;left:12px;color:var(--mu);font-size:.85rem;}
-.lang-flag{width:100%;height:100%;object-fit:cover;border-radius:50%;position:absolute;inset:0;}
-.mobile-menu-btn{display:none;}
-@media(max-width:768px){.nav-links{display:none;}.mobile-menu-btn{display:flex;}.search-box input{width:100px;}.search-box input:focus{width:140px;}}
+.search-box input{padding:.5rem 2rem .5rem 2.5rem;border-radius:50px;border:1px solid var(--br);background:var(--ca);color:var(--tx);font-family:'Poppins',sans-serif;width:140px;transition:.3s;font-size:.85rem;}
+.search-box input:focus{width:220px;outline:none;border-color:var(--or);}
+.search-box .s-icon{position:absolute;left:12px;color:var(--mu);font-size:.85rem;pointer-events:none;}
+.search-clear{position:absolute;right:10px;background:none;border:none;color:var(--mu);cursor:pointer;font-size:.8rem;display:none;padding:2px;line-height:1;}
+.search-clear.visible{display:flex;}
+.search-clear:hover{color:var(--or);}
+/* Search dropdown */
+.search-dropdown{position:absolute;top:calc(100% + 8px);left:0;right:0;min-width:320px;max-height:380px;overflow-y:auto;background:var(--ca);border:1px solid var(--br);border-radius:16px;box-shadow:0 20px 60px var(--sh);z-index:1500;display:none;scrollbar-width:thin;}
+.search-dropdown.open{display:block;}
+.search-dd-header{padding:.75rem 1rem .5rem;font-size:.75rem;color:var(--mu);font-weight:600;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--br);}
+.search-dd-item{display:flex;align-items:center;gap:.9rem;padding:.75rem 1rem;cursor:pointer;transition:.2s;border-bottom:1px solid rgba(255,255,255,.04);}
+.search-dd-item:hover{background:rgba(232,120,74,.08);}
+.search-dd-img{width:48px;height:48px;border-radius:10px;background-size:cover;background-position:center;flex-shrink:0;}
+.search-dd-info{flex:1;min-width:0;}
+.search-dd-name{font-size:.9rem;color:var(--cr);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.search-dd-cat{font-size:.72rem;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-top:.1rem;}
+.search-dd-price{font-size:.9rem;color:var(--or);font-weight:600;flex-shrink:0;}
+.search-dd-empty{padding:1.5rem;text-align:center;color:var(--mu);font-size:.9rem;}
+@media(max-width:768px){.nav-links{display:none;}.mobile-menu-btn{display:flex;}.search-box input{width:100px;}.search-box input:focus{width:150px;}.search-dropdown{min-width:260px;}}
 .mobile-menu{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--ca);z-index:2001;padding:2rem;transition:right .4s;border-left:1px solid var(--br);}
 .mobile-menu.active{right:0;}.mobile-menu a{display:block;padding:1rem 0;color:var(--tx);text-decoration:none;border-bottom:1px solid var(--br);}
 .mobile-menu a:hover{color:var(--or);}
@@ -376,7 +389,12 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#feedback" data-i18n="nav_feedback">Feedback</a>
 </div>
 <div class="nav-actions">
-<div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder"></div>
+<div class="search-box" id="searchBox">
+  <i class="fas fa-search s-icon"></i>
+  <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder" autocomplete="off">
+  <button class="search-clear" id="searchClear" onclick="clearSearch()" title="Clear">×</button>
+  <div class="search-dropdown" id="searchDropdown"></div>
+</div>
 <button class="nav-btn" onclick="toggleLanguage()" title="Switch Language" style="position:relative;overflow:hidden;padding:0;"><img class="lang-flag" id="langFlag" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23B22234'/%3E%3Cg fill='white'%3E%3Crect y='15.38' width='200' height='15.38'/%3E%3Crect y='46.15' width='200' height='15.38'/%3E%3Crect y='76.92' width='200' height='15.38'/%3E%3Crect y='107.69' width='200' height='15.38'/%3E%3Crect y='138.46' width='200' height='15.38'/%3E%3Crect y='169.23' width='200' height='15.38'/%3E%3C/g%3E%3Crect width='80' height='84.62' fill='%233C3B6E'/%3E%3Cg fill='white'%3E%3Ccircle cx='8' cy='8' r='3'/%3E%3Ccircle cx='24' cy='8' r='3'/%3E%3Ccircle cx='40' cy='8' r='3'/%3E%3Ccircle cx='56' cy='8' r='3'/%3E%3Ccircle cx='72' cy='8' r='3'/%3E%3Ccircle cx='16' cy='20' r='3'/%3E%3Ccircle cx='32' cy='20' r='3'/%3E%3Ccircle cx='48' cy='20' r='3'/%3E%3Ccircle cx='64' cy='20' r='3'/%3E%3Ccircle cx='8' cy='32' r='3'/%3E%3Ccircle cx='24' cy='32' r='3'/%3E%3Ccircle cx='40' cy='32' r='3'/%3E%3Ccircle cx='56' cy='32' r='3'/%3E%3Ccircle cx='72' cy='32' r='3'/%3E%3Ccircle cx='16' cy='44' r='3'/%3E%3Ccircle cx='32' cy='44' r='3'/%3E%3Ccircle cx='48' cy='44' r='3'/%3E%3Ccircle cx='64' cy='44' r='3'/%3E%3Ccircle cx='8' cy='56' r='3'/%3E%3Ccircle cx='24' cy='56' r='3'/%3E%3Ccircle cx='40' cy='56' r='3'/%3E%3Ccircle cx='56' cy='56' r='3'/%3E%3Ccircle cx='72' cy='56' r='3'/%3E%3Ccircle cx='16' cy='68' r='3'/%3E%3Ccircle cx='32' cy='68' r='3'/%3E%3Ccircle cx='48' cy='68' r='3'/%3E%3Ccircle cx='64' cy='68' r='3'/%3E%3Ccircle cx='8' cy='80' r='3'/%3E%3Ccircle cx='24' cy='80' r='3'/%3E%3Ccircle cx='40' cy='80' r='3'/%3E%3Ccircle cx='56' cy='80' r='3'/%3E%3Ccircle cx='72' cy='80' r='3'/%3E%3C/g%3E%3C/svg%3E" alt="EN"></button>
 <button class="nav-btn" onclick="toggleTheme()" title="Toggle Theme"><i class="fas fa-moon" id="themeIcon"></i></button>
 <button class="nav-btn mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
@@ -944,8 +962,79 @@ const upd=setInterval(()=>{s+=inc;if(s>=t){s=t;clearInterval(upd);}c.textContent
 });
 }
 
-// Search
-document.getElementById('searchInput').addEventListener('input',e=>{renderMenu(e.target.value);});
+// Live Search
+const catLabels={pasta:'Pasta',rice:'Rice',sandwich:'Sandwich',burger:'Burger',pizza:'Pizza',extra:'Extras',fresh:'Fresh Drinks',cold:'Cold Drinks',juice:'Juice',breakfast:'Breakfast'};
+function liveSearch(query){
+  const inp=document.getElementById('searchInput');
+  const dd=document.getElementById('searchDropdown');
+  const clr=document.getElementById('searchClear');
+  const q=query.trim().toLowerCase();
+  // toggle clear btn
+  if(clr)clr.classList.toggle('visible',q.length>0);
+  // always filter the menu grids
+  renderMenu(query);
+  if(!q){dd.classList.remove('open');return;}
+  // collect all matches across all categories
+  const results=[];
+  for(const[cat,items] of Object.entries(md)){
+    for(let i=0;i<items.length;i++){
+      const it=items[i];
+      const nm=it.n.toLowerCase();const am=it.a?it.a.toLowerCase():'';const ds=it.d.toLowerCase();
+      if(nm.includes(q)||am.includes(q)||ds.includes(q)){
+        results.push({cat,idx:i,it});
+        if(results.length>=8)break;
+      }
+    }
+    if(results.length>=8)break;
+  }
+  // build dropdown
+  let h='';
+  if(results.length===0){
+    h=`<div class="search-dd-empty">${cl==='en'?'No items found for "'+query+'"':'ምንም አልተገኘም'}</div>`;
+  } else {
+    h=`<div class="search-dd-header">${results.length} result${results.length!==1?'s':''} found</div>`;
+    for(const r of results){
+      const nm=cl==='en'?r.it.n:r.it.a;
+      h+=`<div class="search-dd-item" onclick="selectSearchResult('${r.cat}',${r.idx})">
+        <div class="search-dd-img" style="background-image:url('${r.it.i}')"></div>
+        <div class="search-dd-info">
+          <div class="search-dd-name">${nm}</div>
+          <div class="search-dd-cat">${catLabels[r.cat]||r.cat}</div>
+        </div>
+        <div class="search-dd-price">${r.it.p} Birr</div>
+      </div>`;
+    }
+  }
+  dd.innerHTML=h;
+  dd.classList.add('open');
+  // scroll to menu section on first keypress
+  const menuEl=document.getElementById('menu');
+  if(menuEl&&window.scrollY<menuEl.offsetTop-200){menuEl.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+function selectSearchResult(cat,idx){
+  closeSearchDropdown();
+  clearSearch();
+  openItemModal(cat,idx);
+}
+function clearSearch(){
+  const inp=document.getElementById('searchInput');
+  const clr=document.getElementById('searchClear');
+  inp.value='';
+  renderMenu('');
+  closeSearchDropdown();
+  if(clr)clr.classList.remove('visible');
+}
+function closeSearchDropdown(){
+  const dd=document.getElementById('searchDropdown');
+  if(dd)dd.classList.remove('open');
+}
+document.getElementById('searchInput').addEventListener('input',e=>liveSearch(e.target.value));
+document.getElementById('searchInput').addEventListener('keydown',e=>{
+  if(e.key==='Escape'){clearSearch();e.target.blur();}
+});
+document.addEventListener('click',e=>{
+  if(!document.getElementById('searchBox').contains(e.target))closeSearchDropdown();
+});
 
 // Nav scroll
 document.addEventListener('scroll',()=>{
