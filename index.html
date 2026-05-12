@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAD CAFE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--cd:#1a0f0a;--cm:#2C1810;--cl:#3D2317;--cr:#FFF5E6;--or:#E8784A;--gd:#D4A853;--tx:#F5E6D3;--mu:#C4A882;--ca:#25150e;--nv:rgba(26,15,10,0.95);--br:rgba(212,168,83,0.1);--sh:rgba(0,0,0,0.3);}
+[data-theme="light"]{--cd:#FDF6F0;--cm:#F5EBE0;--cl:#E8D5C4;--cr:#2C1810;--or:#C25E28;--gd:#B8922E;--tx:#3D2317;--mu:#7A5C3C;--ca:#fff;--nv:rgba(253,246,240,0.95);--br:rgba(212,168,83,0.2);--sh:rgba(0,0,0,0.08);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-height:1.6;overflow-x:hidden;transition:.5s;}
+::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:var(--cd);}::-webkit-scrollbar-thumb{background:var(--or);border-radius:4px;}
+
+/* Loader */
+.loader{position:fixed;inset:0;z-index:9999;background:var(--cd);display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s;}
+.loader.hidden{opacity:0;visibility:hidden;}
+.ld{width:60px;height:60px;border:4px solid var(--or);border-radius:50% 50% 45% 45%;position:relative;animation:steam 2s ease-in-out infinite;}
+.ld::before,.ld::after{content:'';position:absolute;background:var(--or);border-radius:50%;opacity:.6;animation:rise 1.5s ease-out infinite;}
+.ld::before{width:10px;height:10px;top:-15px;left:15px;}.ld::after{width:8px;height:8px;top:-12px;left:30px;animation-delay:.5s;}
+@keyframes steam{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+@keyframes rise{0%{opacity:.6;transform:translateY(0);}100%{opacity:0;transform:translateY(-20px);}}
+
+/* Nav */
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nv);backdrop-filter:blur(10px);border-bottom:1px solid var(--br);transition:.3s;}
+.top-nav.scrolled{box-shadow:0 5px 30px var(--sh);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--or);text-decoration:none;font-weight:700;}
+.nav-brand span{color:var(--gd);}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{color:var(--mu);text-decoration:none;font-size:.9rem;transition:.3s;position:relative;}
+.nav-links a:hover{color:var(--or);}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--or);transition:.3s;}
+.nav-links a:hover::after{width:100%;}
+.nav-actions{display:flex;align-items:center;gap:.8rem;}
+.nav-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--br);background:transparent;color:var(--mu);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;}
+.nav-btn:hover{background:var(--or);color:#fff;border-color:var(--or);}
+.search-box{position:relative;display:flex;align-items:center;}
+.search-box input{padding:.5rem 1rem .5rem 2.5rem;border-radius:50px;border:1px solid var(--br);background:var(--ca);color:var(--tx);font-family:'Poppins',sans-serif;width:140px;transition:.3s;font-size:.85rem;}
+.search-box input:focus{width:200px;outline:none;border-color:var(--or);}
+.search-box i{position:absolute;left:12px;color:var(--mu);font-size:.85rem;}
+.lang-flag{width:100%;height:100%;object-fit:cover;border-radius:50%;position:absolute;inset:0;}
+.mobile-menu-btn{display:none;}
+@media(max-width:768px){.nav-links{display:none;}.mobile-menu-btn{display:flex;}.search-box input{width:100px;}.search-box input:focus{width:140px;}}
+.mobile-menu{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--ca);z-index:2001;padding:2rem;transition:right .4s;border-left:1px solid var(--br);}
+.mobile-menu.active{right:0;}.mobile-menu a{display:block;padding:1rem 0;color:var(--tx);text-decoration:none;border-bottom:1px solid var(--br);}
+.mobile-menu a:hover{color:var(--or);}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:none;backdrop-filter:blur(3px);}
+.menu-overlay.active{display:block;}
+
+/* Hero */
+.hero{min-height:100vh;background:linear-gradient(135deg,rgba(26,15,10,.9),rgba(44,24,16,.85)),url('images/img_1501339847302.jpg') center/cover fixed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden;}
+.hero-ambient{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;animation:drift 20s ease-in-out infinite alternate;}
+.orb-1{width:400px;height:400px;background:radial-gradient(circle,#c67c4e,transparent 70%);top:-10%;left:-10%;animation-duration:25s;}
+.orb-2{width:300px;height:300px;background:radial-gradient(circle,#e8784a,transparent 70%);bottom:-5%;right:-5%;animation-duration:18s;animation-delay:-5s;}
+.orb-3{width:250px;height:250px;background:radial-gradient(circle,#d4a853,transparent 70%);top:40%;left:50%;animation-duration:22s;animation-delay:-10s;}
+@keyframes drift{0%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-20px) scale(1.1);}100%{transform:translate(-20px,10px) scale(.95);}}
+.steam{position:absolute;width:4px;height:40px;background:linear-gradient(to top,rgba(255,255,255,.15),transparent);border-radius:2px;animation:rise 6s ease-in infinite;pointer-events:none;}
+.steam-1{left:20%;bottom:10%;animation-delay:0s;}
+.steam-2{left:40%;bottom:15%;animation-delay:2s;height:30px;}
+.steam-3{left:60%;bottom:8%;animation-delay:4s;height:50px;}
+.steam-4{left:80%;bottom:12%;animation-delay:1s;height:35px;}
+@keyframes rise{0%{transform:translateY(0) scaleX(1);opacity:0;}20%{opacity:.4;}100%{transform:translateY(-120px) scaleX(2);opacity:0;}}
+.hero-content{position:relative;z-index:1;padding-top:60px;}
+.logo-circle{width:120px;height:120px;background:linear-gradient(135deg,var(--or),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 10px 40px rgba(232,120,74,.3);animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.logo-circle i{font-size:3rem;color:#fff;}
+.hero h1{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--cr);margin-bottom:.5rem;letter-spacing:2px;}
+.hero h1 span{color:var(--or);}
+.hero-subtitle{font-size:1.2rem;color:var(--mu);margin-bottom:2rem;font-weight:300;}
+.hero-tagline{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gd);margin-bottom:3rem;font-style:italic;}
+.scroll-down{display:inline-flex;flex-direction:column;align-items:center;color:var(--mu);cursor:pointer;animation:bounce 2s infinite;}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0);}40%{transform:translateY(-10px);}60%{transform:translateY(-5px);}}
+.scroll-down i{font-size:2rem;margin-top:.5rem;}
+
+/* About */
+.about-section{max-width:1200px;margin:0 auto;padding:5rem 1.5rem;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.about-image{border-radius:24px;overflow:hidden;box-shadow:0 20px 60px var(--sh);}
+.about-image img{width:100%;height:400px;object-fit:cover;display:block;}
+.about-content h2{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--cr);margin-bottom:1rem;}
+.about-content p{color:var(--mu);margin-bottom:1.5rem;line-height:1.8;}
+.about-stats{display:flex;gap:2rem;margin-top:2rem;}
+.about-stat h3{font-family:'Playfair Display',serif;font-size:2rem;color:var(--or);}
+.about-stat p{font-size:.85rem;color:var(--mu);margin-top:.3rem;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;}.about-image img{height:250px;}}
+
+/* Stats Bar */
+.stats-bar{background:linear-gradient(135deg,var(--or),var(--gd));padding:3rem 1.5rem;}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+.stat-item h4{font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;}
+.stat-item p{color:rgba(255,255,255,.9);font-size:.9rem;margin-top:.5rem;}
+@media(max-width:768px){.stats-inner{grid-template-columns:repeat(2,1fr);}}
+
+/* Category Nav */
+.category-nav{position:sticky;top:60px;z-index:100;background:var(--nv);backdrop-filter:blur(10px);padding:1rem 0;border-bottom:1px solid var(--br);}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;padding:0 1rem;scrollbar-width:none;}
+.nav-container::-webkit-scrollbar{display:none;}
+.nav-pill{padding:.6rem 1.2rem;background:transparent;border:1px solid rgba(212,168,83,.2);color:var(--mu);border-radius:50px;cursor:pointer;white-space:nowrap;font-size:.85rem;transition:.3s;font-family:'Poppins',sans-serif;}
+.nav-pill:hover,.nav-pill.active{background:var(--or);color:#fff;border-color:var(--or);transform:translateY(-2px);box-shadow:0 5px 20px rgba(232,120,74,.3);}
+
+/* Diet Filters */
+.diet-bar{display:flex;gap:.5rem;justify-content:center;padding:.8rem 1rem;flex-wrap:wrap;max-width:1200px;margin:0 auto;}
+.diet-chip{padding:.4rem 1rem;background:transparent;border:1px solid rgba(39,174,96,.3);color:var(--mu);border-radius:50px;cursor:pointer;white-space:nowrap;font-size:.8rem;transition:.3s;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:.4rem;}
+.diet-chip:hover,.diet-chip.active{background:rgba(39,174,96,.15);border-color:#27ae60;color:#27ae60;}
+.diet-chip .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.diet-chip.v .dot{background:#27ae60;}
+.diet-chip.gf .dot{background:#f39c12;}
+.diet-chip.sp .dot{background:#e74c3c;}
+.card-diet{display:flex;gap:.35rem;margin-top:.4rem;flex-wrap:wrap;}
+.diet-tag{font-size:.65rem;padding:.15rem .4rem;border-radius:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.diet-tag.v{background:rgba(39,174,96,.1);color:#27ae60;border:1px solid rgba(39,174,96,.2);}
+.diet-tag.gf{background:rgba(243,156,18,.1);color:#f39c12;border:1px solid rgba(243,156,18,.2);}
+.diet-tag.sp{background:rgba(231,76,60,.1);color:#e74c3c;border:1px solid rgba(231,76,60,.2);}
+
+/* Menu */
+.menu-section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
+.section-header{text-align:center;margin-bottom:3rem;}
+.section-icon{font-size:2.5rem;color:var(--or);margin-bottom:1rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--cr);margin-bottom:.5rem;}
+.section-subtitle{color:var(--mu);font-size:1rem;}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.menu-card{background:var(--ca);border-radius:20px;overflow:hidden;border:1px solid var(--br);transition:.3s;cursor:pointer;position:relative;}
+.menu-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px var(--sh);}
+.card-image{height:180px;background-size:cover;background-position:center;position:relative;}
+.card-image::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to top,var(--ca),transparent);}
+.card-badge{position:absolute;top:1rem;right:1rem;background:var(--or);color:#fff;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:600;z-index:2;}
+.card-content{padding:1.5rem;position:relative;}
+.card-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cr);margin-bottom:.3rem;}
+.card-amharic{font-size:.8rem;color:var(--gd);margin-bottom:.3rem;}
+.card-desc{font-size:.85rem;color:var(--mu);margin-bottom:1rem;}
+.card-footer{display:flex;justify-content:space-between;align-items:center;}
+.card-price{font-size:1.3rem;font-weight:600;color:var(--gd);}
+.card-price span{font-size:.8rem;color:var(--mu);}
+.add-btn{width:36px;height:36px;border-radius:50%;background:var(--or);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;}
+.add-btn:hover{background:var(--gd);transform:scale(1.1);}
+.no-results{text-align:center;padding:3rem;color:var(--mu);grid-column:1/-1;}
+
+/* Gallery */
+.gallery-section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.gallery-item{border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:1;background-size:cover;background-position:center;transition:.3s;}
+.gallery-item:hover{transform:scale(1.03);}
+.gallery-item.tall{grid-row:span 2;aspect-ratio:auto;}
+.gallery-item.wide{grid-column:span 2;aspect-ratio:2/1;}
+@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.gallery-item.wide{grid-column:span 2;}}
+
+/* Testimonials */
+.testimonials-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;}
+.testimonials-inner{max-width:1000px;margin:0 auto;}
+.testimonial-carousel{display:flex;gap:2rem;overflow-x:auto;padding:1rem 0;scrollbar-width:none;}
+.testimonial-carousel::-webkit-scrollbar{display:none;}
+.testimonial-card{min-width:320px;background:var(--ca);border-radius:20px;padding:2rem;border:1px solid var(--br);}
+.testimonial-card .stars{color:var(--gd);margin-bottom:1rem;}
+.testimonial-card p{color:var(--mu);font-style:italic;margin-bottom:1.5rem;}
+.testimonial-author{display:flex;align-items:center;gap:1rem;}
+.testimonial-author img{width:50px;height:50px;border-radius:50%;object-fit:cover;}
+.testimonial-author h4{color:var(--cr);font-size:.95rem;}
+.testimonial-author span{color:var(--mu);font-size:.8rem;}
+
+/* Forms */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;}
+.form-group{display:flex;flex-direction:column;gap:.5rem;}
+.form-group label{color:var(--mu);font-size:.85rem;}
+.form-group input,.form-group select,.form-group textarea{padding:.8rem 1rem;border-radius:12px;border:1px solid var(--br);background:var(--cd);color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--or);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.submit-btn{width:100%;padding:1rem;background:var(--or);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:.3s;font-family:'Poppins',sans-serif;}
+.submit-btn:hover{background:var(--gd);}
+@media(max-width:768px){.form-row{grid-template-columns:1fr;}}
+
+/* Payment */
+.payment-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;position:relative;overflow:hidden;}
+.payment-container{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.payment-header{text-align:center;margin-bottom:3rem;}
+.payment-header h2{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--cr);margin-bottom:1rem;}
+.payment-header p{color:var(--mu);max-width:500px;margin:0 auto;}
+.payment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+.payment-card{background:var(--ca);border-radius:24px;padding:2rem;text-align:center;border:1px solid var(--br);transition:.3s;}
+.payment-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px var(--sh);}
+.payment-logo{width:80px;height:80px;border-radius:20px;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;}
+.telebirr-logo{background:linear-gradient(135deg,#00a651,#00c853);}
+.cbe-logo{background:linear-gradient(135deg,#1a3a6c,#2d5aa0);}
+.payment-name{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--cr);margin-bottom:.5rem;}
+.payment-hint{color:var(--mu);font-size:.9rem;margin-bottom:1.5rem;}
+.qr-placeholder{width:200px;height:200px;margin:0 auto 1rem;background:#fff;border-radius:16px;padding:10px;display:flex;align-items:center;justify-content:center;}
+.account-info{background:rgba(255,255,255,.05);border-radius:12px;padding:1rem;margin-top:1rem;}
+.account-info label{display:block;font-size:.8rem;color:var(--mu);margin-bottom:.3rem;}
+.account-info input{width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(212,168,83,.2);border-radius:8px;color:var(--cr);font-family:'Poppins',sans-serif;text-align:center;}
+.account-info input:focus{outline:none;border-color:var(--or);}
+
+/* Footer */
+footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--br);}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.footer-col h4{font-family:'Playfair Display',serif;color:var(--cr);margin-bottom:1rem;}
+.footer-col p,.footer-col a{color:var(--mu);font-size:.9rem;text-decoration:none;display:block;margin-bottom:.5rem;transition:.3s;}
+.footer-col a:hover{color:var(--or);}
+.footer-bottom{max-width:1200px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid var(--br);text-align:center;}
+.footer-bottom p{color:var(--mu);font-size:.8rem;}
+.social-links{display:flex;gap:1rem;margin-top:1rem;}
+.social-links a{width:40px;height:40px;border-radius:50%;background:rgba(212,168,83,.1);color:var(--gd);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.3s;}
+.social-links a:hover{background:var(--or);color:#fff;transform:translateY(-3px);}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+
+/* Floating elements */
+.floating-cart{position:fixed;bottom:5.5rem;right:2rem;z-index:1000;}
+.cart-btn{width:56px;height:56px;border-radius:50%;background:var(--or);color:#fff;border:none;font-size:1.3rem;cursor:pointer;box-shadow:0 10px 30px rgba(232,120,74,.4);transition:.3s;position:relative;}
+.cart-btn:hover{transform:scale(1.1);}
+.cart-count{position:absolute;top:-5px;right:-5px;background:var(--gd);color:var(--cd);width:24px;height:24px;border-radius:50%;font-size:.75rem;font-weight:600;display:flex;align-items:center;justify-content:center;}
+.back-to-top{position:fixed;bottom:2rem;right:2rem;z-index:1000;width:44px;height:44px;border-radius:50%;background:var(--ca);border:1px solid var(--br);color:var(--or);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:.3s;}
+.back-to-top.visible{opacity:1;visibility:visible;}
+.back-to-top:hover{background:var(--or);color:#fff;}
+
+/* Modals */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(5px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:var(--ca);border-radius:24px;width:100%;max-width:500px;max-height:80vh;overflow-y:auto;border:1px solid var(--br);}
+.modal-header{padding:1.5rem;border-bottom:1px solid var(--br);display:flex;justify-content:space-between;align-items:center;}
+.modal-header h3{font-family:'Playfair Display',serif;color:var(--cr);}
+.modal-close{background:none;border:none;color:var(--mu);font-size:1.5rem;cursor:pointer;}
+.modal-body{padding:1.5rem;}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--br);}
+.cart-item-info h4{color:var(--cr);font-size:.95rem;margin-bottom:.2rem;}
+.cart-item-info p{color:var(--mu);font-size:.8rem;}
+.cart-item-price{color:var(--gd);font-weight:600;}
+.cart-total{padding:1.5rem;border-top:2px solid rgba(212,168,83,.2);display:flex;justify-content:space-between;align-items:center;}
+.cart-total-label{color:var(--mu);}
+.cart-total-price{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--or);}
+.checkout-btn{width:calc(100% - 3rem);margin:0 1.5rem 1.5rem;padding:1rem;background:var(--or);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:.3s;font-family:'Poppins',sans-serif;}
+.checkout-btn:hover{background:var(--gd);}
+.item-modal{max-width:600px;}
+.item-modal-img{width:100%;height:300px;object-fit:cover;border-radius:16px;margin-bottom:1.5rem;}
+.item-modal-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--cr);margin-bottom:.5rem;}
+.item-modal-amharic{color:var(--gd);font-size:1rem;margin-bottom:1rem;}
+.item-modal-desc{color:var(--mu);margin-bottom:1.5rem;line-height:1.7;}
+.item-modal-nutrition{background:var(--bg);border-radius:12px;padding:1rem;margin-bottom:1.5rem;border:1px solid var(--br);}
+.item-modal-nutrition h4{font-size:.9rem;color:var(--cr);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:1px;}
+.nut-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;text-align:center;}
+.nut-cell{background:var(--ca);border-radius:8px;padding:.6rem .3rem;border:1px solid var(--br);}
+.nut-value{font-size:1.1rem;font-weight:700;color:var(--or);}
+.nut-label{font-size:.65rem;color:var(--mu);margin-top:.2rem;text-transform:uppercase;}
+.card-cal{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;font-size:.7rem;padding:.2rem .5rem;border-radius:6px;font-weight:600;backdrop-filter:blur(3px);}
+.card-fav{position:absolute;top:8px;left:8px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;font-size:.9rem;backdrop-filter:blur(3px);}
+.card-fav:hover{background:rgba(231,76,60,.8);}
+.card-fav.active{background:rgba(231,76,60,.9);color:#fff;}
+.fav-section,.recent-section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
+.fav-grid,.recent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.empty-state{text-align:center;color:var(--mu);padding:2rem;font-style:italic;}
+.item-modal-price{font-size:1.5rem;font-weight:600;color:var(--or);margin-bottom:1.5rem;}
+.item-modal-btn{width:100%;padding:1rem;background:var(--or);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:.3s;}
+.item-modal-btn:hover{background:var(--gd);}
+
+/* Toast */
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--or);color:#fff;padding:1rem 2rem;border-radius:50px;font-size:.9rem;z-index:3000;opacity:0;transition:.3s;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* Events */
+.events-section{background:var(--bg);padding:5rem 1.5rem;}
+.events-inner{max-width:1000px;margin:0 auto;}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.event-card{background:var(--ca);border-radius:20px;padding:1.5rem;border:1px solid var(--br);display:flex;gap:1.5rem;align-items:flex-start;transition:.3s;cursor:pointer;}
+.event-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px var(--sh);}
+.event-date{flex-shrink:0;width:60px;height:60px;background:var(--or);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;}
+.event-date .day{font-size:1.4rem;font-weight:700;line-height:1;}
+.event-date .month{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;}
+.event-info{flex:1;}
+.event-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cr);margin-bottom:.3rem;}
+.event-time{font-size:.8rem;color:var(--or);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;}
+.event-desc{font-size:.85rem;color:var(--mu);line-height:1.5;}
+
+/* Customizer */
+.customizer-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;}
+.customizer-inner{max-width:900px;margin:0 auto;}
+.customizer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+@media(max-width:768px){.customizer-grid{grid-template-columns:1fr;}}
+.customizer-group{background:var(--ca);border-radius:16px;padding:1.5rem;border:1px solid var(--br);}
+.customizer-group h4{font-size:1rem;color:var(--cr);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+.option-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;}
+.option-btn{padding:.6rem .8rem;border:1px solid var(--br);background:var(--bg);border-radius:10px;color:var(--tx);cursor:pointer;transition:.3s;font-size:.85rem;font-family:'Poppins',sans-serif;text-align:left;}
+.option-btn:hover{border-color:var(--or);}
+.option-btn.active{background:var(--or);color:#fff;border-color:var(--or);box-shadow:0 5px 15px rgba(232,120,74,.3);}
+.customizer-total{display:flex;align-items:center;justify-content:space-between;background:var(--ca);border-radius:16px;padding:1.5rem;border:1px solid var(--br);margin-top:1.5rem;}
+.total-label{font-size:1rem;color:var(--mu);}
+.total-price{font-family:'Playfair Display',serif;font-size:2rem;color:var(--or);}
+.customizer-add{padding:.8rem 2rem;background:var(--or);color:#fff;border:none;border-radius:50px;font-weight:600;cursor:pointer;transition:.3s;font-family:'Poppins',sans-serif;}
+.customizer-add:hover{background:var(--gd);}
+
+/* Seasonal */
+.seasonal-section{background:var(--bg);padding:5rem 1.5rem;}
+.seasonal-inner{max-width:1000px;margin:0 auto;}
+.seasonal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.seasonal-card{background:var(--ca);border-radius:20px;overflow:hidden;border:1px solid var(--br);transition:.3s;position:relative;}
+.seasonal-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px var(--sh);}
+.seasonal-badge{position:absolute;top:12px;right:12px;background:var(--or);color:#fff;font-size:.7rem;padding:.3rem .8rem;border-radius:20px;font-weight:600;z-index:2;}
+.seasonal-img{height:180px;background-size:cover;background-position:center;}
+.seasonal-content{padding:1.5rem;}
+.seasonal-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cr);margin-bottom:.3rem;}
+.seasonal-desc{font-size:.85rem;color:var(--mu);margin-bottom:1rem;}
+.seasonal-footer{display:flex;align-items:center;justify-content:space-between;}
+.seasonal-price{font-size:1.2rem;font-weight:600;color:var(--or);}
+
+/* Social */
+.social-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;}
+.social-inner{max-width:800px;margin:0 auto;text-align:center;}
+.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:2rem;}
+.social-item{aspect-ratio:1;border-radius:12px;background:var(--ca);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;color:var(--mu);font-size:2rem;transition:.3s;}
+.social-item:hover{color:var(--or);transform:scale(1.03);}
+
+/* Sustainability */
+.sustain-section{background:var(--bg);padding:5rem 1.5rem;}
+.sustain-inner{max-width:1000px;margin:0 auto;}
+.sustain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem;}
+.sustain-card{background:var(--ca);border-radius:16px;padding:1.5rem;border:1px solid var(--br);text-align:center;transition:.3s;}
+.sustain-card:hover{transform:translateY(-3px);}
+.sustain-icon{width:50px;height:50px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.2rem;}
+.sustain-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cr);margin-bottom:.5rem;}
+.sustain-desc{font-size:.85rem;color:var(--mu);line-height:1.6;}
+
+/* Feedback */
+.feedback-section{max-width:800px;margin:0 auto;padding:5rem 1.5rem;}
+
+/* Subscribe */
+.subscribe-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;position:relative;overflow:hidden;}
+.subscribe-section::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(232,120,74,.08),transparent 70%);border-radius:50%;}
+.subscribe-container{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.subscribe-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--cr);margin-bottom:.5rem;}
+.subscribe-subtitle{color:var(--mu);margin-bottom:2rem;font-size:1rem;}
+.subscribe-box{display:flex;gap:.5rem;background:var(--ca);padding:.5rem;border-radius:50px;border:1px solid var(--br);box-shadow:0 10px 40px var(--sh);}
+.subscribe-box input{flex:1;border:none;background:transparent;padding:.8rem 1.2rem;color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;outline:none;}
+.subscribe-box input::placeholder{color:var(--mu);}
+.subscribe-box button{padding:.8rem 1.8rem;border-radius:50px;background:var(--or);color:#fff;border:none;font-weight:600;cursor:pointer;transition:.3s;font-family:'Poppins',sans-serif;}
+.subscribe-box button:hover{background:var(--gd);}
+.subscribe-status{margin-top:1.5rem;padding:1rem;border-radius:12px;font-size:.9rem;display:none;}
+.subscribe-status.success{background:rgba(39,174,96,.1);color:#27ae60;border:1px solid rgba(39,174,96,.2);}
+.subscribe-status.error{background:rgba(231,76,60,.1);color:#e74c3c;border:1px solid rgba(231,76,60,.2);}
+.discount-code{display:inline-block;background:var(--or);color:#fff;padding:.4rem 1rem;border-radius:8px;font-weight:700;font-size:1.1rem;margin-top:.5rem;letter-spacing:2px;}
+.feedback-form{background:var(--ca);border-radius:24px;padding:2.5rem;border:1px solid var(--br);}
+.feedback-status{padding:1rem;border-radius:12px;margin-bottom:1.5rem;display:none;font-size:.9rem;}
+.feedback-status.success{background:rgba(0,166,81,.1);color:#00c853;border:1px solid rgba(0,166,81,.2);}
+.feedback-status.error{background:rgba(232,120,74,.1);color:var(--or);border:1px solid rgba(232,120,74,.2);}
+
+/* Animations */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.animate-in{animation:fadeInUp .6s ease forwards;opacity:0;}
+@media(max-width:768px){.hero h1{font-size:2.5rem;}.section-title{font-size:2rem;}.menu-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="ld"></div></div>
+
+<nav class="top-nav" id="topNav">
+<div class="nav-inner">
+<a href="#home" class="nav-brand">ZAD <span>CAFE</span></a>
+<div class="nav-links">
+<a href="#home" data-i18n="nav_home">Home</a>
+<a href="#about" data-i18n="nav_about">About</a>
+<a href="#menu" data-i18n="nav_menu">Menu</a>
+<a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+<a href="#payment" data-i18n="nav_payment">Payment</a>
+<a href="#feedback" data-i18n="nav_feedback">Feedback</a>
+</div>
+<div class="nav-actions">
+<div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder"></div>
+<button class="nav-btn" onclick="toggleLanguage()" title="Switch Language" style="position:relative;overflow:hidden;padding:0;"><img class="lang-flag" id="langFlag" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23B22234'/%3E%3Cg fill='white'%3E%3Crect y='15.38' width='200' height='15.38'/%3E%3Crect y='46.15' width='200' height='15.38'/%3E%3Crect y='76.92' width='200' height='15.38'/%3E%3Crect y='107.69' width='200' height='15.38'/%3E%3Crect y='138.46' width='200' height='15.38'/%3E%3Crect y='169.23' width='200' height='15.38'/%3E%3C/g%3E%3Crect width='80' height='84.62' fill='%233C3B6E'/%3E%3Cg fill='white'%3E%3Ccircle cx='8' cy='8' r='3'/%3E%3Ccircle cx='24' cy='8' r='3'/%3E%3Ccircle cx='40' cy='8' r='3'/%3E%3Ccircle cx='56' cy='8' r='3'/%3E%3Ccircle cx='72' cy='8' r='3'/%3E%3Ccircle cx='16' cy='20' r='3'/%3E%3Ccircle cx='32' cy='20' r='3'/%3E%3Ccircle cx='48' cy='20' r='3'/%3E%3Ccircle cx='64' cy='20' r='3'/%3E%3Ccircle cx='8' cy='32' r='3'/%3E%3Ccircle cx='24' cy='32' r='3'/%3E%3Ccircle cx='40' cy='32' r='3'/%3E%3Ccircle cx='56' cy='32' r='3'/%3E%3Ccircle cx='72' cy='32' r='3'/%3E%3Ccircle cx='16' cy='44' r='3'/%3E%3Ccircle cx='32' cy='44' r='3'/%3E%3Ccircle cx='48' cy='44' r='3'/%3E%3Ccircle cx='64' cy='44' r='3'/%3E%3Ccircle cx='8' cy='56' r='3'/%3E%3Ccircle cx='24' cy='56' r='3'/%3E%3Ccircle cx='40' cy='56' r='3'/%3E%3Ccircle cx='56' cy='56' r='3'/%3E%3Ccircle cx='72' cy='56' r='3'/%3E%3Ccircle cx='16' cy='68' r='3'/%3E%3Ccircle cx='32' cy='68' r='3'/%3E%3Ccircle cx='48' cy='68' r='3'/%3E%3Ccircle cx='64' cy='68' r='3'/%3E%3Ccircle cx='8' cy='80' r='3'/%3E%3Ccircle cx='24' cy='80' r='3'/%3E%3Ccircle cx='40' cy='80' r='3'/%3E%3Ccircle cx='56' cy='80' r='3'/%3E%3Ccircle cx='72' cy='80' r='3'/%3E%3C/g%3E%3C/svg%3E" alt="EN"></button>
+<button class="nav-btn" onclick="toggleTheme()" title="Toggle Theme"><i class="fas fa-moon" id="themeIcon"></i></button>
+<button class="nav-btn mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+<button class="modal-close" style="margin-bottom:1rem" onclick="toggleMobileMenu()">&times;</button>
+<a href="#home" onclick="toggleMobileMenu()" data-i18n="nav_home">Home</a>
+<a href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about">About</a>
+<a href="#menu" onclick="toggleMobileMenu()" data-i18n="nav_menu">Menu</a>
+<a href="#gallery" onclick="toggleMobileMenu()" data-i18n="nav_gallery">Gallery</a>
+<a href="#payment" onclick="toggleMobileMenu()" data-i18n="nav_payment">Payment</a>
+<a href="#feedback" onclick="toggleMobileMenu()" data-i18n="nav_feedback">Feedback</a>
+</div>
+
+<section class="hero" id="home">
+<div class="hero-ambient">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="steam steam-1"></div>
+<div class="steam steam-2"></div>
+<div class="steam steam-3"></div>
+<div class="steam steam-4"></div>
+</div>
+<div class="hero-content">
+<div class="logo-circle"><i class="fas fa-mug-hot"></i></div>
+<h1>ZAD <span>CAFE</span></h1>
+<p class="hero-subtitle">EST. 2020 &bull; ADDIS ABABA</p>
+<p class="hero-tagline" data-i18n="hero_tagline">"Where Every Bite Feels Like Home"</p>
+<a class="scroll-down" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+<span data-i18n="explore_menu">Explore Our Menu</span><i class="fas fa-chevron-down"></i>
+</a>
+</div>
+</section>
+
+<section class="about-section" id="about">
+<div class="about-grid">
+<div class="about-image"><img src="images/img_1554118811.jpg" alt="ZAD Cafe"></div>
+<div class="about-content">
+<h2 data-i18n="about_title">Our Story</h2>
+<p data-i18n="about_p1">Welcome to ZAD Cafe, a cozy corner in the heart of Addis Ababa where flavor meets warmth. Since 2020, we have been serving handcrafted dishes that celebrate both local Ethiopian tastes and international favorites.</p>
+<p data-i18n="about_p2">From our signature Chechebsa to our freshly baked pizzas, every item on our menu is prepared with love and the finest ingredients. Whether you are here for a morning coffee, a business lunch, or a family dinner, we make sure you leave with a smile.</p>
+<div class="about-stats">
+<div class="about-stat"><h3 class="counter" data-target="6">0</h3><p data-i18n="stat_years">Years of Service</p></div>
+<div class="about-stat"><h3 class="counter" data-target="50">0</h3><p data-i18n="stat_items">Menu Items</p></div>
+<div class="about-stat"><h3 class="counter" data-target="10000">0</h3><p data-i18n="stat_customers">Happy Customers</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="stats-bar">
+<div class="stats-inner">
+<div class="stat-item"><h4 class="counter" data-target="6">0</h4><p data-i18n="stat_years">Years</p></div>
+<div class="stat-item"><h4 class="counter" data-target="50">0</h4><p data-i18n="stat_items">Menu Items</p></div>
+<div class="stat-item"><h4 class="counter" data-target="10000">0</h4><p data-i18n="stat_customers">Customers</p></div>
+<div class="stat-item"><h4 class="counter" data-target="15">0</h4><p data-i18n="stat_staff">Staff</p></div>
+</div>
+</section>
+
+<nav class="category-nav" id="menu">
+<div class="nav-container">
+<button class="nav-pill active" onclick="scrollToSection('menu')">&#127860; <span data-i18n="cat_all">All</span></button>
+<button class="nav-pill" onclick="scrollToSection('pasta')">&#127837; <span data-i18n="cat_pasta">Pasta</span></button>
+<button class="nav-pill" onclick="scrollToSection('rice')">&#127835; <span data-i18n="cat_rice">Rice</span></button>
+<button class="nav-pill" onclick="scrollToSection('sandwich')">&#129386; <span data-i18n="cat_sandwich">Sandwich</span></button>
+<button class="nav-pill" onclick="scrollToSection('burger')">&#127828; <span data-i18n="cat_burger">Burger</span></button>
+<button class="nav-pill" onclick="scrollToSection('pizza')">&#127829; <span data-i18n="cat_pizza">Pizza</span></button>
+<button class="nav-pill" onclick="scrollToSection('extra')">&#127860; <span data-i18n="cat_extra">Extras</span></button>
+<button class="nav-pill" onclick="scrollToSection('fresh')">&#9749; <span data-i18n="cat_fresh">Fresh Drinks</span></button>
+<button class="nav-pill" onclick="scrollToSection('cold')">&#129371; <span data-i18n="cat_cold">Cold Drinks</span></button>
+<button class="nav-pill" onclick="scrollToSection('juice')">&#129380; <span data-i18n="cat_juice">Juice</span></button>
+<button class="nav-pill" onclick="scrollToSection('breakfast')">&#129370; <span data-i18n="cat_breakfast">Breakfast</span></button>
+</div>
+</nav>
+
+<div class="diet-bar" id="dietBar">
+<button class="diet-chip v" onclick="toggleDietFilter('v')" data-i18n="diet_vegan"><span class="dot"></span> Vegan</button>
+<button class="diet-chip gf" onclick="toggleDietFilter('gf')" data-i18n="diet_gf"><span class="dot"></span> Gluten-Free</button>
+<button class="diet-chip sp" onclick="toggleDietFilter('sp')" data-i18n="diet_spicy"><span class="dot"></span> Spicy</button>
+</div>
+
+<section class="menu-section" id="pasta"><div class="section-header"><div class="section-icon"><i class="fas fa-utensils"></i></div><h2 class="section-title" data-i18n="cat_pasta">Pasta</h2><p class="section-subtitle" data-i18n="sub_pasta">Handcrafted with love</p></div><div class="menu-grid" id="pasta-grid"></div></section>
+<section class="menu-section" id="rice"><div class="section-header"><div class="section-icon"><i class="fas fa-bowl-rice"></i></div><h2 class="section-title" data-i18n="cat_rice">Rice</h2><p class="section-subtitle" data-i18n="sub_rice">A comforting bowl of happiness</p></div><div class="menu-grid" id="rice-grid"></div></section>
+<section class="menu-section" id="sandwich"><div class="section-header"><div class="section-icon"><i class="fas fa-bread-slice"></i></div><h2 class="section-title" data-i18n="cat_sandwich">Sandwich</h2><p class="section-subtitle" data-i18n="sub_sandwich">Layers of flavor in every bite</p></div><div class="menu-grid" id="sandwich-grid"></div></section>
+<section class="menu-section" id="burger"><div class="section-header"><div class="section-icon"><i class="fas fa-hamburger"></i></div><h2 class="section-title" data-i18n="cat_burger">Burger</h2><p class="section-subtitle" data-i18n="sub_burger">Juicy, cheesy, irresistible</p></div><div class="menu-grid" id="burger-grid"></div></section>
+<section class="menu-section" id="pizza"><div class="section-header"><div class="section-icon"><i class="fas fa-pizza-slice"></i></div><h2 class="section-title" data-i18n="cat_pizza">Pizza</h2><p class="section-subtitle" data-i18n="sub_pizza">Slice into happiness</p></div><div class="menu-grid" id="pizza-grid"></div></section>
+<section class="menu-section" id="extra"><div class="section-header"><div class="section-icon"><i class="fas fa-plus-circle"></i></div><h2 class="section-title" data-i18n="cat_extra">Extras</h2><p class="section-subtitle" data-i18n="sub_extra">The little things that matter</p></div><div class="menu-grid" id="extra-grid"></div></section>
+<section class="menu-section" id="fresh"><div class="section-header"><div class="section-icon"><i class="fas fa-mug-hot"></i></div><h2 class="section-title" data-i18n="cat_fresh">Fresh Drinks</h2><p class="section-subtitle" data-i18n="sub_fresh">Warm your soul with every sip</p></div><div class="menu-grid" id="fresh-grid"></div></section>
+<section class="menu-section" id="cold"><div class="section-header"><div class="section-icon"><i class="fas fa-glass-water"></i></div><h2 class="section-title" data-i18n="cat_cold">Cold Drinks</h2><p class="section-subtitle" data-i18n="sub_cold">Refreshment at its finest</p></div><div class="menu-grid" id="cold-grid"></div></section>
+<section class="menu-section" id="juice"><div class="section-header"><div class="section-icon"><i class="fas fa-glass-citrus"></i></div><h2 class="section-title" data-i18n="cat_juice">Juice</h2><p class="section-subtitle" data-i18n="sub_juice">Squeezed fresh, just for you</p></div><div class="menu-grid" id="juice-grid"></div></section>
+<section class="menu-section" id="breakfast"><div class="section-header"><div class="section-icon"><i class="fas fa-sun"></i></div><h2 class="section-title" data-i18n="cat_breakfast">Breakfast</h2><p class="section-subtitle" data-i18n="sub_breakfast">Start your day the ZAD way</p></div><div class="menu-grid" id="breakfast-grid"></div></section>
+
+<section class="customizer-section" id="customizer">
+<div class="customizer-inner">
+<div class="section-header"><div class="section-icon"><i class="fas fa-flask"></i></div><h2 class="section-title" data-i18n="cust_title">Build Your Drink</h2><p class="section-subtitle" data-i18n="cust_subtitle">Craft your perfect cup, your way</p></div>
+<div class="customizer-grid">
+<div class="customizer-group"><h4><i class="fas fa-mug-hot" style="color:var(--or)"></i> <span data-i18n="cust_base">Base Drink</span></h4><div class="option-grid">
+<button class="option-btn active" onclick="setCustomOption('base',this,40)" data-name="Coffee" data-name-am="ቡና">Coffee - 40 Birr</button>
+<button class="option-btn" onclick="setCustomOption('base',this,40)" data-name="Tea" data-name-am="ሻይ">Tea - 40 Birr</button>
+<button class="option-btn" onclick="setCustomOption('base',this,110)" data-name="Hot Chocolate" data-name-am="ትኩስ ቸኮሌት">Hot Chocolate - 110 Birr</button>
+<button class="option-btn" onclick="setCustomOption('base',this,100)" data-name="Cappuccino" data-name-am="ካፑቺኖ">Cappuccino - 100 Birr</button>
+<button class="option-btn" onclick="setCustomOption('base',this,90)" data-name="Fasting Macchiato" data-name-am="የጾም ማኪያቶ">Fasting Macchiato - 90 Birr</button>
+<button class="option-btn" onclick="setCustomOption('base',this,220)" data-name="Avocado Juice" data-name-am="አቮካዶ ጭምብል">Avocado Juice - 220 Birr</button>
+</div></div>
+<div class="customizer-group"><h4><i class="fas fa-droplet" style="color:var(--or)"></i> <span data-i18n="cust_milk">Milk</span></h4><div class="option-grid">
+<button class="option-btn active" onclick="setCustomOption('milk',this,0)" data-name="None" data-name-am="ወተት ሳይሆን">None</button>
+<button class="option-btn" onclick="setCustomOption('milk',this,10)" data-name="Regular Milk" data-name-am="መደበኛ ወተት">Regular Milk - 10 Birr</button>
+<button class="option-btn" onclick="setCustomOption('milk',this,20)" data-name="Oat Milk" data-name-am="የቀቅል ወተት">Oat Milk - 20 Birr</button>
+<button class="option-btn" onclick="setCustomOption('milk',this,25)" data-name="Almond Milk" data-name-am="የበለው ወተት">Almond Milk - 25 Birr</button>
+</div></div>
+<div class="customizer-group"><h4><i class="fas fa-cubes-stacked" style="color:var(--or)"></i> <span data-i18n="cust_sweet">Sweetness</span></h4><div class="option-grid">
+<button class="option-btn" onclick="setCustomOption('sweet',this,0)" data-name="No Sugar" data-name-am="ስኳር ያለ">No Sugar</button>
+<button class="option-btn active" onclick="setCustomOption('sweet',this,0)" data-name="Normal" data-name-am="መደበኛ">Normal</button>
+<button class="option-btn" onclick="setCustomOption('sweet',this,0)" data-name="Less Sugar" data-name-am="ትንሽ ስኳር">Less Sugar</button>
+<button class="option-btn" onclick="setCustomOption('sweet',this,0)" data-name="Extra Sugar" data-name-am="ተጨማሪ ስኳር">Extra Sugar</button>
+</div></div>
+<div class="customizer-group"><h4><i class="fas fa-plus" style="color:var(--or)"></i> <span data-i18n="cust_extra">Extras</span></h4><div class="option-grid">
+<button class="option-btn" onclick="toggleCustomExtra(this,15)" data-name="Ginger" data-name-am="ዝንጅብል">Ginger - 15 Birr</button>
+<button class="option-btn" onclick="toggleCustomExtra(this,10)" data-name="Cinnamon" data-name-am="ቀደም">Cinnamon - 10 Birr</button>
+<button class="option-btn" onclick="toggleCustomExtra(this,15)" data-name="Honey" data-name-am="ማር">Honey - 15 Birr</button>
+<button class="option-btn" onclick="toggleCustomExtra(this,20)" data-name="Peanut" data-name-am="ሽንብራ">Peanut - 20 Birr</button>
+</div></div>
+</div>
+<div class="customizer-total">
+<div><div class="total-label" data-i18n="cust_total">Your Custom Drink</div><div id="customName" style="font-size:.85rem;color:var(--mu);margin-top:.25rem;">Coffee</div></div>
+<div style="display:flex;align-items:center;gap:1.5rem;"><span class="total-price" id="customPrice">40 Birr</span></div>
+</div>
+</div>
+</section>
+
+<section class="fav-section" id="favorites"><div class="section-header"><div class="section-icon"><i class="fas fa-heart"></i></div><h2 class="section-title" data-i18n="fav_title">Your Favorites</h2><p class="section-subtitle" data-i18n="fav_subtitle">Quick access to the items you love</p></div><div class="fav-grid" id="fav-grid"></div></section>
+
+<section class="recent-section" id="recent"><div class="section-header"><div class="section-icon"><i class="fas fa-clock-rotate-left"></i></div><h2 class="section-title" data-i18n="recent_title">Recent Orders</h2><p class="section-subtitle" data-i18n="recent_subtitle">Items you have ordered recently</p></div><div class="recent-grid" id="recent-grid"></div></section>
+
+<section class="gallery-section" id="gallery">
+<div class="section-header"><div class="section-icon"><i class="fas fa-images"></i></div><h2 class="section-title" data-i18n="gallery_title">Gallery</h2><p class="section-subtitle" data-i18n="gallery_subtitle">Moments from ZAD Cafe</p></div>
+<div class="gallery-grid">
+<div class="gallery-item tall" style="background-image:url('images/img_1554118811.jpg')"></div>
+<div class="gallery-item" style="background-image:url('images/img_1495474472287.jpg')"></div>
+<div class="gallery-item" style="background-image:url('images/img_1509042239860.jpg')"></div>
+<div class="gallery-item wide" style="background-image:url('images/img_1514432324607.jpg')"></div>
+<div class="gallery-item" style="background-image:url('images/img_1521017432531.jpg')"></div>
+<div class="gallery-item" style="background-image:url('images/img_1497935586351.jpg')"></div>
+</div>
+</section>
+
+<section class="seasonal-section" id="seasonal">
+<div class="seasonal-inner">
+<div class="section-header"><div class="section-icon"><i class="fas fa-leaf"></i></div><h2 class="section-title" data-i18n="season_title">Seasonal Specials</h2><p class="section-subtitle" data-i18n="season_subtitle">Limited-time delights crafted for the season</p></div>
+<div class="seasonal-grid">
+<div class="seasonal-card">
+<span class="seasonal-badge">Limited</span>
+<div class="seasonal-img" style="background-image:url('images/img_1542990253.jpg')"></div>
+<div class="seasonal-content">
+<div class="seasonal-title" data-i18n="sp1_title">Spiced Honey Latte</div>
+<div class="seasonal-desc" data-i18n="sp1_desc">Warm espresso with cinnamon, honey, and steamed milk.</div>
+<div class="seasonal-footer"><span class="seasonal-price">120 Birr</span></div>
+</div>
+</div>
+<div class="seasonal-card">
+<span class="seasonal-badge">Limited</span>
+<div class="seasonal-img" style="background-image:url('images/img_1577805947697.jpg')"></div>
+<div class="seasonal-content">
+<div class="seasonal-title" data-i18n="sp2_title">Tropical Sunrise Juice</div>
+<div class="seasonal-desc" data-i18n="sp2_desc">Mango, papaya, and orange blend with a ginger kick.</div>
+<div class="seasonal-footer"><span class="seasonal-price">280 Birr</span></div>
+</div>
+</div>
+<div class="seasonal-card">
+<span class="seasonal-badge">Chef Pick</span>
+<div class="seasonal-img" style="background-image:url('images/img_1589302168068.jpg')"></div>
+<div class="seasonal-content">
+<div class="seasonal-title" data-i18n="sp3_title">Avocado & Egg Toast</div>
+<div class="seasonal-desc" data-i18n="sp3_desc">Sourdough topped with smashed avocado and poached egg.</div>
+<div class="seasonal-footer"><span class="seasonal-price">350 Birr</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials-section">
+<div class="testimonials-inner">
+<div class="section-header"><div class="section-icon"><i class="fas fa-quote-left"></i></div><h2 class="section-title" data-i18n="testimonials_title">What People Say</h2><p class="section-subtitle" data-i18n="testimonials_subtitle">Words from our beloved customers</p></div>
+<div class="testimonial-carousel">
+<div class="testimonial-card">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p data-i18n="review1">"The best Chechebsa I have ever had! ZAD Cafe has become my weekend tradition. The atmosphere is warm and the staff is incredibly friendly."</p>
+<div class="testimonial-author"><img src="images/img_1494790108377.jpg" alt=""><div><h4>Sarah T.</h4><span>Regular Customer</span></div></div>
+</div>
+<div class="testimonial-card">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p data-i18n="review2">"Amazing pizza and the payment via Telebirr QR is so convenient. Perfect place to hang out with friends after work."</p>
+<div class="testimonial-author"><img src="images/img_1507003211169.jpg" alt=""><div><h4>Dawit K.</h4><span>Food Blogger</span></div></div>
+</div>
+<div class="testimonial-card">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+<p data-i18n="review3">"Their breakfast combo is unbeatable. Fresh ful, warm bread, and a cup of Ethiopian coffee - the perfect start to any day."</p>
+<div class="testimonial-author"><img src="images/img_1438761681033.jpg" alt=""><div><h4>Helen M.</h4><span>Local Resident</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="events-section" id="events">
+<div class="events-inner">
+<div class="section-header"><div class="section-icon"><i class="fas fa-calendar-star"></i></div><h2 class="section-title" data-i18n="events_title">Upcoming Events</h2><p class="section-subtitle" data-i18n="events_subtitle">Join us for special moments at ZAD</p></div>
+<div class="events-grid">
+<div class="event-card">
+<div class="event-date"><span class="day">15</span><span class="month">MAY</span></div>
+<div class="event-info"><div class="event-title" data-i18n="ev1_title">Coffee Tasting Workshop</div><div class="event-time"><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</div><div class="event-desc" data-i18n="ev1_desc">Discover Ethiopian coffee origins and brewing techniques with our expert barista.</div></div>
+</div>
+<div class="event-card">
+<div class="event-date"><span class="day">18</span><span class="month">MAY</span></div>
+<div class="event-info"><div class="event-title" data-i18n="ev2_title">Live Jazz Night</div><div class="event-time"><i class="fas fa-clock"></i> 7:00 PM - 10:00 PM</div><div class="event-desc" data-i18n="ev2_desc">Smooth jazz, great food, and the best atmosphere in Addis Ababa.</div></div>
+</div>
+<div class="event-card">
+<div class="event-date"><span class="day">25</span><span class="month">MAY</span></div>
+<div class="event-info"><div class="event-title" data-i18n="ev3_title">Ethiopian Coffee Ceremony</div><div class="event-time"><i class="fas fa-clock"></i> 4:00 PM - 6:00 PM</div><div class="event-desc" data-i18n="ev3_desc">Experience the traditional bunna ceremony with fresh roasting and incense.</div></div>
+</div>
+<div class="event-card">
+<div class="event-date"><span class="day">28</span><span class="month">MAY</span></div>
+<div class="event-info"><div class="event-title" data-i18n="ev4_title">Pizza & Pasta Night</div><div class="event-time"><i class="fas fa-clock"></i> 6:00 PM - 9:00 PM</div><div class="event-desc" data-i18n="ev4_desc">Half-price on all pasta and pizza items. Bring your friends!</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="payment-section" id="payment">
+<div class="payment-container">
+<div class="payment-header"><h2 data-i18n="pay_title">Pay with Ease</h2><p data-i18n="pay_subtitle">Scan the QR code to pay instantly. Quick, secure, and hassle-free.</p></div>
+<div class="payment-grid">
+<div class="payment-card">
+<div class="payment-logo telebirr-logo"><i class="fas fa-mobile-alt"></i></div>
+<h3 class="payment-name">Telebirr</h3>
+<p class="payment-hint" data-i18n="pay_telebirr">Scan to pay with Telebirr</p>
+<div class="qr-placeholder" id="telebirr-qr"></div>
+<div class="account-info"><label data-i18n="label_phone">Phone Number</label><input type="text" value="+251 9XX XXX XXX" readonly onclick="this.select()"></div>
+</div>
+<div class="payment-card">
+<div class="payment-logo cbe-logo"><i class="fas fa-university"></i></div>
+<h3 class="payment-name">CBE Bank</h3>
+<p class="payment-hint" data-i18n="pay_cbe">Scan to pay with CBE</p>
+<div class="qr-placeholder" id="cbe-qr"></div>
+<div class="account-info"><label data-i18n="label_account">Account Number</label><input type="text" value="1000XXXXXX" readonly onclick="this.select()"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="social-section" id="social">
+<div class="social-inner">
+<div class="section-header"><div class="section-icon"><i class="fas fa-share-nodes"></i></div><h2 class="section-title" data-i18n="social_title">Follow Our Journey</h2><p class="section-subtitle" data-i18n="social_subtitle">Stay connected with ZAD Cafe</p></div>
+<div class="social-grid">
+<a href="#" class="social-item"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
+<a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
+<a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
+<a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
+</div>
+</div>
+</section>
+
+<section class="sustain-section" id="sustainability">
+<div class="sustain-inner">
+<div class="section-header"><div class="section-icon"><i class="fas fa-earth-africa"></i></div><h2 class="section-title" data-i18n="sustain_title">Our Commitment</h2><p class="section-subtitle" data-i18n="sustain_subtitle">Sustainability in every cup and plate</p></div>
+<div class="sustain-grid">
+<div class="sustain-card">
+<div class="sustain-icon"><i class="fas fa-seedling"></i></div>
+<div class="sustain-title" data-i18n="s1_title">Local Sourcing</div>
+<div class="sustain-desc" data-i18n="s1_desc">We partner with local farmers and suppliers to bring you the freshest ingredients while supporting our community.</div>
+</div>
+<div class="sustain-card">
+<div class="sustain-icon"><i class="fas fa-recycle"></i></div>
+<div class="sustain-title" data-i18n="s2_title">Eco-Friendly Packaging</div>
+<div class="sustain-desc" data-i18n="s2_desc">Our takeaway containers are biodegradable and made from sustainable materials.</div>
+</div>
+<div class="sustain-card">
+<div class="sustain-icon"><i class="fas fa-coffee-beans"></i></div>
+<div class="sustain-title" data-i18n="s3_title">Ethiopian Coffee</div>
+<div class="sustain-desc" data-i18n="s3_desc">We proudly serve premium Ethiopian coffee directly sourced from local growers.</div>
+</div>
+<div class="sustain-card">
+<div class="sustain-icon"><i class="fas fa-heart"></i></div>
+<div class="sustain-title" data-i18n="s4_title">Community Support</div>
+<div class="sustain-desc" data-i18n="s4_desc">We regularly participate in local events and support community initiatives.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="feedback-section" id="feedback">
+<div class="section-header"><div class="section-icon"><i class="fas fa-comment-dots"></i></div><h2 class="section-title" data-i18n="feedback_title">We Value Your Feedback</h2><p class="section-subtitle" data-i18n="feedback_subtitle">Share your experience with us</p></div>
+<div class="feedback-form">
+<div class="feedback-status" id="feedbackStatus"></div>
+<div class="form-row"><div class="form-group"><label data-i18n="label_name">Your Name</label><input type="text" id="fbName" required></div><div class="form-group"><label data-i18n="label_phone">Phone Number</label><input type="tel" id="fbPhone"></div></div>
+<div class="form-group" style="margin-bottom:1.5rem"><label data-i18n="label_message">Your Message</label><textarea id="fbMessage" placeholder="Tell us about your experience..." data-i18n-placeholder="feedback_placeholder" required></textarea></div>
+<button type="button" class="submit-btn" onclick="submitFeedback()" data-i18n="btn_send_feedback">Send Feedback</button>
+</div>
+</section>
+
+<section class="subscribe-section" id="subscribe">
+<div class="subscribe-container">
+<h2 class="subscribe-title" data-i18n="sub_title">Join the ZAD Family</h2>
+<p class="subscribe-subtitle" data-i18n="sub_subtitle">Subscribe for updates and get <strong>10% off</strong> your first order</p>
+<div class="subscribe-box">
+<input type="email" id="subEmail" placeholder="your@email.com" data-i18n-placeholder="sub_placeholder" required>
+<button onclick="submitSubscribe()" data-i18n="sub_btn">Subscribe</button>
+</div>
+<div class="subscribe-status" id="subStatus"></div>
+</div>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div class="footer-col">
+<h4>ZAD CAFE</h4>
+<p data-i18n="footer_desc">Where every bite feels like home. Serving Addis Ababa since 2020.</p>
+<div class="social-links">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-telegram"></i></a>
+</div>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_hours">Opening Hours</h4>
+<p data-i18n="hours_week">Mon - Fri: 7:00 AM - 10:00 PM</p>
+<p data-i18n="hours_weekend">Sat - Sun: 8:00 AM - 11:00 PM</p>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_contact">Contact</h4>
+<p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+<p><i class="fas fa-phone"></i> +251 9XX XXX XXX</p>
+<p><i class="fas fa-envelope"></i> hello@zadcafe.com</p>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_links">Quick Links</h4>
+<a href="#menu" data-i18n="nav_menu">Menu</a>
+<a href="#payment" data-i18n="nav_payment">Payment</a>
+<a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p data-i18n="footer_copy">&copy; 2024 ZAD Cafe. All rights reserved.</p>
+</div>
+</footer>
+
+
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<div class="toast" id="toast"></div>
+
+
+<div class="modal-overlay" id="item-modal" onclick="if(event.target===this)closeItemModal()">
+<div class="modal item-modal">
+<div class="modal-header"><h3 data-i18n="item_details">Item Details</h3><button class="modal-close" onclick="closeItemModal()">&times;</button></div>
+<div class="modal-body" id="item-modal-body"></div>
+</div>
+
+<script>
+const t={en:{nav_home:"Home",nav_about:"About",nav_menu:"Menu",nav_gallery:"Gallery",nav_reserve:"Reserve",nav_payment:"Payment",search_placeholder:"Search menu...",hero_tagline:'"Where Every Bite Feels Like Home"',explore_menu:"Explore Our Menu",about_title:"Our Story",about_p1:"Welcome to ZAD Cafe, a cozy corner in the heart of Addis Ababa where flavor meets warmth. Since 2020, we have been serving handcrafted dishes that celebrate both local Ethiopian tastes and international favorites.",about_p2:"From our signature Chechebsa to our freshly baked pizzas, every item on our menu is prepared with love and the finest ingredients. Whether you are here for a morning coffee, a business lunch, or a family dinner, we make sure you leave with a smile.",stat_years:"Years of Service",stat_items:"Menu Items",stat_customers:"Happy Customers",stat_staff:"Expert Staff",cat_pasta:"Pasta",cat_rice:"Rice",cat_sandwich:"Sandwich",cat_burger:"Burger",cat_pizza:"Pizza",cat_extra:"Extras",cat_fresh:"Fresh Drinks",cat_cold:"Cold Drinks",cat_juice:"Juice",cat_breakfast:"Breakfast",cat_all:"All",sub_pasta:"Handcrafted with love",sub_rice:"A comforting bowl of happiness",sub_sandwich:"Layers of flavor in every bite",sub_burger:"Juicy, cheesy, irresistible",sub_pizza:"Slice into happiness",sub_extra:"The little things that matter",sub_fresh:"Warm your soul with every sip",sub_cold:"Refreshment at its finest",sub_juice:"Squeezed fresh, just for you",sub_breakfast:"Start your day the ZAD way",sub_all:"Browse our full menu",gallery_title:"Gallery",gallery_subtitle:"Moments from ZAD Cafe",testimonials_title:"What People Say",testimonials_subtitle:"Words from our beloved customers",review1:'"The best Chechebsa I have ever had! ZAD Cafe has become my weekend tradition. The atmosphere is warm and the staff is incredibly friendly."',review2:'"Amazing pizza and the payment via Telebirr QR is so convenient. Perfect place to hang out with friends after work."',review3:'"Their breakfast combo is unbeatable. Fresh ful, warm bread, and a cup of Ethiopian coffee - the perfect start to any day."',reserve_title:"Reserve a Table",reserve_subtitle:"Book your spot and we will have everything ready",label_name:"Your Name",label_phone:"Phone Number",label_date:"Date",label_time:"Time",label_guests:"Guests",label_occasion:"Occasion",label_notes:"Special Requests",label_account:"Account Number",btn_reserve:"Reserve Now",nav_feedback:"Feedback",feedback_title:"We Value Your Feedback",feedback_subtitle:"Share your experience with us",label_message:"Your Message",btn_send_feedback:"Send Feedback",feedback_placeholder:"Tell us about your experience...",occ_casual:"Casual Dining",occ_birthday:"Birthday",occ_date:"Date Night",occ_business:"Business",pay_title:"Pay with Ease",pay_subtitle:"Scan the QR code to pay instantly. Quick, secure, and hassle-free.",pay_telebirr:"Scan to pay with Telebirr",pay_cbe:"Scan to pay with CBE",footer_desc:"Where every bite feels like home. Serving Addis Ababa since 2020.",footer_hours:"Opening Hours",hours_week:"Mon - Fri: 7:00 AM - 10:00 PM",hours_weekend:"Sat - Sun: 8:00 AM - 11:00 PM",footer_contact:"Contact",footer_links:"Quick Links",footer_copy:"&copy; 2024 ZAD Cafe. All rights reserved.",your_order:"Your Order",cart_empty:"Your cart is empty",total:"Total",btn_place_order:"Place Order",item_details:"Item Details",diet_vegan:"Vegan",diet_gf:"Gluten-Free",diet_spicy:"Spicy",events_title:"Upcoming Events",events_subtitle:"Join us for special moments at ZAD",ev1_title:"Coffee Tasting Workshop",ev1_desc:"Discover Ethiopian coffee origins and brewing techniques with our expert barista.",ev2_title:"Live Jazz Night",ev2_desc:"Smooth jazz, great food, and the best atmosphere in Addis Ababa.",ev3_title:"Ethiopian Coffee Ceremony",ev3_desc:"Experience the traditional bunna ceremony with fresh roasting and incense.",ev4_title:"Pizza & Pasta Night",ev4_desc:"Half-price on all pasta and pizza items. Bring your friends!",cust_title:"Build Your Drink",cust_subtitle:"Craft your perfect cup, your way",cust_base:"Base Drink",cust_milk:"Milk",cust_sweet:"Sweetness",cust_extra:"Extras",cust_total:"Your Custom Drink",cust_add:"Add to Order",fav_title:"Your Favorites",fav_subtitle:"Quick access to the items you love",recent_title:"Recent Orders",recent_subtitle:"Items you have ordered recently",sub_title:"Join the ZAD Family",sub_subtitle:"Subscribe for updates and get 10% off your first order",sub_placeholder:"your@email.com",sub_btn:"Subscribe",added_to_cart:"Added to cart"},
+am:{nav_home:"መነሻ",nav_about:"ስለኛ",nav_menu:"ምናሌ",nav_gallery:"ማዕከል",nav_reserve:"ያስያዙ",nav_payment:"ክፍያ",search_placeholder:"ፈልግ...",hero_tagline:'"በሁሉም ቁራሽ የቤት ስሜት የሚሰጥ"',explore_menu:"ምናሌን ያስሱ",about_title:"ታሪካችን",about_p1:"ወደ ዘድ ካፌ እንኳን በደህና መጡ፣ በአዲስ አበባ ልብ ውስጥ ጣዕም እና ሙቀት የሚገናኙበት ማረፊያ። ከ2020 ጀምሮ፣ የኢትዮጵያ ዘይቤን እና ዓለም አቀፍ ተወዳጆችን የሚያከብሩ እጅ የሚሠሩ ዲሽዎችን እናቀርባለን።",about_p2:"ከየብዙሃኑ ቼቼብሳ እስከ ትኩስ ፒዛዎች ድረስ፣ በሜኑዋችን ላይ ያለው ሁሉ ንጥር በፍቅር እና በምርጥ ንጥረ ነገሮች የተዘጋጀ ነው። በማለዳ ቡና፣ በንግድ ምሳ፣ ወይም በቤተሰብ እራት እዚህ ብትሆኑ እንኳን በሳቅ የሚሰናቱ ያደርጋችኋል።",stat_years:"የአገልግሎት ዓመታት",stat_items:"የሜኑ ንጥረ ነገሮች",stat_customers:"ደስተኛ ደንበኞች",stat_staff:"ልዩ ባለሙያዎች",cat_pasta:"ፓስታ",cat_rice:"ሩዝ",cat_sandwich:"ሳንድዊች",cat_burger:"ቡርገር",cat_pizza:"ፒዛ",cat_extra:"ተጨማሪ",cat_fresh:"ሙቅ መጠጥ",cat_cold:"ቀዝቃዛ መጠጥ",cat_juice:"ጭምብል",cat_breakfast:"ቁርስ",cat_all:"ሁሉም",sub_pasta:"በፍቅር የተሠሩ",sub_rice:"የሚያጽናና ውስን",sub_sandwich:"በየከንፈሩ ስትራቶች",sub_burger:"ረፍረፍ ቡርገር",sub_pizza:"ወደ ስሜት ይንኩ",sub_extra:"ትንሽ ነገሮች",sub_fresh:"በየጥፍቱ ሙቀት ይሙሙ",sub_cold:"አስደሳች መጠጥ",sub_juice:"በቅድሚያ የተጭበረበረ",sub_breakfast:"ቀኑን በዘድ ይጀምሩ",sub_all:"ሙሉውን ሜኑ ያስሱ",gallery_title:"ምስል ማዕከል",gallery_subtitle:"ከዘድ ካፌ የተወሰዱ ጊዜያት",testimonials_title:"ሰዎች ምን ይላሉ",testimonials_subtitle:"ከተወዳጅ ደንበኞቻችን",review1:'"ምርጥ ቼቼብሳ! ዘድ ካፌ የእኔ የሳምንት መጨረሻ ባህሪዬ ሆኗል። አካባቢው ሙቅ ነው እና ሰራተኞቹ በጣም ጎንደር ናቸው።"',review2:'"ድንቅ ፒዛ እና በቴሌብር ኩዋር ኮድ መክፈል በጣም አስታራቂ ነው። ከስራ በኋላ ከወዳጆች ጋር ለመቀመጥ ፍጹም ቦታ።"',review3:'"የቁርስ ጥምረታቸው ሊታመን አይችልም። ትኩስ ፉል፣ ሙቅ ዳቦ፣ እና የኢትዮጵያ ቡና - ለማንኛውም ቀን ፍጹም መጀመሪያ።"',reserve_title:"ጠረጴዛ ያስያዙ",reserve_subtitle:"ቦታዎን ይያዙ እና እኛ ሁሉንም እንዘጋጃለን",label_name:"ስም",label_phone:"ስልክ ቁጥር",label_date:"ቀን",label_time:"ሰዓት",label_guests:"እንግዶች",label_occasion:"አጋጣሚ",label_notes:"ልዩ ጥያቄዎች",label_account:"የሂሳብ ቁጥር",btn_reserve:"አሁን ያስያዙ",nav_feedback:"አስተያየት",feedback_title:"አስተያየትዎን እንወዳለን",feedback_subtitle:"ከእኛ ጋር ያለዎትን ልምድ ያካፍሉን",label_message:"መልእክት",btn_send_feedback:"አስተያየት ላክ",feedback_placeholder:"ስለ ልምድዎ ያንጎራሩን...",occ_casual:"መደበኛ",occ_birthday:"የልደት ቀን",occ_date:"የፍቅር ምሽት",occ_business:"ንግድ",pay_title:"በሰላም ይክፈሉ",pay_subtitle:"ኩዋር ኮዱን ስካን ያድርጉ። ፈጣን፣ ደህንነቱ የተጠበቀ እና ቀላል።",pay_telebirr:"በቴሌብር ለመክፈል ስካን ያድርጉ",pay_cbe:"በCBE ለመክፈል ስካን ያድርጉ",footer_desc:"በሁሉም ቁራሽ የቤት ስሜት። ከ2020 ጀምሮ በአዲስ አበባ አገልግሎት።",footer_hours:"የክፍት ሰዓታት",hours_week:"ሰኞ - አርብ: 7:00 - 22:00",hours_weekend:"ቅዳሜ - እሁድ: 8:00 - 23:00",footer_contact:"አግኙን",footer_links:"ፈጣን ማገናኛዎች",footer_copy:"&copy; 2024 ዘድ ካፌ። ሁሉም መብቶች የተጠበቁ ናቸው።",your_order:"ትዕዛዝዎ",cart_empty:"ዕቃዎ ባዶ ነው",total:"ጠቅላላ",btn_place_order:"ትዕዛዝ ያስገቡ",item_details:"ዕቃ ዝርዝሮች",diet_vegan:"የጾም",diet_gf:"የስንዴ ያልሆነ",diet_spicy:"ጠንካራ",events_title:"መጪ ክስተቶች",events_subtitle:"በዘድ ላይ ልዩ ጊዜያትን ያገናኙ",ev1_title:"የቡና ምርመራ ወርክሾፕ",ev1_desc:"ከባለሙያ ባሪስታው ጋር የኢትዮጵያ ቡና ዘይቤዎችን እና የማጥመጃ ዘዴዎችን ያስሱ።",ev2_title:"የቀጥታ ጃዝ ሌሊት",ev2_desc:"ለስላሳ ጃዝ፣ ጥሩ ምግብ፣ እና በአዲስ አበባ ምርጥ አየር ጠቀሻ።",ev3_title:"የኢትዮጵያ ቡና ሥነ ሥርዓት",ev4_title:"ፒዛ እና ፓስታ ሌሊት",ev4_desc:"በሁሉም ፓስታ እና ፒዛ ምርቶች ላይ ከግማሽ ዋጋ በታች። ጓደኞችዎን ይጎብኙ!",ev3_desc:"በትኩስ አብሳሪ እና ዕጣን የቡና ሥነ ሥርዓትን ያስሱ።",fav_title:"የእርስዎ ተወዳጆች",fav_subtitle:"የሚወዷቸው ንጥረ ነገሮች ለፈጣን ጥቅም",recent_title:"የቅርብ ጊዜ ትዕዛዞች",recent_subtitle:"በቅርብ ጊዜ ያዘዟቸው ንጥረ ነገሮች",sub_title:"የዘድ ቤተሰብ ይሁኑ",sub_subtitle:"ለመረጃ ይመዝገቡና በመጀመሪያ ትዕዛዝዎ ላይ <strong>10% ቅናሽ</strong> ያግኙ",sub_placeholder:"your@email.com",sub_btn:"ይመዝገቡ",added_to_cart:"ወደ ዕቃ ታክሏል",cust_title:"ልዩ መጠጥ ይስሩ",cust_subtitle:"ፍጹም ብርጌብዎን በራስዎ ይስሩ",cust_base:"መነሻ መጠጥ",cust_milk:"ወተት",cust_sweet:"ስኳር",cust_extra:"ተጨማሪ",cust_total:"የእርስዎ ልዩ መጠጥ",cust_add:"ወደ ትዕዛዝ ያክሉ"}};
+let cl=localStorage.getItem('zad-lang')||'en';
+let ct=localStorage.getItem('zad-theme')||'dark';
+const usFlag=document.getElementById('langFlag')?document.getElementById('langFlag').src:'';
+const ethFlag="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 3'%3E%3Crect fill='%23078930' width='6' height='1'/%3E%3Crect fill='%23FCDD09' y='1' width='6' height='1'/%3E%3Crect fill='%23DA121A' y='2' width='6' height='1'/%3E%3C/svg%3E";
+function setLanguage(lang){cl=lang;localStorage.setItem('zad-lang',lang);document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[lang]&&t[lang][k])el.innerHTML=t[lang][k];});document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const k=el.getAttribute('data-i18n-placeholder');if(t[lang]&&t[lang][k])el.placeholder=t[lang][k];});const f=document.getElementById('langFlag');if(f)f.src=lang==='en'?usFlag:ethFlag;renderMenu(document.getElementById('searchInput')?document.getElementById('searchInput').value.trim():'');if(typeof renderFavorites==='function')renderFavorites();if(typeof renderRecent==='function')renderRecent();if(typeof updateCustomPrice==='function')updateCustomPrice();}
+function toggleLanguage(){setLanguage(cl==='en'?'am':'en');}
+function setTheme(th){ct=th;localStorage.setItem('zad-theme',th);document.documentElement.setAttribute('data-theme',th);const i=document.getElementById('themeIcon');if(i)i.className=th==='light'?'fas fa-sun':'fas fa-moon';}
+function toggleTheme(){setTheme(ct==='light'?'dark':'light');}
+
+const md={
+pasta:[{n:"Pasta with Sauce",a:"ፓስታ በስጎ",p:400,d:"Classic pasta in rich tomato sauce",i:"images/img_1621996346565.jpg",nut:{cal:520,pro:18,carb:72,fat:14}},{n:"Pasta with Tuna",a:"ፓስታ በአሳ",p:500,d:"Pasta tossed with premium tuna",i:"images/img_1551183053.jpg"},{n:"Pasta with Chicken",a:"ፓስታ በዶሮ",p:500,d:"Creamy pasta with grilled chicken",i:"images/img_1555949258.jpg"},{n:"Pasta with Vegetables",a:"ፓስታ በአትክልት",p:300,d:"Fresh veggies with al dente pasta",i:"images/img_1473093295043.jpg",dt:["v"]}],
+rice:[{n:"Rice with Tuna",a:"ሩዝ በአሳ",p:370,d:"Fluffy rice paired with tuna",i:"images/img_1603133872878.jpg"},{n:"Rice with Chicken",a:"ሩዝ በዶሮ",p:450,d:"Savory rice with tender chicken",i:"images/img_1604908176997.jpg"},{n:"Rice with Sauce",a:"ሩዝ በስጎ",p:300,d:"Steamed rice in special sauce",i:"images/img_1516684732162.jpg"},{n:"Rice with Vegetable",a:"ሩዝ በአትክልት",p:300,d:"Healthy rice with mixed veggies",i:"images/img_1589302168068.jpg",dt:["v","gf"]}],
+sandwich:[{n:"Club Sandwich",a:"ክላብ ሳንድዊች",p:460,d:"Triple-decker with fresh ingredients",i:"images/img_1560023907.jpg"},{n:"Tuna Sandwich",a:"አሳ ሳንድዊች",p:400,d:"Classic tuna on toasted bread",i:"images/img_1567620905732.jpg"},{n:"Tuna Club Sandwich",a:"አሳ ክላብ ሳንድዊች",p:450,d:"Tuna club with extra goodness",i:"images/img_1560023907.jpg"},{n:"Egg Sandwich (with chips)",a:"ዕንቁላል ሳንድዊች (ከቺፕስ ጋር)",p:300,d:"Egg sandwich served with crispy chips",i:"images/img_1525351484163.jpg"},{n:"Egg Sandwich (no chips)",a:"ዕንቁላል ሳንድዊች (ከቺፕስ ያለ)",p:250,d:"Simple and satisfying egg sandwich",i:"images/img_1544145945.jpg"},{n:"Veg Sandwich (with chips)",a:"አትክልት ሳንድዊች (ከቺፕስ ጋር)",p:300,d:"Garden fresh with a side of chips",i:"images/img_1540420773420.jpg",dt:["v"]},{n:"Veg Sandwich (no chips)",a:"አትክልት ሳንድዊች (ከቺፕስ ያለ)",p:250,d:"Light and healthy veggie delight",i:"images/img_1548839140.jpg"},{n:"Chips",a:"ቺፕስ",p:200,d:"Crispy golden fries",i:"images/img_1567620905732.jpg"}],
+burger:[{n:"Normal Burger",a:"ተራ ቡርገር",p:400,d:"Classic beef burger with fixings",i:"images/img_1568901346375.jpg",nut:{cal:650,pro:28,carb:45,fat:32}},{n:"Double Special Burger",a:"ድርብ ልዩ ቡርገር",p:650,d:"Double patty, double the joy",i:"images/img_1594212699903.jpg"},{n:"Single Special Burger",a:"ተናጋሪ ልዩ ቡርገር",p:500,d:"Our signature special recipe",i:"images/img_1571091718767.jpg"},{n:"Cheese Burger",a:"ቺዝ ቡርገር",p:300,d:"Melted cheese on juicy patty",i:"images/img_1586190848861.jpg"}],
+pizza:[{n:"Zad Special Pizza",a:"ዘድ ልዩ ፒዛ",p:700,d:"Our chef's masterpiece creation",i:"images/img_1565299624946.jpg",b:"Chef's Pick",nut:{cal:850,pro:35,carb:95,fat:38}},{n:"Normal Pizza",a:"ተራ ፒዛ",p:500,d:"Classic pizza done right",i:"images/img_1513104890138.jpg"},{n:"Special Pizza",a:"ልዩ ፒዛ",p:650,d:"Loaded with premium toppings",i:"images/img_1574071318508.jpg"},{n:"Margherita Pizza",a:"ማርጌሪታ ፒዛ",p:500,d:"Simple elegance: tomato & basil",i:"images/img_1587049352846.jpg"},{n:"Chicken Pizza",a:"ዶሮ ፒዛ",p:600,d:"Topped with seasoned chicken",i:"images/img_1604382355076.jpg"},{n:"Tuna Pizza (with cheese)",a:"አሳ ፒዛ (ከቺዝ ጋር)",p:600,d:"Tuna delight with cheesy goodness",i:"images/img_1560023907.jpg"},{n:"Vegetable Pizza",a:"አትክልት ፒዛ",p:450,d:"Garden fresh on a crispy crust",i:"images/img_1585238342024.jpg",dt:["v"]}],
+extra:[{n:"Mayonnaise",a:"ማዮኔዝ",p:80,d:"Creamy mayo dip",i:"images/img_1567620905732.jpg"},{n:"Ketchup",a:"ኬቻፕ",p:40,d:"Classic tomato ketchup",i:"images/img_1615485290382.jpg"},{n:"Bread",a:"ዳቦ",p:35,d:"Fresh baked bread roll",i:"images/img_1509440159596.jpg"},{n:"Injera",a:"እንጀራ",p:25,d:"Traditional Ethiopian flatbread",i:"images/img_1589302168068.jpg"},{n:"Tea Cup",a:"የሻይ ኩባያ",p:20,d:"Extra cup for sharing",i:"images/img_1517256064527.jpg"},{n:"Juice Cup",a:"የጭምብል ኩባያ",p:30,d:"Extra cup for your juice",i:"images/img_1575023782549.jpg"},{n:"Burger/Pizza Box",a:"የቡርገር/ፒዛ ቦክስ",p:50,d:"Takeaway packaging",i:"images/img_1615485290382.jpg"},{n:"Aluminum Foil",a:"የአሉሚኒየም ወረቀት",p:40,d:"For wrapping your goodies",i:"images/img_1587049352846.jpg"}],
+fresh:[{n:"Tea",a:"ሻይ",p:40,d:"Classic Ethiopian tea",i:"images/img_1544787219.jpg"},{n:"Coffee",a:"ቡና",p:40,d:"Rich Ethiopian coffee",i:"images/img_1498804103079.jpg",nut:{cal:5,pro:0,carb:1,fat:0}},{n:"Milk",a:"ወተት",p:70,d:"Warm fresh milk",i:"images/img_1506084868230.jpg"},{n:"Milk with Coffee",a:"ወተት ከቡና ጋር",p:80,d:"Perfect morning blend",i:"images/img_1567620905732.jpg"},{n:"Milk with Peanut",a:"ወተት ከሽንብራ ጋር",p:95,d:"Nutty creamy goodness",i:"images/img_1542990253.jpg"},{n:"Cappuccino",a:"ካፑቺኖ",p:100,d:"Frothy and delightful",i:"images/img_1572442388796.jpg"},{n:"Hot Chocolate",a:"ትኩስ ቸኮሌት",p:110,d:"Decadent chocolate warmth",i:"images/img_1542990253.jpg"},{n:"Macchiato",a:"ማኪያቶ",p:110,d:"Bold espresso with a touch of milk",i:"images/img_1506084868230.jpg"},{n:"Fasting Macchiato",a:"የጾም ማኪያቶ",p:90,d:"Plant-based macchiato",i:"images/img_1514432324607.jpg",dt:["v"]},{n:"Double Macchiato",a:"ድርብ ማኪያቶ",p:100,d:"Extra strong for extra energy",i:"images/img_1560023907.jpg"},{n:"Peanut Tea",a:"ሽንብራ ሻይ",p:110,d:"Nutty traditional tea",i:"images/img_1558160074.jpg"},{n:"Peanut with Ginger",a:"ሽንብራ ከዝንጅብል ጋር",p:80,d:"Spiced nutty warmth",i:"images/img_1544145945.jpg"},{n:"Peanut with Coffee",a:"ሽንብራ ከቡና ጋር",p:90,d:"Nutty coffee fusion",i:"images/img_1610632380989.jpg"},{n:"Ginger Tea",a:"ዝንጅብል ሻይ",p:90,d:"Warming ginger spice",i:"images/img_1597481499750.jpg",dt:["sp"]},{n:"Lemon Tea",a:"የሎሚ ሻይ",p:60,d:"Zesty and refreshing",i:"images/img_1513558161293.jpg"},{n:"Spris",a:"ስፕሪስ",p:50,d:"Layered juice delight",i:"images/img_1527661591475.jpg"},{n:"Special Tea (Large)",a:"ልዩ ሻይ (ትልቅ)",p:80,d:"Bigger cup, bigger comfort",i:"images/img_1597481499750.jpg"},{n:"Orange Tea",a:"የብርቱካን ሻይ",p:120,d:"Citrus infused tea",i:"images/img_1594631252845.jpg"},{n:"Pineapple Tea",a:"የአናናስ ሻይ",p:75,d:"Tropical tea twist",i:"images/img_1536657464919.jpg"},{n:"Mango Tea",a:"የማንጐ ሻይ",p:75,d:"Sweet mango infusion",i:"images/img_1623065422902.jpg"}],
+cold:[{n:"Soft Drink",a:"ሶፍት ድሪንክ",p:60,d:"Chilled carbonated refreshment",i:"images/img_1560023907.jpg"},{n:"1 Liter Water",a:"1 ሊትር ውሃ",p:50,d:"Pure hydration",i:"images/img_1548839140.jpg",dt:["v","gf"]},{n:"0.5 Liter Water",a:"0.5 ሊትር ውሃ",p:35,d:"Quick refreshment",i:"images/img_1548839140.jpg",dt:["v","gf"]},{n:"Ambo Water",a:"አምቦ ውሃ",p:60,d:"Sparkling mineral water",i:"images/img_1560023907.jpg"}],
+juice:[{n:"Papaya Juice",a:"ፓፓያ ጭምብል",p:200,d:"Tropical papaya delight",i:"images/img_1615485290382.jpg"},{n:"Avocado Juice",a:"አቮካዶ ጭምብል",p:220,d:"Creamy avocado goodness",i:"images/img_1587049352846.jpg",nut:{cal:380,pro:5,carb:25,fat:22}},{n:"Mango Juice",a:"ማንጐ ጭምብል",p:250,d:"Sweet mango freshness",i:"images/img_1577805947697.jpg"},{n:"Strawberry Juice",a:"ስትሮቤሪ ጭምብል",p:300,d:"Berry burst of flavor",i:"images/img_1544145945.jpg"},{n:"Watermelon Juice",a:"ሃብሃብ ጭምብል",p:250,d:"Summer in a glass",i:"images/img_1587049352846.jpg"},{n:"Special Juice",a:"ልዩ ጭምብል",p:350,d:"Our signature blend",i:"images/img_1615485290382.jpg"},{n:"Spritz Juice",a:"ስፕሪትዝ ጭምብል",p:250,d:"Fruity spritz refreshment",i:"images/img_1544145945.jpg"},{n:"Avocado Shake",a:"አቮካዶ ሼክ",p:350,d:"Thick and creamy shake",i:"images/img_1577805947697.jpg"},{n:"Strawberry Milkshake",a:"ስትሮቤሪ ሚልክሼክ",p:350,d:"Berry milkshake bliss",i:"images/img_1579954115563.jpg"},{n:"Avocado Strawberry",a:"አቮካዶ ስትሮቤሪ",p:250,d:"Perfect fruity pairing",i:"images/img_1506084868230.jpg"},{n:"Special Watermelon Juice",a:"ልዩ ሃብሃብ ጭምብል",p:350,d:"Upgraded watermelon treat",i:"images/img_1587049352846.jpg"},{n:"Special Fasting Juice",a:"ልዩ የጾም ጭምብል",p:300,d:"Plant-based special blend",i:"images/img_1610970881699.jpg",dt:["v","gf"]}],
+breakfast:[{n:"Normal Chechebsa",a:"ተራ ቼቼብሳ",p:280,d:"Traditional Ethiopian breakfast",i:"images/img_1544145945.jpg",nut:{cal:480,pro:12,carb:65,fat:18}},{n:"Special Chechebsa",a:"ልዩ ቼቼብሳ",p:400,d:"Chechebsa with extra love",i:"images/img_1589302168068.jpg"},{n:"Normal Fetira",a:"ተራ ፈጢራ",p:300,d:"Classic layered pastry",i:"images/img_1567620905732.jpg"},{n:"Special Fetira",a:"ልዩ ፈጢራ",p:400,d:"Loaded special fetira",i:"images/img_1506084868230.jpg"},{n:"Egg Stew",a:"የዕንቁላል ወጥ",p:250,d:"Comforting egg curry",i:"images/img_1482049016688.jpg"},{n:"Scrambled Eggs",a:"የታወቀ ዕንቁላል",p:220,d:"Fluffy scrambled perfection",i:"images/img_1525351484163.jpg"},{n:"Normal Ful",a:"ተራ ፉል",p:230,d:"Classic fava beans",i:"images/img_1540420773420.jpg"},{n:"Special Ful",a:"ልዩ ፉል",p:300,d:"Ful with the works",i:"images/img_1543339308.jpg",dt:["sp"]},{n:"Ful with Avocado",a:"ፉል ከአቮካዶ ጋር",p:270,d:"Creamy avocado meets ful",i:"images/img_1512621776951.jpg"},{n:"Eggs with Avocado",a:"ዕንቁላል ከአቮካዶ ጋር",p:300,d:"Nutritious morning combo",i:"images/img_1525351484163.jpg"},{n:"Tomato Slices",a:"የቲማቲሞ ቁርሻ",p:240,d:"Fresh tomato side",i:"images/img_1592924357228.jpg"}]
+};
+
+
+let currentModalItem=null;
+
+let activeDiets=new Set();
+const dietLabels={v:'Vegan',gf:'GF',sp:'Spicy'};
+function getDietHtml(dt){if(!dt||!dt.length)return'';let h='<div class="card-diet">';for(const t of dt){h+=`<span class="diet-tag ${t}">${dietLabels[t]||t}</span>`;}return h+'</div>';}
+function renderMenu(filter=''){
+for(const[cat,items]of Object.entries(md)){
+const g=document.getElementById(cat+'-grid');
+if(!g)continue;
+let h='';
+let found=0;
+for(let x=0;x<items.length;x++){
+const it=items[x];
+const nm=cl==='en'?it.n:it.a;
+const ds=it.d;
+if(filter&&!nm.toLowerCase().includes(filter.toLowerCase())&&!ds.toLowerCase().includes(filter.toLowerCase()))continue;
+if(activeDiets.size>0){const dt=it.dt||[];let match=false;for(const d of activeDiets){if(dt.includes(d)){match=true;break;}}if(!match)continue;}
+found++;
+const enName=it.n.replace(/'/g,"\\'");
+h+=`<div class="menu-card animate-in" style="animation-delay:${x*0.05}s" onclick="openItemModal('${cat}',${x})">`;
+const isFav=getFavorites().includes(`${cat}-${x}`);
+h+=`<div class="card-image" style="background-image:url('${it.i}')">${it.b?`<span class="card-badge">${it.b}</span>`:''}${it.nut?`<span class="card-cal">${it.nut.cal} kcal</span>`:''}<button class="card-fav ${isFav?'active':''}" onclick="event.stopPropagation();toggleFavorite('${cat}',${x})" title="Favorite"><i class="fas fa-heart"></i></button></div>`;
+h+=`<div class="card-content"><div class="card-title">${nm}</div>`;
+if(cl==='en'&&it.a)h+=`<div class="card-amharic">${it.a}</div>`;
+if(cl==='am'&&it.n)h+=`<div class="card-amharic">${it.n}</div>`;
+h+=getDietHtml(it.dt);
+h+=`<div class="card-desc">${ds}</div><div class="card-footer"><span class="card-price">${it.p} <span>Birr</span></span></div></div></div>`;
+}
+if(!found)h=`<div class="no-results">${cl==='en'?'No items found.':'ንጥረ ነገር አልተገኘም።'}</div>`;
+g.innerHTML=h;
+}
+}
+function toggleDietFilter(d){
+const chip=document.querySelector(`.diet-chip.${d}`);
+if(activeDiets.has(d)){activeDiets.delete(d);chip.classList.remove('active');}else{activeDiets.add(d);chip.classList.add('active');}
+renderMenu(document.getElementById('searchInput').value.trim());
+}
+
+function getFavorites(){try{return JSON.parse(localStorage.getItem('zad-favorites')||'[]');}catch(e){return[];}}
+function toggleFavorite(cat,idx){
+const key=`${cat}-${idx}`;const favs=getFavorites();const i=favs.indexOf(key);
+if(i>-1){favs.splice(i,1);}else{favs.push(key);}
+localStorage.setItem('zad-favorites',JSON.stringify(favs));
+renderMenu(document.getElementById('searchInput').value.trim());renderFavorites();renderRecent();
+}
+function renderFavorites(){
+const favs=getFavorites();const g=document.getElementById('fav-grid');if(!g)return;
+if(!favs.length){g.innerHTML=`<div class="empty-state" style="grid-column:1/-1;">${cl==='en'?'No favorites yet. Tap the heart on any item!':'እስካሁን ምንም ተወዳጅ የለም። በማንኛውም ንጥር ላይ ልብዎን ይጫኑ!'}</div>`;return;}
+let h='';for(const key of favs){const[cat,idx]=key.split('-');const it=md[cat][idx];if(!it)continue;const nm=cl==='en'?it.n:it.a;h+=`<div class="menu-card animate-in" style="animation-delay:0s" onclick="openItemModal('${cat}',${idx})">`;h+=`<div class="card-image" style="background-image:url('${it.i}')"><button class="card-fav active" onclick="event.stopPropagation();toggleFavorite('${cat}',${idx})" title="Favorite"><i class="fas fa-heart"></i></button></div>`;h+=`<div class="card-content"><div class="card-title">${nm}</div>`;if(cl==='en'&&it.a)h+=`<div class="card-amharic">${it.a}</div>`;if(cl==='am'&&it.n)h+=`<div class="card-amharic">${it.n}</div>`;h+=getDietHtml(it.dt);h+=`<div class="card-desc">${it.d}</div><div class="card-footer"><span class="card-price">${it.p} <span>Birr</span></span></div></div></div>`;}
+g.innerHTML=h;
+}
+function getRecent(){try{return JSON.parse(localStorage.getItem('zad-recent')||'[]');}catch(e){return[];}}
+function addRecent(n,p,cat,idx){
+let recent=getRecent();recent.unshift({n,p,cat,idx,t:Date.now()});recent=recent.filter((v,i,a)=>a.findIndex(t=>t.n===v.n)===i);recent=recent.slice(0,6);localStorage.setItem('zad-recent',JSON.stringify(recent));
+}
+function renderRecent(){
+const recent=getRecent();const g=document.getElementById('recent-grid');if(!g)return;
+if(!recent.length){g.innerHTML=`<div class="empty-state" style="grid-column:1/-1;">${cl==='en'?'No recent views yet.':'እስካሁን የቅርብ ጊዜ ትዕዛዞች የሉም።'}</div>`;return;}
+let h='';for(const r of recent){const it=md[r.cat][r.idx];if(!it)continue;const nm=cl==='en'?it.n:it.a;h+=`<div class="menu-card animate-in" style="animation-delay:0s" onclick="openItemModal('${r.cat}',${r.idx})">`;h+=`<div class="card-image" style="background-image:url('${it.i}')"><button class="card-fav ${getFavorites().includes(`${r.cat}-${r.idx}`)?'active':''}" onclick="event.stopPropagation();toggleFavorite('${r.cat}',${r.idx})" title="Favorite"><i class="fas fa-heart"></i></button></div>`;h+=`<div class="card-content"><div class="card-title">${nm}</div>`;if(cl==='en'&&it.a)h+=`<div class="card-amharic">${it.a}</div>`;if(cl==='am'&&it.n)h+=`<div class="card-amharic">${it.n}</div>`;h+=getDietHtml(it.dt);h+=`<div class="card-desc">${it.d}</div><div class="card-footer"><span class="card-price">${it.p} <span>Birr</span></span></div></div></div>`;}
+g.innerHTML=h;
+}
+const customState={base:{name:'Coffee',nameAm:'ቡና',price:40},milk:{name:'None',nameAm:'ወተት ሳይሆን',price:0},sweet:{name:'Normal',nameAm:'መደበኛ',price:0},extras:[]};
+function setCustomOption(type,el,price){
+const group=el.closest('.option-grid');group.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');
+customState[type]={name:el.getAttribute('data-name'),nameAm:el.getAttribute('data-name-am'),price:price};
+updateCustomPrice();
+}
+function toggleCustomExtra(el,price){
+const name=el.getAttribute('data-name');const nameAm=el.getAttribute('data-name-am');
+if(el.classList.contains('active')){el.classList.remove('active');customState.extras=customState.extras.filter(e=>e.name!==name);}
+else{el.classList.add('active');customState.extras.push({name,nameAm,price});}
+updateCustomPrice();
+}
+function updateCustomPrice(){
+let total=customState.base.price+customState.milk.price+customState.sweet.price+customState.extras.reduce((s,e)=>s+e.price,0);
+let parts=[cl==='en'?customState.base.name:customState.base.nameAm];
+if(customState.milk.name!=='None')parts.push(cl==='en'?customState.milk.name:customState.milk.nameAm);
+if(customState.sweet.name!=='Normal')parts.push(cl==='en'?customState.sweet.name:customState.sweet.nameAm);
+customState.extras.forEach(e=>parts.push(cl==='en'?e.name:e.nameAm));
+document.getElementById('customName').textContent=parts.join(', ');
+document.getElementById('customPrice').textContent=total+' Birr';
+}
+function showToast(m){const x=document.getElementById('toast');if(!x)return;x.textContent=m;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2000);}
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));if(event&&event.target)event.target.classList.add('active');}
+function generateQRCodes(){new QRCode(document.getElementById('telebirr-qr'),{text:"telebirr://payment?phone=+2519XXXXXXXX",width:180,height:180,colorDark:"#00a651",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});new QRCode(document.getElementById('cbe-qr'),{text:"cbe://payment?account=1000XXXXXX",width:180,height:180,colorDark:"#1a3a6c",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});}
+function openItemModal(cat,idx){
+const it=md[cat][idx];
+const nm=cl==='en'?it.n:it.a;
+const am=cl==='en'?it.a:it.n;
+currentModalItem={cat,idx,name:it.n};
+const body=document.getElementById('item-modal-body');
+const nutHtml=it.nut?`<div class="item-modal-nutrition"><h4>${cl==='en'?'Nutrition Facts':'የእሴቶች መረጃ'}</h4><div class="nut-grid"><div class="nut-cell"><div class="nut-value">${it.nut.cal}</div><div class="nut-label">${cl==='en'?'kcal':'ካሎሪ'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.pro}g</div><div class="nut-label">${cl==='en'?'Protein':'ፕሮቲን'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.carb}g</div><div class="nut-label">${cl==='en'?'Carbs':'ካርቦ'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.fat}g</div><div class="nut-label">${cl==='en'?'Fat':'ስብ'}</div></div></div></div>`:'';
+body.innerHTML=`<img src="${it.i}" class="item-modal-img" alt="${nm}"><div class="item-modal-title">${nm}</div><div class="item-modal-amharic">${am}</div><div class="item-modal-desc">${it.d}</div>${getDietHtml(it.dt)}<div style="margin-top:1rem">${nutHtml}</div><div class="item-modal-price">${it.p} Birr</div>`;addRecent(it.n,it.p,cat,idx);renderRecent();
+document.getElementById('item-modal').classList.add('active');
+}
+function closeItemModal(){document.getElementById('item-modal').classList.remove('active');}
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');}
+function submitFeedback(){
+const name=document.getElementById('fbName').value.trim();
+const phone=document.getElementById('fbPhone').value.trim();
+const msg=document.getElementById('fbMessage').value.trim();
+const status=document.getElementById('feedbackStatus');
+if(!name||!msg){status.textContent=cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message';status.className='feedback-status error';status.style.display='block';return;}
+status.textContent=cl==='am'?'እየላኩ ነው...':'Sending...';status.className='feedback-status';status.style.display='block';
+const formData=new FormData();
+formData.append('name',name);formData.append('phone',phone);formData.append('message',msg);formData.append('lang',cl);
+fetch('send_feedback.php',{method:'POST',body:formData}).then(r=>r.json()).then(data=>{
+if(data.success){status.textContent=data.message;status.className='feedback-status success';document.getElementById('fbName').value='';document.getElementById('fbPhone').value='';document.getElementById('fbMessage').value='';}
+else{status.textContent=data.message;status.className='feedback-status error';}
+}).catch(()=>{status.textContent=cl==='am'?'መልእክት መላክ አልተቻለም':'Failed to send. Please try again.';status.className='feedback-status error';});
+}
+function submitSubscribe(){
+const email=document.getElementById('subEmail').value.trim();
+const status=document.getElementById('subStatus');
+const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!email||!emailRegex.test(email)){status.textContent=cl==='am'?'የሚሠራ ኢሜል ያስገቡ':'Please enter a valid email';status.className='subscribe-status error';status.style.display='block';return;}
+status.textContent=cl==='am'?'እየላኩ ነው...':'Subscribing...';status.className='subscribe-status';status.style.display='block';
+const formData=new FormData();
+formData.append('email',email);formData.append('lang',cl);
+fetch('subscribe.php',{method:'POST',body:formData}).then(r=>r.json()).then(data=>{
+if(data.success){const code=cl==='am'?'<div>ኮድ: <span class="discount-code">ZADWELCOME</span></div>':'<div>Code: <span class="discount-code">ZADWELCOME</span></div>';status.innerHTML=data.message+'<br>'+code;status.className='subscribe-status success';document.getElementById('subEmail').value='';localStorage.setItem('zad-subscribed','true');}
+else{status.textContent=data.message;status.className='subscribe-status error';}
+}).catch(()=>{status.textContent=cl==='am'?'ማለፍ አልተቻለም':'Failed to subscribe. Please try again.';status.className='subscribe-status error';});
+}
+
+// Counters
+function animateCounters(){
+document.querySelectorAll('.counter').forEach(c=>{
+const t=+c.getAttribute('data-target');
+let s=0;const inc=t/50;
+const upd=setInterval(()=>{s+=inc;if(s>=t){s=t;clearInterval(upd);}c.textContent=Math.floor(s).toLocaleString();},30);
+});
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input',e=>{renderMenu(e.target.value);});
+
+// Nav scroll
+document.addEventListener('scroll',()=>{
+const n=document.getElementById('topNav');
+if(window.scrollY>50)n.classList.add('scrolled');else n.classList.remove('scrolled');
+const b=document.getElementById('backToTop');
+if(window.scrollY>500)b.classList.add('visible');else b.classList.remove('visible');
+});
+
+// Init
+document.addEventListener('DOMContentLoaded',()=>{
+setLanguage(cl);
+setTheme(ct);
+generateQRCodes();
+renderMenu();renderFavorites();renderRecent();
+setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1200);
+const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.menu-card').forEach(c=>c.style.animationPlayState='running');}});},{threshold:0.1});
+document.querySelectorAll('.menu-section').forEach(s=>obs.observe(s));
+const cobs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCounters();cobs.unobserve(e.target);}});},{threshold:0.5});
+const sb=document.querySelector('.stats-bar');
+if(sb)cobs.observe(sb);
+});
+</script>
+</body>
+</html>
