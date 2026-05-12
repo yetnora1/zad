@@ -413,6 +413,10 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#gallery" onclick="toggleMobileMenu()" data-i18n="nav_gallery">Gallery</a>
 <a href="#payment" onclick="toggleMobileMenu()" data-i18n="nav_payment">Payment</a>
 <a href="#feedback" onclick="toggleMobileMenu()" data-i18n="nav_feedback">Feedback</a>
+<div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--br);">
+  <input type="text" id="mobileSearchInput" placeholder="Search menu..." style="width:100%;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--br);background:var(--cd);color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;margin-bottom:1rem;" oninput="liveSearch(this.value);document.getElementById('searchInput').value=this.value;">
+  <button onclick="shareMenu()" style="width:100%;padding:.8rem;background:var(--or);color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;gap:.6rem;"><i class="fas fa-share-nodes"></i> Share This Menu</button>
+</div>
 </div>
 
 <section class="hero" id="home">
@@ -433,6 +437,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a class="scroll-down" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
 <span data-i18n="explore_menu">Explore Our Menu</span><i class="fas fa-chevron-down"></i>
 </a>
+<button onclick="shareMenu()" style="margin-top:1rem;padding:.7rem 1.6rem;border-radius:50px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;font-family:'Poppins',sans-serif;font-size:.85rem;backdrop-filter:blur(8px);transition:.3s;display:inline-flex;align-items:center;gap:.5rem;" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'"><i class="fas fa-share-nodes"></i> Share Our Menu</button>
 </div>
 </section>
 
@@ -903,6 +908,13 @@ function openTableQR(){
   }
 }
 function closeTableQR(){document.getElementById('table-qr-modal').classList.remove('active');}
+function shareMenu(){
+  const url=window.location.href;
+  const title='ZAD Cafe Menu';
+  const text=cl==='en'?'Check out ZAD Cafe\'s menu in Addis Ababa!':'የዘድ ካፌ ምናሌ ይመልከቱ!';
+  if(navigator.share){navigator.share({title,text,url}).catch(()=>{});}
+  else{navigator.clipboard.writeText(url).then(()=>showToast(cl==='en'?'Menu link copied!':'ሊንክ ተቀድቷል!')).catch(()=>showToast(url));}
+}
 function getRecommendations(cat,idx){
   const catItems=md[cat]||[];
   const related=[];
