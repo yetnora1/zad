@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAD CAFE</title>
+<title>ZAD CAFE — Addis Ababa</title>
+<link rel="icon" type="image/png" href="images/zad_logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -27,8 +28,10 @@ body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-
 .top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nv);backdrop-filter:blur(10px);border-bottom:1px solid var(--br);transition:.3s;}
 .top-nav.scrolled{box-shadow:0 5px 30px var(--sh);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
-.nav-brand{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--or);text-decoration:none;font-weight:700;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--or);text-decoration:none;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,0.1);}
+[data-theme="light"] .nav-brand{color:#8B3A0E !important;text-shadow:0 2px 4px rgba(0,0,0,0.2);}
 .nav-brand span{color:var(--gd);}
+[data-theme="light"] .nav-brand span{color:#8B6914 !important;}
 .nav-links{display:flex;gap:2rem;align-items:center;}
 .nav-links a{color:var(--mu);text-decoration:none;font-size:.9rem;transition:.3s;position:relative;}
 .nav-links a:hover{color:var(--or);}
@@ -66,7 +69,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-
 .menu-overlay.active{display:block;}
 
 /* Hero */
-.hero{min-height:100vh;background:linear-gradient(135deg,rgba(26,15,10,.9),rgba(44,24,16,.85)),url('images/img_1501339847302.jpg') center/cover fixed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden;}
+.hero{min-height:100vh;background:linear-gradient(135deg,rgba(26,15,10,.9),rgba(44,24,16,.85)),url('images/hero_bg.jpg') center/cover fixed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden;}
 .hero-ambient{position:absolute;inset:0;z-index:0;pointer-events:none;}
 .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;animation:drift 20s ease-in-out infinite alternate;}
 .orb-1{width:400px;height:400px;background:radial-gradient(circle,#c67c4e,transparent 70%);top:-10%;left:-10%;animation-duration:25s;}
@@ -83,8 +86,10 @@ body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-
 .logo-circle{width:120px;height:120px;background:linear-gradient(135deg,var(--or),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 10px 40px rgba(232,120,74,.3);animation:float 3s ease-in-out infinite;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 .logo-circle i{font-size:3rem;color:#fff;}
-.hero h1{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--cr);margin-bottom:.5rem;letter-spacing:2px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--cr);margin-bottom:.5rem;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+[data-theme="light"] .hero h1{color:#ffffff !important;text-shadow:0 3px 10px rgba(0,0,0,0.6);}
 .hero h1 span{color:var(--or);}
+[data-theme="light"] .hero h1 span{color:#C25E28 !important;text-shadow:0 3px 10px rgba(0,0,0,0.5);}
 .hero-subtitle{font-size:1.2rem;color:var(--mu);margin-bottom:2rem;font-weight:300;}
 .hero-tagline{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gd);margin-bottom:3rem;font-style:italic;}
 .scroll-down{display:inline-flex;flex-direction:column;align-items:center;color:var(--mu);cursor:pointer;animation:bounce 2s infinite;}
@@ -394,7 +399,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 
 <nav class="top-nav" id="topNav">
 <div class="nav-inner">
-<a href="#home" class="nav-brand">ZAD <span>CAFE</span></a>
+<a href="#home" class="nav-brand"><img src="images/zad_logo.png" alt="ZAD" style="height:36px;width:36px;object-fit:cover;border-radius:50%;vertical-align:middle;margin-right:.4rem;"> ZAD <span>CAFE</span></a>
 <div class="nav-links">
 <a href="#home" data-i18n="nav_home">Home</a>
 <a href="#about" data-i18n="nav_about">About</a>
@@ -427,8 +432,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#payment" onclick="toggleMobileMenu()" data-i18n="nav_payment">Payment</a>
 <a href="#feedback" onclick="toggleMobileMenu()" data-i18n="nav_feedback">Feedback</a>
 <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--br);">
-  <input type="text" id="mobileSearchInput" placeholder="Search menu..." style="width:100%;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--br);background:var(--cd);color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;margin-bottom:1rem;" oninput="liveSearch(this.value);document.getElementById('searchInput').value=this.value;">
-  <button onclick="shareMenu()" style="width:100%;padding:.8rem;background:var(--or);color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;gap:.6rem;"><i class="fas fa-share-nodes"></i> Share This Menu</button>
+  <input type="text" id="mobileSearchInput" placeholder="Search menu..." style="width:100%;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--br);background:var(--cd);color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;" oninput="liveSearch(this.value);document.getElementById('searchInput').value=this.value;">
 </div>
 </div>
 
@@ -443,20 +447,19 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <div class="steam steam-4"></div>
 </div>
 <div class="hero-content">
-<div class="logo-circle"><i class="fas fa-mug-hot"></i></div>
+<div class="logo-circle" style="overflow:hidden;padding:0;background:transparent;box-shadow:0 10px 40px rgba(232,120,74,.4);"><img src="images/zad_logo.png" alt="ZAD Cafe" style="width:100%;height:100%;object-fit:cover;"></div>
 <h1>ZAD <span>CAFE</span></h1>
 <p class="hero-subtitle">EST. 2020 &bull; ADDIS ABABA</p>
 <p class="hero-tagline" data-i18n="hero_tagline">"Where Every Bite Feels Like Home"</p>
 <a class="scroll-down" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
 <span data-i18n="explore_menu">Explore Our Menu</span><i class="fas fa-chevron-down"></i>
 </a>
-<button onclick="shareMenu()" style="margin-top:1rem;padding:.7rem 1.6rem;border-radius:50px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;font-family:'Poppins',sans-serif;font-size:.85rem;backdrop-filter:blur(8px);transition:.3s;display:inline-flex;align-items:center;gap:.5rem;" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'"><i class="fas fa-share-nodes"></i> Share Our Menu</button>
 </div>
 </section>
 
 <section class="about-section" id="about">
 <div class="about-grid">
-<div class="about-image"><img src="images/img_1554118811.jpg" alt="ZAD Cafe"></div>
+<div class="about-image"><img src="images/cafe_interior.jpg" alt="ZAD Cafe"></div>
 <div class="about-content">
 <h2 data-i18n="about_title">Our Story</h2>
 <p data-i18n="about_p1">Welcome to ZAD Cafe, a cozy corner in the heart of Addis Ababa where flavor meets warmth. Since 2020, we have been serving handcrafted dishes that celebrate both local Ethiopian tastes and international favorites.</p>
@@ -557,12 +560,12 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <section class="gallery-section" id="gallery">
 <div class="section-header"><div class="section-icon"><i class="fas fa-images"></i></div><h2 class="section-title" data-i18n="gallery_title">Gallery</h2><p class="section-subtitle" data-i18n="gallery_subtitle">Moments from ZAD Cafe</p></div>
 <div class="gallery-grid">
-<div class="gallery-item tall" style="background-image:url('images/img_1554118811.jpg')" onclick="openLightbox(0)"></div>
-<div class="gallery-item" style="background-image:url('images/img_1495474472287.jpg')" onclick="openLightbox(1)"></div>
-<div class="gallery-item" style="background-image:url('images/img_1509042239860.jpg')" onclick="openLightbox(2)"></div>
-<div class="gallery-item wide" style="background-image:url('images/img_1514432324607.jpg')" onclick="openLightbox(3)"></div>
-<div class="gallery-item" style="background-image:url('images/img_1521017432531.jpg')" onclick="openLightbox(4)"></div>
-<div class="gallery-item" style="background-image:url('images/img_1497935586351.jpg')" onclick="openLightbox(5)"></div>
+<div class="gallery-item tall" style="background-image:url('images/cafe_interior.jpg')" onclick="openLightbox(0)"></div>
+<div class="gallery-item" style="background-image:url('images/cafe_coffee.jpg')" onclick="openLightbox(1)"></div>
+<div class="gallery-item" style="background-image:url('images/cafe_latte.jpg')" onclick="openLightbox(2)"></div>
+<div class="gallery-item wide" style="background-image:url('images/cafe_food.jpg')" onclick="openLightbox(3)"></div>
+<div class="gallery-item" style="background-image:url('images/macchiato.jpg')" onclick="openLightbox(4)"></div>
+<div class="gallery-item" style="background-image:url('images/coffee_beans.jpg')" onclick="openLightbox(5)"></div>
 </div>
 </section>
 
@@ -572,7 +575,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <div class="seasonal-grid">
 <div class="seasonal-card">
 <span class="seasonal-badge">Limited</span>
-<div class="seasonal-img" style="background-image:url('images/img_1542990253.jpg')"></div>
+<div class="seasonal-img" style="background-image:url('images/honey_latte.jpg')"></div>
 <div class="seasonal-content">
 <div class="seasonal-title" data-i18n="sp1_title">Spiced Honey Latte</div>
 <div class="seasonal-desc" data-i18n="sp1_desc">Warm espresso with cinnamon, honey, and steamed milk.</div>
@@ -581,7 +584,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 <div class="seasonal-card">
 <span class="seasonal-badge">Limited</span>
-<div class="seasonal-img" style="background-image:url('images/img_1577805947697.jpg')"></div>
+<div class="seasonal-img" style="background-image:url('images/tropical_juice.jpg')"></div>
 <div class="seasonal-content">
 <div class="seasonal-title" data-i18n="sp2_title">Tropical Sunrise Juice</div>
 <div class="seasonal-desc" data-i18n="sp2_desc">Mango, papaya, and orange blend with a ginger kick.</div>
@@ -590,7 +593,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 <div class="seasonal-card">
 <span class="seasonal-badge">Chef Pick</span>
-<div class="seasonal-img" style="background-image:url('images/img_1589302168068.jpg')"></div>
+<div class="seasonal-img" style="background-image:url('images/avocado_toast.jpg')"></div>
 <div class="seasonal-content">
 <div class="seasonal-title" data-i18n="sp3_title">Avocado & Egg Toast</div>
 <div class="seasonal-desc" data-i18n="sp3_desc">Sourdough topped with smashed avocado and poached egg.</div>
@@ -608,17 +611,17 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <div class="testimonial-card">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
 <p data-i18n="review1">"The best Chechebsa I have ever had! ZAD Cafe has become my weekend tradition. The atmosphere is warm and the staff is incredibly friendly."</p>
-<div class="testimonial-author"><img src="images/img_1494790108377.jpg" alt=""><div><h4>Sarah T.</h4><span>Regular Customer</span></div></div>
+<div class="testimonial-author"><img src="images/avatar1.jpg" alt="Sarah T."><div><h4>Sarah T.</h4><span>Regular Customer</span></div></div>
 </div>
 <div class="testimonial-card">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
 <p data-i18n="review2">"Amazing pizza and the payment via Telebirr QR is so convenient. Perfect place to hang out with friends after work."</p>
-<div class="testimonial-author"><img src="images/img_1507003211169.jpg" alt=""><div><h4>Dawit K.</h4><span>Food Blogger</span></div></div>
+<div class="testimonial-author"><img src="images/avatar2.jpg" alt="Dawit K."><div><h4>Dawit K.</h4><span>Food Blogger</span></div></div>
 </div>
 <div class="testimonial-card">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
 <p data-i18n="review3">"Their breakfast combo is unbeatable. Fresh ful, warm bread, and a cup of Ethiopian coffee - the perfect start to any day."</p>
-<div class="testimonial-author"><img src="images/img_1438761681033.jpg" alt=""><div><h4>Helen M.</h4><span>Local Resident</span></div></div>
+<div class="testimonial-author"><img src="images/avatar3.jpg" alt="Helen M."><div><h4>Helen M.</h4><span>Local Resident</span></div></div>
 </div>
 </div>
 </div>
@@ -657,14 +660,14 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <h3 class="payment-name">Telebirr</h3>
 <p class="payment-hint" data-i18n="pay_telebirr">Scan to pay with Telebirr</p>
 <div class="qr-placeholder" id="telebirr-qr"></div>
-<div class="account-info"><label data-i18n="label_phone">Phone Number</label><input type="text" value="+251 9XX XXX XXX" readonly onclick="this.select()"></div>
+<div class="account-info"><label data-i18n="label_phone">Phone Number</label><input type="text" value="+251 985154985" readonly onclick="this.select()"></div>
 </div>
 <div class="payment-card">
 <div class="payment-logo cbe-logo"><i class="fas fa-university"></i></div>
 <h3 class="payment-name">CBE Bank</h3>
 <p class="payment-hint" data-i18n="pay_cbe">Scan to pay with CBE</p>
 <div class="qr-placeholder" id="cbe-qr"></div>
-<div class="account-info"><label data-i18n="label_account">Account Number</label><input type="text" value="1000XXXXXX" readonly onclick="this.select()"></div>
+<div class="account-info"><label data-i18n="label_account">Account Number</label><input type="text" value="1000231406558" readonly onclick="this.select()"></div>
 </div>
 </div>
 </div>
@@ -727,7 +730,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <h2 class="subscribe-title" data-i18n="sub_title">Join the ZAD Family</h2>
 <p class="subscribe-subtitle" data-i18n="sub_subtitle">Subscribe for updates and get <strong>10% off</strong> your first order</p>
 <div class="subscribe-box">
-<input type="email" id="subEmail" placeholder="your@email.com" data-i18n-placeholder="sub_placeholder" required>
+<input type="email" id="subEmail" placeholder="etcoder27@gmail.com" data-i18n-placeholder="sub_placeholder" required>
 <button onclick="submitSubscribe()" data-i18n="sub_btn">Subscribe</button>
 </div>
 <div class="subscribe-status" id="subStatus"></div>
@@ -737,7 +740,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <footer>
 <div class="footer-grid">
 <div class="footer-col">
-<h4>ZAD CAFE</h4>
+<div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;"><img src="images/zad_logo.png" alt="ZAD" style="width:42px;height:42px;object-fit:cover;border-radius:50%;"><h4 style="margin:0;">ZAD CAFE</h4></div>
 <p data-i18n="footer_desc">Where every bite feels like home. Serving Addis Ababa since 2020.</p>
 <div class="social-links">
 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -747,14 +750,13 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 <div class="footer-col">
 <h4 data-i18n="footer_hours">Opening Hours</h4>
-<p data-i18n="hours_week">Mon - Fri: 7:00 AM - 10:00 PM</p>
-<p data-i18n="hours_weekend">Sat - Sun: 8:00 AM - 11:00 PM</p>
+<p data-i18n="hours_week">Mon - Sun: 7:00 AM - 10:00 PM</p>
 </div>
 <div class="footer-col">
 <h4 data-i18n="footer_contact">Contact</h4>
 <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
-<p><i class="fas fa-phone"></i> +251 9XX XXX XXX</p>
-<p><i class="fas fa-envelope"></i> hello@zadcafe.com</p>
+<p><i class="fas fa-phone"></i> +251 985154985</p>
+<p><i class="fas fa-envelope"></i> etcoder27@gmail.com</p>
 </div>
 <div class="footer-col">
 <h4 data-i18n="footer_links">Quick Links</h4>
@@ -807,7 +809,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 
 <script>
 const t={en:{nav_home:"Home",nav_about:"About",nav_menu:"Menu",nav_gallery:"Gallery",nav_reserve:"Reserve",nav_payment:"Payment",search_placeholder:"Search menu...",hero_tagline:'"Where Every Bite Feels Like Home"',explore_menu:"Explore Our Menu",about_title:"Our Story",about_p1:"Welcome to ZAD Cafe, a cozy corner in the heart of Addis Ababa where flavor meets warmth. Since 2020, we have been serving handcrafted dishes that celebrate both local Ethiopian tastes and international favorites.",about_p2:"From our signature Chechebsa to our freshly baked pizzas, every item on our menu is prepared with love and the finest ingredients. Whether you are here for a morning coffee, a business lunch, or a family dinner, we make sure you leave with a smile.",stat_years:"Years of Service",stat_items:"Menu Items",stat_customers:"Happy Customers",stat_staff:"Expert Staff",cat_pasta:"Pasta",cat_rice:"Rice",cat_sandwich:"Sandwich",cat_burger:"Burger",cat_pizza:"Pizza",cat_extra:"Extras",cat_fresh:"Fresh Drinks",cat_cold:"Cold Drinks",cat_juice:"Juice",cat_breakfast:"Breakfast",cat_all:"All",sub_pasta:"Handcrafted with love",sub_rice:"A comforting bowl of happiness",sub_sandwich:"Layers of flavor in every bite",sub_burger:"Juicy, cheesy, irresistible",sub_pizza:"Slice into happiness",sub_extra:"The little things that matter",sub_fresh:"Warm your soul with every sip",sub_cold:"Refreshment at its finest",sub_juice:"Squeezed fresh, just for you",sub_breakfast:"Start your day the ZAD way",sub_all:"Browse our full menu",gallery_title:"Gallery",gallery_subtitle:"Moments from ZAD Cafe",testimonials_title:"What People Say",testimonials_subtitle:"Words from our beloved customers",review1:'"The best Chechebsa I have ever had! ZAD Cafe has become my weekend tradition. The atmosphere is warm and the staff is incredibly friendly."',review2:'"Amazing pizza and the payment via Telebirr QR is so convenient. Perfect place to hang out with friends after work."',review3:'"Their breakfast combo is unbeatable. Fresh ful, warm bread, and a cup of Ethiopian coffee - the perfect start to any day."',reserve_title:"Reserve a Table",reserve_subtitle:"Book your spot and we will have everything ready",label_name:"Your Name",label_phone:"Phone Number",label_date:"Date",label_time:"Time",label_guests:"Guests",label_occasion:"Occasion",label_notes:"Special Requests",label_account:"Account Number",btn_reserve:"Reserve Now",nav_feedback:"Feedback",feedback_title:"We Value Your Feedback",feedback_subtitle:"Share your experience with us",label_message:"Your Message",btn_send_feedback:"Send Feedback",feedback_placeholder:"Tell us about your experience...",occ_casual:"Casual Dining",occ_birthday:"Birthday",occ_date:"Date Night",occ_business:"Business",pay_title:"Pay with Ease",pay_subtitle:"Scan the QR code to pay instantly. Quick, secure, and hassle-free.",pay_telebirr:"Scan to pay with Telebirr",pay_cbe:"Scan to pay with CBE",footer_desc:"Where every bite feels like home. Serving Addis Ababa since 2020.",footer_hours:"Opening Hours",hours_week:"Mon - Fri: 7:00 AM - 10:00 PM",hours_weekend:"Sat - Sun: 8:00 AM - 11:00 PM",footer_contact:"Contact",footer_links:"Quick Links",footer_copy:"&copy; 2026 ZAD Cafe. All rights reserved.",your_order:"Your Order",cart_empty:"Your cart is empty",total:"Total",btn_place_order:"Place Order",item_details:"Item Details",diet_vegan:"Vegan",diet_gf:"Gluten-Free",diet_spicy:"Spicy",events_title:"Upcoming Events",events_subtitle:"Join us for special moments at ZAD",ev1_title:"Coffee Tasting Workshop",ev1_desc:"Discover Ethiopian coffee origins and brewing techniques with our expert barista.",ev2_title:"Live Jazz Night",ev2_desc:"Smooth jazz, great food, and the best atmosphere in Addis Ababa.",ev3_title:"Ethiopian Coffee Ceremony",ev3_desc:"Experience the traditional bunna ceremony with fresh roasting and incense.",ev4_title:"Pizza & Pasta Night",ev4_desc:"Half-price on all pasta and pizza items. Bring your friends!",cust_title:"Build Your Drink",cust_subtitle:"Craft your perfect cup, your way",cust_base:"Base Drink",cust_milk:"Milk",cust_sweet:"Sweetness",cust_extra:"Extras",cust_total:"Your Custom Drink",cust_add:"Add to Order",fav_title:"Your Favorites",fav_subtitle:"Quick access to the items you love",recent_title:"Recently Viewed",recent_subtitle:"Items you've browsed recently",sub_title:"Join the ZAD Family",sub_subtitle:"Subscribe for updates and get 10% off your first order",sub_placeholder:"your@email.com",sub_btn:"Subscribe",added_to_cart:"Added to cart"},
-am:{nav_home:"መነሻ",nav_about:"ስለኛ",nav_menu:"ምናሌ",nav_gallery:"ማዕከል",nav_reserve:"ያስያዙ",nav_payment:"ክፍያ",search_placeholder:"ፈልግ...",hero_tagline:'"በሁሉም ቁራሽ የቤት ስሜት የሚሰጥ"',explore_menu:"ምናሌን ያስሱ",about_title:"ታሪካችን",about_p1:"ወደ ዘድ ካፌ እንኳን በደህና መጡ፣ በአዲስ አበባ ልብ ውስጥ ጣዕም እና ሙቀት የሚገናኙበት ማረፊያ። ከ2020 ጀምሮ፣ የኢትዮጵያ ዘይቤን እና ዓለም አቀፍ ተወዳጆችን የሚያከብሩ እጅ የሚሠሩ ዲሽዎችን እናቀርባለን።",about_p2:"ከየብዙሃኑ ቼቼብሳ እስከ ትኩስ ፒዛዎች ድረስ፣ በሜኑዋችን ላይ ያለው ሁሉ ንጥር በፍቅር እና በምርጥ ንጥረ ነገሮች የተዘጋጀ ነው። በማለዳ ቡና፣ በንግድ ምሳ፣ ወይም በቤተሰብ እራት እዚህ ብትሆኑ እንኳን በሳቅ የሚሰናቱ ያደርጋችኋል።",stat_years:"የአገልግሎት ዓመታት",stat_items:"የሜኑ ንጥረ ነገሮች",stat_customers:"ደስተኛ ደንበኞች",stat_staff:"ልዩ ባለሙያዎች",cat_pasta:"ፓስታ",cat_rice:"ሩዝ",cat_sandwich:"ሳንድዊች",cat_burger:"ቡርገር",cat_pizza:"ፒዛ",cat_extra:"ተጨማሪ",cat_fresh:"ሙቅ መጠጥ",cat_cold:"ቀዝቃዛ መጠጥ",cat_juice:"ጭምብል",cat_breakfast:"ቁርስ",cat_all:"ሁሉም",sub_pasta:"በፍቅር የተሠሩ",sub_rice:"የሚያጽናና ውስን",sub_sandwich:"በየከንፈሩ ስትራቶች",sub_burger:"ረፍረፍ ቡርገር",sub_pizza:"ወደ ስሜት ይንኩ",sub_extra:"ትንሽ ነገሮች",sub_fresh:"በየጥፍቱ ሙቀት ይሙሙ",sub_cold:"አስደሳች መጠጥ",sub_juice:"በቅድሚያ የተጭበረበረ",sub_breakfast:"ቀኑን በዘድ ይጀምሩ",sub_all:"ሙሉውን ሜኑ ያስሱ",gallery_title:"ምስል ማዕከል",gallery_subtitle:"ከዘድ ካፌ የተወሰዱ ጊዜያት",testimonials_title:"ሰዎች ምን ይላሉ",testimonials_subtitle:"ከተወዳጅ ደንበኞቻችን",review1:'"ምርጥ ቼቼብሳ! ዘድ ካፌ የእኔ የሳምንት መጨረሻ ባህሪዬ ሆኗል። አካባቢው ሙቅ ነው እና ሰራተኞቹ በጣም ጎንደር ናቸው።"',review2:'"ድንቅ ፒዛ እና በቴሌብር ኩዋር ኮድ መክፈል በጣም አስታራቂ ነው። ከስራ በኋላ ከወዳጆች ጋር ለመቀመጥ ፍጹም ቦታ።"',review3:'"የቁርስ ጥምረታቸው ሊታመን አይችልም። ትኩስ ፉል፣ ሙቅ ዳቦ፣ እና የኢትዮጵያ ቡና - ለማንኛውም ቀን ፍጹም መጀመሪያ።"',reserve_title:"ጠረጴዛ ያስያዙ",reserve_subtitle:"ቦታዎን ይያዙ እና እኛ ሁሉንም እንዘጋጃለን",label_name:"ስም",label_phone:"ስልክ ቁጥር",label_date:"ቀን",label_time:"ሰዓት",label_guests:"እንግዶች",label_occasion:"አጋጣሚ",label_notes:"ልዩ ጥያቄዎች",label_account:"የሂሳብ ቁጥር",btn_reserve:"አሁን ያስያዙ",nav_feedback:"አስተያየት",feedback_title:"አስተያየትዎን እንወዳለን",feedback_subtitle:"ከእኛ ጋር ያለዎትን ልምድ ያካፍሉን",label_message:"መልእክት",btn_send_feedback:"አስተያየት ላክ",feedback_placeholder:"ስለ ልምድዎ ያንጎራሩን...",occ_casual:"መደበኛ",occ_birthday:"የልደት ቀን",occ_date:"የፍቅር ምሽት",occ_business:"ንግድ",pay_title:"በሰላም ይክፈሉ",pay_subtitle:"ኩዋር ኮዱን ስካን ያድርጉ። ፈጣን፣ ደህንነቱ የተጠበቀ እና ቀላል።",pay_telebirr:"በቴሌብር ለመክፈል ስካን ያድርጉ",pay_cbe:"በCBE ለመክፈል ስካን ያድርጉ",footer_desc:"በሁሉም ቁራሽ የቤት ስሜት። ከ2020 ጀምሮ በአዲስ አበባ አገልግሎት።",footer_hours:"የክፍት ሰዓታት",hours_week:"ሰኞ - አርብ: 7:00 - 22:00",hours_weekend:"ቅዳሜ - እሁድ: 8:00 - 23:00",footer_contact:"አግኙን",footer_links:"ፈጣን ማገናኛዎች",footer_copy:"&copy; 2026 ዘድ ካፌ። ሁሉም መብቶች የተጠበቁ ናቸው።",your_order:"ትዕዛዝዎ",cart_empty:"ዕቃዎ ባዶ ነው",total:"ጠቅላላ",btn_place_order:"ትዕዛዝ ያስገቡ",item_details:"ዕቃ ዝርዝሮች",diet_vegan:"የጾም",diet_gf:"የስንዴ ያልሆነ",diet_spicy:"ጠንካራ",events_title:"መጪ ክስተቶች",events_subtitle:"በዘድ ላይ ልዩ ጊዜያትን ያገናኙ",ev1_title:"የቡና ምርመራ ወርክሾፕ",ev1_desc:"ከባለሙያ ባሪስታው ጋር የኢትዮጵያ ቡና ዘይቤዎችን እና የማጥመጃ ዘዴዎችን ያስሱ።",ev2_title:"የቀጥታ ጃዝ ሌሊት",ev2_desc:"ለስላሳ ጃዝ፣ ጥሩ ምግብ፣ እና በአዲስ አበባ ምርጥ አየር ጠቀሻ።",ev3_title:"የኢትዮጵያ ቡና ሥነ ሥርዓት",ev4_title:"ፒዛ እና ፓስታ ሌሊት",ev4_desc:"በሁሉም ፓስታ እና ፒዛ ምርቶች ላይ ከግማሽ ዋጋ በታች። ጓደኞችዎን ይጎብኙ!",ev3_desc:"በትኩስ አብሳሪ እና ዕጣን የቡና ሥነ ሥርዓትን ያስሱ።",fav_title:"የእርስዎ ተወዳጆች",fav_subtitle:"የሚወዷቸው ንጥረ ነገሮች ለፈጣን ጥቅም",recent_title:"የቅርብ ጊዜ የተመለከቱ",recent_subtitle:"በቅርብ ጊዜ የገመገሙዋቸው ንጥረ ነገሮች",sub_title:"የዘድ ቤተሰብ ይሁኑ",sub_subtitle:"ለመረጃ ይመዝገቡና በመጀመሪያ ትዕዛዝዎ ላይ <strong>10% ቅናሽ</strong> ያግኙ",sub_placeholder:"your@email.com",sub_btn:"ይመዝገቡ",added_to_cart:"ወደ ዕቃ ታክሏል",cust_title:"ልዩ መጠጥ ይስሩ",cust_subtitle:"ፍጹም ብርጌብዎን በራስዎ ይስሩ",cust_base:"መነሻ መጠጥ",cust_milk:"ወተት",cust_sweet:"ስኳር",cust_extra:"ተጨማሪ",cust_total:"የእርስዎ ልዩ መጠጥ",cust_add:"ወደ ትዕዛዝ ያክሉ"}};
+am:{nav_home:"መነሻ",nav_about:"ስለኛ",nav_menu:"ምናለ",nav_gallery:"ማዕከል",nav_reserve:"ያስይዙ",nav_payment:"ክፍያ",search_placeholder:"ፈልግ...",hero_tagline:'"ሁሉም ምግቦች ቤት ያለን ያህል ስሜት ይሰጣሉ"',explore_menu:"ምናለን ያስሱ",about_title:"ታሪካችን",about_p1:"ወደ ዛድ ካፌ እንኳን በደህና መጡ፣ በአዲስ አበባ ልብ ውስጥ ጣዕም እና ሙቀት የሚገናኙበት ማረፊያ። ከ2020 ጀምሮ፣ የኢትዮጵያ ዘይቤን እና ዓለም አቀፍ ተወዳጆችን የሚያከብሩ በእጅ የሚሠሩ ምግቦችን እናቀርባለን።",about_p2:"ከብዙ በትንሹ ከ ጬጬብሳ እስከ ትኩስ ፒዛዎች ድረስ፣ በሜኗችን ላይ ያለው ሁሉ ምግብ በፍቅር እና በምርጥ ንጥረ ነገሮች የተዘጋጀ ነው። በማለዳ ቡና፣ በንግድ ምሳ፣ ወይም በቤተሰብ እራት እዚህ ብትሆኑ እንኳን በሳቅ ዘና ያደርጋችኋል።",stat_years:"የአገልግሎት ዓመታት",stat_items:"የሜኑ ንጥረ ነገሮች",stat_customers:"ደስተኛ ደንበኞች",stat_staff:"ልዩ ባለሙያዎች",cat_pasta:"ፓስታ",cat_rice:"ሩዝ",cat_sandwich:"ሳንድዊች",cat_burger:"በርገር",cat_pizza:"ፒዛ",cat_extra:"ተጨማሪ",cat_fresh:"ሞቅ ያሉ መጠጦች",cat_cold:"ቀዝቃዛ መጠጦች",cat_juice:"ጁስ",cat_breakfast:"ቁርስ",cat_all:"ሁሉም",sub_pasta:"በፍቅር የተሠሩ",sub_rice:"የሚያጽናና ውስን",sub_sandwich:"በየከንፈሩ ስትራቶች",sub_burger:"ረፍረፍ ቡርገር",sub_pizza:"ወደ ስሜት ይንኩ",sub_extra:"ትንሽ ነገሮች",sub_fresh:"በየጥፍቱ ሙቀት ይሙሙ",sub_cold:"አስደሳች መጠጥ",sub_juice:"በቅድሚያ የተጭበረበረ",sub_breakfast:"ቀንዎን በዛድ ይጀምሩ",sub_all:"ሙሉውን ሜኑ ያስሱ",gallery_title:"ምስል ማዕከል",gallery_subtitle:"ከዛድ ካፌ የተወሰዱ ጊዜያት",testimonials_title:"ሰዎች ምን ይላሉ",testimonials_subtitle:"ከተወዳጅ ደንበኞቻችን",review1:'"ምርጥ ጬጬብሳ! ዛድ ካፌ የእኔ የሳምንት መጨረሻ ባህሪዬ ሆኗል። አካባቢው ሙቅ ነው እና ሰራተኞቹ በጣም ጎንደር ናቸው።"',review2:'"ድንቅ ፒዛ እና በቴሌብር ኩዋር ኮድ መክፈል በጣም አስታራቂ ነው። ከስራ በኋላ ከወዳጆች ጋር ለመቀመጥ ፍጹም ቦታ።"',review3:'"የቁርስ ጥምረታቸው ሊታመን አይችልም። ትኩስ ፉል፣ ሙቅ ዳቦ፣ እና የኢትዮጵያ ቡና - ለማንኛውም ቀን ፍጹም መጀመሪያ።"',reserve_title:"ጠረጴዛ ያስያዙ",reserve_subtitle:"ቦታዎን ይያዙ እና እኛ ሁሉንም እንዘጋጃለን",label_name:"ስም",label_phone:"ስልክ ቁጥር",label_date:"ቀን",label_time:"ሰዓት",label_guests:"እንግዶች",label_occasion:"አጋጣሚ",label_notes:"ልዩ ጥያቄዎች",label_account:"የሂሳብ ቁጥር",btn_reserve:"አሁን ያስያዙ",nav_feedback:"አስተያየት",feedback_title:"አስተያየትዎን እንወዳለን",feedback_subtitle:"ከእኛ ጋር ያለዎትን ልምድ ያካፍሉን",label_message:"መልእክት",btn_send_feedback:"አስተያየት ላክ",feedback_placeholder:"ስለ ልምድዎ ያንጎራሩን...",occ_casual:"መደበኛ",occ_birthday:"የልደት ቀን",occ_date:"የፍቅር ምሽት",occ_business:"ንግድ",pay_title:"በሰላም ይክፈሉ",pay_subtitle:"ኩዋር ኮዱን ስካን ያድርጉ። ፈጣን፣ ደህንነቱ የተጠበቀ እና ቀላል።",pay_telebirr:"በቴሌብር ለመክፈል ስካን ያድርጉ",pay_cbe:"በCBE ለመክፈል ስካን ያድርጉ",footer_desc:"በሁሉም ቁራሽ የቤት ስሜት። ከ2020 ጀምሮ በአዲስ አበባ አገልግሎት።",footer_hours:"የክፍት ሰዓታት",hours_week:"ሰኞ - አርብ: 7:00 - 22:00",hours_weekend:"ቅዳሜ - እሁድ: 8:00 - 23:00",footer_contact:"አግኙን",footer_links:"ፈጣን ማገናኛዎች",footer_copy:"&copy; 2026 ዘድ ካፌ። ሁሉም መብቶች የተጠበቁ ናቸው።",your_order:"ትዕዛዝዎ",cart_empty:"ዕቃዎ ባዶ ነው",total:"ጠቅላላ",btn_place_order:"ትዕዛዝ ያስገቡ",item_details:"ዕቃ ዝርዝሮች",diet_vegan:"የጾም",diet_gf:"የስንዴ ያልሆነ",diet_spicy:"ጠንካራ",events_title:"መጪ ክስተቶች",events_subtitle:"በዘድ ላይ ልዩ ጊዜያትን ያገናኙ",ev1_title:"የቡና ምርመራ ወርክሾፕ",ev1_desc:"ከባለሙያ ባሪስታው ጋር የኢትዮጵያ ቡና ዘይቤዎችን እና የማጥመጃ ዘዴዎችን ያስሱ።",ev2_title:"የቀጥታ ጃዝ ሌሊት",ev2_desc:"ለስላሳ ጃዝ፣ ጥሩ ምግብ፣ እና በአዲስ አበባ ምርጥ አየር ጠቀሻ።",ev3_title:"የኢትዮጵያ ቡና ሥነ ሥርዓት",ev4_title:"ፒዛ እና ፓስታ ሌሊት",ev4_desc:"በሁሉም ፓስታ እና ፒዛ ምርቶች ላይ ከግማሽ ዋጋ በታች። ጓደኞችዎን ይጎብኙ!",ev3_desc:"በትኩስ አብሳሪ እና ዕጣን የቡና ሥነ ሥርዓትን ያስሱ።",fav_title:"የእርስዎ ተወዳጆች",fav_subtitle:"የሚወዷቸው ንጥረ ነገሮች ለፈጣን ጥቅም",recent_title:"የቅርብ ጊዜ የተመለከቱ",recent_subtitle:"በቅርብ ጊዜ የገመገሙዋቸው ንጥረ ነገሮች",sub_title:"የዘድ ቤተሰብ ይሁኑ",sub_subtitle:"ለመረጃ ይመዝገቡና በመጀመሪያ ትዕዛዝዎ ላይ <strong>10% ቅናሽ</strong> ያግኙ",sub_placeholder:"your@email.com",sub_btn:"ይመዝገቡ",added_to_cart:"ወደ ዕቃ ታክሏል",cust_title:"ልዩ መጠጥ ይስሩ",cust_subtitle:"ፍጹም ብርጌብዎን በራስዎ ይስሩ",cust_base:"መነሻ መጠጥ",cust_milk:"ወተት",cust_sweet:"ስኳር",cust_extra:"ተጨማሪ",cust_total:"የእርስዎ ልዩ መጠጥ",cust_add:"ወደ ትዕዛዝ ያክሉ"}};
 let cl=localStorage.getItem('zad-lang')||'en';
 let ct=localStorage.getItem('zad-theme')||'dark';
 const usFlag=document.getElementById('langFlag')?document.getElementById('langFlag').src:'';
@@ -822,12 +824,12 @@ pasta:[{n:"Pasta with Sauce",a:"ፓስታ በስጎ",p:300,d:"Classic pasta in r
 rice:[{n:"Rice with Tuna",a:"ሩዝ በአሳ",p:370,d:"Fluffy rice paired with tuna",i:"images/rice_tuna.jpg"},{n:"Rice with Chicken",a:"ሩዝ በዶሮ",p:450,d:"Savory rice with tender chicken",i:"images/rice_chicken.jpg"},{n:"Rice with Sauce",a:"ሩዝ በስጎ",p:300,d:"Steamed rice in special sauce",i:"images/rice_sauce.jpg"},{n:"Rice with Vegetable",a:"ሩዝ በአትክልት",p:300,d:"Healthy rice with mixed veggies",i:"images/rice_veg.jpg",dt:["v","gf"]}],
 sandwich:[{n:"Club Sandwich",a:"ክላብ ሳንድዊች",p:460,d:"Triple-decker with fresh ingredients",i:"images/sw_club.jpg"},{n:"Tuna Sandwich",a:"አሳ ሳንድዊች",p:400,d:"Classic tuna on toasted bread",i:"images/sw_tuna.jpg"},{n:"Tuna Club Sandwich",a:"አሳ ክላብ ሳንድዊች",p:450,d:"Tuna club with extra goodness",i:"images/sw_tuna_club.jpg"},{n:"Egg Sandwich (with chips)",a:"ዕንቁላል ሳንድዊች (ከቺፕስ ጋር)",p:300,d:"Egg sandwich served with crispy chips",i:"images/sw_egg_chips.jpg"},{n:"Egg Sandwich (no chips)",a:"ዕንቁላል ሳንድዊች (ከቺፕስ ያለ)",p:250,d:"Simple and satisfying egg sandwich",i:"images/sw_egg.jpg"},{n:"Veg Sandwich (with chips)",a:"አትክልት ሳንድዊች (ከቺፕስ ጋር)",p:300,d:"Garden fresh with a side of chips",i:"images/sw_veg.jpg",dt:["v"]},{n:"Veg Sandwich (no chips)",a:"አትክልት ሳንድዊች (ከቺፕስ ያለ)",p:250,d:"Light and healthy veggie delight",i:"images/sw_veg2.jpg"},{n:"Chips",a:"ቺፕስ",p:200,d:"Crispy golden fries",i:"images/chips.jpg"}],
 burger:[{n:"Normal Burger",a:"ተራ ቡርገር",p:400,d:"Classic beef burger with fixings",i:"images/burger_normal.jpg",nut:{cal:650,pro:28,carb:45,fat:32}},{n:"Double Special Burger",a:"ድርብ ልዩ ቡርገር",p:650,d:"Double patty, double the joy",i:"images/burger_double.jpg"},{n:"Single Special Burger",a:"ተናጋሪ ልዩ ቡርገር",p:500,d:"Our signature special recipe",i:"images/burger_special.jpg"},{n:"Cheese Burger",a:"ቺዝ ቡርገር",p:300,d:"Melted cheese on juicy patty",i:"images/burger_cheese.jpg"}],
-pizza:[{n:"Zad Special Pizza",a:"ዘድ ልዩ ፒዛ",p:700,d:"Our chef's masterpiece creation",i:"images/pizza_special.jpg",b:"Chef's Pick",nut:{cal:850,pro:35,carb:95,fat:38}},{n:"Normal Pizza",a:"ተራ ፒዛ",p:500,d:"Classic pizza done right",i:"images/pizza_normal.jpg"},{n:"Special Pizza",a:"ልዩ ፒዛ",p:650,d:"Loaded with premium toppings",i:"images/pizza_special.jpg"},{n:"Margherita Pizza",a:"ማርጌሪታ ፒዛ",p:500,d:"Simple elegance: tomato & basil",i:"images/pizza_margherita.jpg"},{n:"Chicken Pizza",a:"ዶሮ ፒዛ",p:600,d:"Topped with seasoned chicken",i:"images/pizza_chicken.jpg"},{n:"Tuna Pizza (with cheese)",a:"አሳ ፒዛ (ከቺዝ ጋር)",p:600,d:"Tuna delight with cheesy goodness",i:"images/pizza_tuna.jpg"},{n:"Vegetable Pizza",a:"አትክልት ፒዛ",p:450,d:"Garden fresh on a crispy crust",i:"images/pizza_veg.jpg",dt:["v"]}],
-extra:[{n:"Mayonnaise",a:"ማዮኔዝ",p:80,d:"Creamy mayo dip",i:"images/img_1567620905732.jpg"},{n:"Ketchup",a:"ኬቻፕ",p:40,d:"Classic tomato ketchup",i:"images/img_1615485290382.jpg"},{n:"Bread",a:"ዳቦ",p:35,d:"Fresh baked bread roll",i:"images/img_1509440159596.jpg"},{n:"Injera",a:"እንጀራ",p:25,d:"Traditional Ethiopian flatbread",i:"images/img_1589302168068.jpg"},{n:"Tea Cup",a:"የሻይ ኩባያ",p:20,d:"Extra cup for sharing",i:"images/img_1517256064527.jpg"},{n:"Juice Cup",a:"የጭምብል ኩባያ",p:30,d:"Extra cup for your juice",i:"images/img_1575023782549.jpg"},{n:"Burger/Pizza Box",a:"የቡርገር/ፒዛ ቦክስ",p:50,d:"Takeaway packaging",i:"images/img_1615485290382.jpg"},{n:"Aluminum Foil",a:"የአሉሚኒየም ወረቀት",p:40,d:"For wrapping your goodies",i:"images/img_1587049352846.jpg"}],
-fresh:[{n:"Tea",a:"ሻይ",p:40,d:"Classic Ethiopian tea",i:"images/img_1544787219.jpg"},{n:"Coffee",a:"ቡና",p:40,d:"Rich Ethiopian coffee",i:"images/img_1498804103079.jpg",nut:{cal:5,pro:0,carb:1,fat:0}},{n:"Milk",a:"ወተት",p:70,d:"Warm fresh milk",i:"images/img_1506084868230.jpg"},{n:"Milk with Coffee",a:"ወተት ከቡና ጋር",p:80,d:"Perfect morning blend",i:"images/img_1567620905732.jpg"},{n:"Milk with Peanut",a:"ወተት ከሽንብራ ጋር",p:95,d:"Nutty creamy goodness",i:"images/img_1542990253.jpg"},{n:"Cappuccino",a:"ካፑቺኖ",p:100,d:"Frothy and delightful",i:"images/cappuccino.jpg"},{n:"Hot Chocolate",a:"ትኩስ ቸኮሌት",p:110,d:"Decadent chocolate warmth",i:"images/img_1542990253.jpg"},{n:"Macchiato",a:"ማኪያቶ",p:110,d:"Bold espresso with a touch of milk",i:"images/macchiato.jpg"},{n:"Fasting Macchiato",a:"የጾም ማኪያቶ",p:90,d:"Plant-based macchiato",i:"images/img_1514432324607.jpg",dt:["v"]},{n:"Double Macchiato",a:"ድርብ ማኪያቶ",p:100,d:"Extra strong for extra energy",i:"images/img_1560023907.jpg"},{n:"Peanut Tea",a:"ሽንብራ ሻይ",p:110,d:"Nutty traditional tea",i:"images/img_1558160074.jpg"},{n:"Peanut with Ginger",a:"ሽንብራ ከዝንጅብል ጋር",p:80,d:"Spiced nutty warmth",i:"images/img_1544145945.jpg"},{n:"Peanut with Coffee",a:"ሽንብራ ከቡና ጋር",p:90,d:"Nutty coffee fusion",i:"images/img_1610632380989.jpg"},{n:"Ginger Tea",a:"ዝንጅብል ሻይ",p:90,d:"Warming ginger spice",i:"images/img_1597481499750.jpg",dt:["sp"]},{n:"Lemon Tea",a:"የሎሚ ሻይ",p:60,d:"Zesty and refreshing",i:"images/img_1513558161293.jpg"},{n:"Spris",a:"ስፕሪስ",p:50,d:"Layered juice delight",i:"images/spris.jpg"},{n:"Special Tea (Large)",a:"ልዩ ሻይ (ትልቅ)",p:80,d:"Bigger cup, bigger comfort",i:"images/img_1597481499750.jpg"},{n:"Orange Tea",a:"የብርቱካን ሻይ",p:120,d:"Citrus infused tea",i:"images/img_1594631252845.jpg"},{n:"Pineapple Tea",a:"የአናናስ ሻይ",p:75,d:"Tropical tea twist",i:"images/img_1536657464919.jpg"},{n:"Mango Tea",a:"የማንጐ ሻይ",p:75,d:"Sweet mango infusion",i:"images/img_1623065422902.jpg"}],
-cold:[{n:"Soft Drink",a:"ሶፍት ድሪንክ",p:60,d:"Chilled carbonated refreshment",i:"images/img_1560023907.jpg"},{n:"1 Liter Water",a:"1 ሊትር ውሃ",p:50,d:"Pure hydration",i:"images/img_1548839140.jpg",dt:["v","gf"]},{n:"0.5 Liter Water",a:"0.5 ሊትር ውሃ",p:35,d:"Quick refreshment",i:"images/img_1548839140.jpg",dt:["v","gf"]},{n:"Ambo Water",a:"አምቦ ውሃ",p:60,d:"Sparkling mineral water",i:"images/img_1560023907.jpg"}],
-juice:[{n:"Papaya Juice",a:"ፓፓያ ጭምብል",p:200,d:"Tropical papaya delight",i:"images/juice_papaya.jpg"},{n:"Avocado Juice",a:"አቮካዶ ጭምብል",p:200,d:"Creamy avocado goodness",i:"images/juice_avocado.jpg",nut:{cal:380,pro:5,carb:25,fat:22}},{n:"Mango Juice",a:"ማንጐ ጭምብል",p:200,d:"Sweet mango freshness",i:"images/juice_mango.jpg"},{n:"Strawberry Juice",a:"ስትሮቤሪ ጭምብል",p:300,d:"Berry burst of flavor",i:"images/juice_strawberry.jpg"},{n:"Watermelon Juice",a:"ሃብሃብ ጭምብል",p:250,d:"Summer in a glass",i:"images/juice_watermelon.jpg"},{n:"Special Juice",a:"ልዩ ጭምብል",p:350,d:"Our signature blend",i:"images/juice_special.jpg"},{n:"Spritz Juice",a:"ስፕሪትዝ ጭምብል",p:250,d:"Fruity spritz refreshment",i:"images/spris.jpg"},{n:"Avocado Shake",a:"አቮካዶ ሼክ",p:350,d:"Thick and creamy shake",i:"images/juice_shake.jpg"},{n:"Strawberry Milkshake",a:"ስትሮቤሪ ሚልክሼክ",p:350,d:"Berry milkshake bliss",i:"images/juice_strawberry.jpg"},{n:"Avocado Strawberry",a:"አቮካዶ ስትሮቤሪ",p:250,d:"Perfect fruity pairing",i:"images/juice_avocado.jpg"},{n:"Special Watermelon Juice",a:"ልዩ ሃብሃብ ጭምብል",p:350,d:"Upgraded watermelon treat",i:"images/juice_watermelon.jpg"},{n:"Special Fasting Juice",a:"ልዩ የጾም ጭምብል",p:300,d:"Plant-based special blend",i:"images/juice_special.jpg",dt:["v","gf"]}],
-breakfast:[{n:"Normal Chechebsa",a:"ተራ ቼቼብሳ",p:280,d:"Traditional Ethiopian breakfast",i:"images/fetira.jpg",nut:{cal:480,pro:12,carb:65,fat:18}},{n:"Special Chechebsa",a:"ልዩ ቼቼብሳ",p:400,d:"Chechebsa with extra love",i:"images/img_1589302168068.jpg"},{n:"Normal Fetira",a:"ተራ ፈጢራ",p:300,d:"Classic layered pastry",i:"images/fetira.jpg"},{n:"Special Fetira",a:"ልዩ ፈጢራ",p:400,d:"Loaded special fetira",i:"images/img_1506084868230.jpg"},{n:"Egg Stew",a:"የዕንቁላል ወጥ",p:250,d:"Comforting egg curry",i:"images/img_1482049016688.jpg"},{n:"Scrambled Eggs",a:"የታወቀ ዕንቁላል",p:220,d:"Fluffy scrambled perfection",i:"images/scrambled_eggs.jpg"},{n:"Normal Ful",a:"ተራ ፉል",p:230,d:"Classic fava beans",i:"images/ful.jpg"},{n:"Special Ful",a:"ልዩ ፉል",p:300,d:"Ful with the works",i:"images/img_1543339308.jpg",dt:["sp"]},{n:"Ful with Avocado",a:"ፉል ከአቮካዶ ጋር",p:270,d:"Creamy avocado meets ful",i:"images/img_1512621776951.jpg"},{n:"Eggs with Avocado",a:"ዕንቁላል ከአቮካዶ ጋር",p:300,d:"Nutritious morning combo",i:"images/avocado_eggs.jpg"},{n:"Tomato Slices",a:"የቲማቲሞ ቁርሻ",p:240,d:"Fresh tomato side",i:"images/img_1592924357228.jpg"}]
+pizza:[{n:"Zad Special Pizza",a:"ዘድ ልዩ ፒዛ",p:700,d:"Our chef's masterpiece creation",i:"images/pizza_special.jpg",b:"Chef's Pick",nut:{cal:850,pro:35,carb:95,fat:38}},{n:"Normal Pizza",a:"ተራ ፒዛ",p:500,d:"Classic pizza done right",i:"images/pizza_normal.jpg"},{n:"Special Pizza",a:"ልዩ ፒዛ",p:650,d:"Loaded with premium toppings",i:"images/pizza_special.jpg"},{n:"Margherita Pizza",a:"ማርጌሪታ ፒዛ",p:500,d:"Simple elegance: tomato & basil",i:"images/pizza_margherita.jpg"},{n:"Chicken Pizza",a:"ፒዛ በዶሮ",p:600,d:"Topped with seasoned chicken",i:"images/pizza_chicken.jpg"},{n:"Tuna Pizza (with cheese)",a:"ቱና ፒዛ (ከቺዝ ጋር)",p:600,d:"Tuna delight with cheesy goodness",i:"images/pizza_tuna.jpg"},{n:"Vegetable Pizza",a:"አትክልት ፒዛ",p:450,d:"Garden fresh on a crispy crust",i:"images/pizza_veg.jpg",dt:["v"]}],
+extra:[{n:"Mayonnaise",a:"ማዮኔዝ",p:80,d:"Creamy mayo dip",i:"images/mayo.jpg"},{n:"Ketchup",a:"ኬቻፕ",p:40,d:"Classic tomato ketchup",i:"images/ketchup.jpg"},{n:"Bread",a:"ዳቦ",p:35,d:"Fresh baked bread roll",i:"images/bread.jpg"},{n:"Injera",a:"እንጀራ",p:25,d:"Traditional Ethiopian flatbread",i:"images/injera.jpg"},{n:"Tea Cup",a:"የሻይ ኩባያ",p:20,d:"Extra cup for sharing",i:"images/tea_cup.jpg"},{n:"Juice Cup",a:"ኩባያ ጁስ",p:30,d:"Extra cup for your juice",i:"images/juice_cup.jpg"},{n:"Burger/Pizza Box",a:"የበርገር/ፒዛ ቦክስ",p:50,d:"Takeaway packaging",i:"images/takeaway_box.jpg"},{n:"Aluminum Foil",a:"የአሉሚኒየም ወረቀት",p:40,d:"For wrapping your goodies",i:"images/foil.jpg"}],
+fresh:[{n:"Tea",a:"ሻይ",p:40,d:"Classic Ethiopian tea",i:"images/tea.jpg"},{n:"Coffee",a:"ቡና",p:40,d:"Rich Ethiopian coffee",i:"images/coffee_eth.jpg",nut:{cal:5,pro:0,carb:1,fat:0}},{n:"Milk",a:"ወተት",p:70,d:"Warm fresh milk",i:"images/milk.jpg"},{n:"Milk with Coffee",a:"ወተት ከቡና ጋር",p:80,d:"Perfect morning blend",i:"images/milk_coffee.jpg"},{n:"Milk with Peanut",a:"ወተት ከኦቾሎኒ ጋር",p:95,d:"Nutty creamy goodness",i:"images/milk_peanut.jpg"},{n:"Cappuccino",a:"ካፑቺኖ",p:100,d:"Frothy and delightful",i:"images/cappuccino.jpg"},{n:"Hot Chocolate",a:"ትኩስ ቸኮሌት",p:110,d:"Decadent chocolate warmth",i:"images/hot_choc.jpg"},{n:"Macchiato",a:"ማኪያቶ",p:110,d:"Bold espresso with a touch of milk",i:"images/macchiato.jpg"},{n:"Fasting Macchiato",a:"የጾም ማኪያቶ",p:90,d:"Plant-based macchiato",i:"images/macchiato_fast.jpg",dt:["v"]},{n:"Double Macchiato",a:"ድርብ ማኪያቶ",p:100,d:"Extra strong for extra energy",i:"images/macchiato_dbl.jpg"},{n:"Peanut Tea",a:"ሽንብራ ሻይ",p:110,d:"Nutty traditional tea",i:"images/peanut_tea.jpg"},{n:"Peanut with Ginger",a:"ኦቾሎኒ ከዝንጅብል ጋር",p:80,d:"Spiced nutty warmth",i:"images/peanut_ginger.jpg"},{n:"Peanut with Coffee",a:"ኦቾሎኒ ከቡና ጋር",p:90,d:"Nutty coffee fusion",i:"images/peanut_coffee.jpg"},{n:"Ginger Tea",a:"ዝንጅብል ሻይ",p:90,d:"Warming ginger spice",i:"images/ginger_tea.jpg",dt:["sp"]},{n:"Lemon Tea",a:"የሎሚ ሻይ",p:60,d:"Zesty and refreshing",i:"images/lemon_tea.jpg"},{n:"Spris",a:"ስፕሪስ",p:50,d:"Layered juice delight",i:"images/spris.jpg"},{n:"Special Tea (Large)",a:"ልዩ ሻይ (ትልቅ)",p:80,d:"Bigger cup, bigger comfort",i:"images/special_tea.jpg"},{n:"Orange Tea",a:"የብርቱካን ሻይ",p:120,d:"Citrus infused tea",i:"images/orange_tea.jpg"},{n:"Pineapple Tea",a:"የአናናስ ሻይ",p:75,d:"Tropical tea twist",i:"images/pineapple_tea.jpg"},{n:"Mango Tea",a:"የማንጐ ሻይ",p:75,d:"Sweet mango infusion",i:"images/mango_tea.jpg"}],
+cold:[{n:"Soft Drink",a:"ለስላሳ መጠጥ",p:60,d:"Chilled carbonated refreshment",i:"images/soft_drink.jpg"},{n:"1 Liter Water",a:"1 ሊትር ውሃ",p:50,d:"Pure hydration",i:"images/water_1l.jpg",dt:["v","gf"]},{n:"0.5 Liter Water",a:"0.5 ሊትር ውሃ",p:35,d:"Quick refreshment",i:"images/water_05l.jpg",dt:["v","gf"]},{n:"Ambo Water",a:"አምቦ ውሃ",p:60,d:"Sparkling mineral water",i:"images/ambo.jpg"}],
+juice:[{n:"Papaya Juice",a:"ፓፓያ ጁስ",p:200,d:"Tropical papaya delight",i:"images/juice_papaya.jpg"},{n:"Avocado Juice",a:"አቮካዶ ጁስ",p:200,d:"Creamy avocado goodness",i:"images/juice_avocado.jpg",nut:{cal:380,pro:5,carb:25,fat:22}},{n:"Mango Juice",a:"ማንጐ ጁስ",p:200,d:"Sweet mango freshness",i:"images/juice_mango.jpg"},{n:"Strawberry Juice",a:"ስትሮቤሪ ጁስ",p:300,d:"Berry burst of flavor",i:"images/juice_strawberry.jpg"},{n:"Watermelon Juice",a:"ሃብሃብ ጁስ",p:250,d:"Summer in a glass",i:"images/juice_watermelon.jpg"},{n:"Special Juice",a:"ልዩ ጁስ",p:350,d:"Our signature blend",i:"images/juice_special.jpg"},{n:"Spritz Juice",a:"ስፕሪስ ጁስ",p:250,d:"Fruity spritz refreshment",i:"images/spris.jpg"},{n:"Avocado Shake",a:"አቮካዶ ሼክ",p:350,d:"Thick and creamy shake",i:"images/shake_avocado.jpg"},{n:"Strawberry Milkshake",a:"ስትሮቤሪ ሚልክሼክ",p:350,d:"Berry milkshake bliss",i:"images/juice_strawberry.jpg"},{n:"Avocado Strawberry",a:"አቮካዶ ስትሮቤሪ",p:250,d:"Perfect fruity pairing",i:"images/juice_avocado.jpg"},{n:"Special Watermelon Juice",a:"ልዩ ሃብሃብ ጁስ",p:350,d:"Upgraded watermelon treat",i:"images/juice_watermelon.jpg"},{n:"Special Fasting Juice",a:"ልዩ የጾም ጁስ",p:300,d:"Plant-based special blend",i:"images/juice_special.jpg",dt:["v","gf"]}],
+breakfast:[{n:"Normal Chechebsa",a:"ተራ ጬጬብሳ",p:280,d:"Traditional Ethiopian breakfast",i:"images/chechebsa.jpg",nut:{cal:480,pro:12,carb:65,fat:18}},{n:"Special Chechebsa",a:"ልዩ ጬጬብሳ",p:400,d:"Chechebsa with extra love",i:"images/chechebsa_sp.jpg"},{n:"Normal Fetira",a:"ኖርማል ፈጢራ",p:300,d:"Classic layered pastry",i:"images/fetira.jpg"},{n:"Special Fetira",a:"ልዩ ፈጢራ",p:400,d:"Loaded special fetira",i:"images/fetira_sp.jpg"},{n:"Egg Stew",a:"የዕንቁላል ወጥ",p:250,d:"Comforting egg curry",i:"images/egg_stew.jpg"},{n:"Scrambled Eggs",a:"የተጠበሰ ዕንቁላል",p:220,d:"Fluffy scrambled perfection",i:"images/scrambled_eggs.jpg"},{n:"Normal Ful",a:"ኖርማል ፉል",p:230,d:"Classic fava beans",i:"images/ful.jpg"},{n:"Special Ful",a:"ልዩ ፉል",p:300,d:"Ful with the works",i:"images/ful_special.jpg",dt:["sp"]},{n:"Ful with Avocado",a:"ፉል ከአቮካዶ ጋር",p:270,d:"Creamy avocado meets ful",i:"images/ful_avocado.jpg"},{n:"Eggs with Avocado",a:"ዕንቁላል ከአቮካዶ ጋር",p:300,d:"Nutritious morning combo",i:"images/eggs_avocado.jpg"},{n:"Tomato Slices",a:"የቲማቲሞ ቁርጥ",p:240,d:"Fresh tomato side",i:"images/tomato_slices.jpg"}]
 };
 
 
@@ -878,7 +880,7 @@ renderMenu(document.getElementById('searchInput').value.trim());renderFavorites(
 }
 function renderFavorites(){
 const favs=getFavorites();const g=document.getElementById('fav-grid');if(!g)return;
-if(!favs.length){g.innerHTML=`<div class="empty-state" style="grid-column:1/-1;">${cl==='en'?'No favorites yet. Tap the heart on any item!':'እስካሁን ምንም ተወዳጅ የለም። በማንኛውም ንጥር ላይ ልብዎን ይጫኑ!'}</div>`;return;}
+if(!favs.length){g.innerHTML=`<div class="empty-state" style="grid-column:1/-1;">${cl==='en'?'No favorites yet. Tap the heart on any item!':'እስካሁን ምንም የዎደዱት የለም። በማንኛውም ምግብ ላይ የልብ ቅርጿን ይጫኑ!'}</div>`;return;}
 let h='';for(const key of favs){const[cat,idx]=key.split('-');const it=md[cat][idx];if(!it)continue;const nm=cl==='en'?it.n:it.a;h+=`<div class="menu-card animate-in" style="animation-delay:0s" onclick="openItemModal('${cat}',${idx})">`;h+=`<div class="card-image" style="background-image:url('${it.i}')"><button class="card-fav active" onclick="event.stopPropagation();toggleFavorite('${cat}',${idx})" title="Favorite"><i class="fas fa-heart"></i></button></div>`;h+=`<div class="card-content"><div class="card-title">${nm}</div>`;if(cl==='en'&&it.a)h+=`<div class="card-amharic">${it.a}</div>`;if(cl==='am'&&it.n)h+=`<div class="card-amharic">${it.n}</div>`;h+=getDietHtml(it.dt);h+=`<div class="card-desc">${it.d}</div><div class="card-footer"><span class="card-price">${it.p} <span>Birr</span></span></div></div></div>`;}
 g.innerHTML=h;
 }
@@ -933,12 +935,12 @@ function closeTableQR(){document.getElementById('table-qr-modal').classList.remo
 function shareMenu(){
   const url=window.location.href;
   const title='ZAD Cafe Menu';
-  const text=cl==='en'?'Check out ZAD Cafe\'s menu in Addis Ababa!':'የዘድ ካፌ ምናሌ ይመልከቱ!';
+  const text=cl==='en'?'Check out ZAD Cafe\'s menu in Addis Ababa!':'ዛድ ካፌ ምናለ ይመልከቱ!';
   if(navigator.share){navigator.share({title,text,url}).catch(()=>{});}
   else{navigator.clipboard.writeText(url).then(()=>showToast(cl==='en'?'Menu link copied!':'ሊንክ ተቀድቷል!')).catch(()=>showToast(url));}
 }
 // Gallery Lightbox
-const galleryImages=['images/img_1554118811.jpg','images/img_1495474472287.jpg','images/img_1509042239860.jpg','images/img_1514432324607.jpg','images/img_1521017432531.jpg','images/img_1497935586351.jpg'];
+const galleryImages=['images/cafe_interior.jpg','images/cafe_coffee.jpg','images/cafe_latte.jpg','images/cafe_food.jpg','images/macchiato.jpg','images/coffee_beans.jpg'];
 let lightboxIdx=0;
 function openLightbox(idx){
   lightboxIdx=idx;
@@ -982,11 +984,11 @@ const nm=cl==='en'?it.n:it.a;
 const am=cl==='en'?it.a:it.n;
 currentModalItem={cat,idx,name:it.n};
 const body=document.getElementById('item-modal-body');
-const nutHtml=it.nut?`<div class="item-modal-nutrition"><h4>${cl==='en'?'Nutrition Facts':'የእሴቶች መረጃ'}</h4><div class="nut-grid"><div class="nut-cell"><div class="nut-value">${it.nut.cal}</div><div class="nut-label">${cl==='en'?'kcal':'ካሎሪ'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.pro}g</div><div class="nut-label">${cl==='en'?'Protein':'ፕሮቲን'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.carb}g</div><div class="nut-label">${cl==='en'?'Carbs':'ካርቦ'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.fat}g</div><div class="nut-label">${cl==='en'?'Fat':'ስብ'}</div></div></div></div>`:'';
+const nutHtml=it.nut?`<div class="item-modal-nutrition"><h4>${cl==='en'?'Nutrition Facts':'የአመጋገብ እዉነታዎች'}</h4><div class="nut-grid"><div class="nut-cell"><div class="nut-value">${it.nut.cal}</div><div class="nut-label">${cl==='en'?'kcal':'ካሎሪ'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.pro}g</div><div class="nut-label">${cl==='en'?'Protein':'ፕሮቲን'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.carb}g</div><div class="nut-label">${cl==='en'?'Carbs':'ካርቦ'}</div></div><div class="nut-cell"><div class="nut-value">${it.nut.fat}g</div><div class="nut-label">${cl==='en'?'Fat':'ስብ'}</div></div></div></div>`:'';
 const recos=getRecommendations(cat,idx);
-const recoHtml=recos.length?`<div class="reco-section"><div class="reco-title">${cl==='en'?'You might also like':'እንዲሁም ሊወዱ ይችላሉ'}</div><div class="reco-grid">${recos.map(r=>`<div class="reco-card" onclick="closeItemModal();setTimeout(()=>openItemModal('${r.cat}',${r.idx}),150)"><div class="reco-card-img" style="background-image:url('${r.it.i}')"></div><div class="reco-card-body"><div class="reco-card-name">${cl==='en'?r.it.n:r.it.a}</div><div class="reco-card-price">${r.it.p} Birr</div></div></div>`).join('')}</div></div>`:'';
+const recoHtml=recos.length?`<div class="reco-section"><div class="reco-title">${cl==='en'?'You might also like':'ይህንን ሊወዱ ይችላሉ'}</div><div class="reco-grid">${recos.map(r=>`<div class="reco-card" onclick="closeItemModal();setTimeout(()=>openItemModal('${r.cat}',${r.idx}),150)"><div class="reco-card-img" style="background-image:url('${r.it.i}')"></div><div class="reco-card-body"><div class="reco-card-name">${cl==='en'?r.it.n:r.it.a}</div><div class="reco-card-price">${r.it.p} Birr</div></div></div>`).join('')}</div></div>`:'';
 const waMsg=encodeURIComponent(`Hello ZAD Cafe! I'd like to order:\n\n${nm} - ${it.p} Birr\n\nPlease confirm availability.`);
-const waBtn=`<a href="https://wa.me/2519XXXXXXXX?text=${waMsg}" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>${cl==='en'?'Order via WhatsApp':'በዋትስአፕ ያዝዙ'}</a>`;
+const waBtn=`<a href="https://wa.me/251985154985?text=${waMsg}" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>${cl==='en'?'Order via WhatsApp':'በዋትስአፕ ይዝዙ'}</a>`;
 body.innerHTML=`<img src="${it.i}" class="item-modal-img" alt="${nm}"><div class="item-modal-title">${nm}</div><div class="item-modal-amharic">${am}</div><div class="item-modal-desc">${it.d}</div>${getDietHtml(it.dt)}<div style="margin-top:1rem">${nutHtml}</div><div class="item-modal-price">${it.p} Birr</div>${waBtn}${recoHtml}`;addRecent(it.n,it.p,cat,idx);renderRecent();
 document.getElementById('item-modal').classList.add('active');
 }
@@ -998,20 +1000,20 @@ const phone=document.getElementById('fbPhone').value.trim();
 const msg=document.getElementById('fbMessage').value.trim();
 const status=document.getElementById('feedbackStatus');
 if(!name||!msg){status.textContent=cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message';status.className='feedback-status error';status.style.display='block';return;}
-status.textContent=cl==='am'?'እየላኩ ነው...':'Sending...';status.className='feedback-status';status.style.display='block';
+status.textContent=cl==='am'?'እየላከ ነው...':'Sending...';status.className='feedback-status';status.style.display='block';
 const formData=new FormData();
 formData.append('name',name);formData.append('phone',phone);formData.append('message',msg);formData.append('lang',cl);
 fetch('send_feedback.php',{method:'POST',body:formData}).then(r=>r.json()).then(data=>{
 if(data.success){status.textContent=data.message;status.className='feedback-status success';document.getElementById('fbName').value='';document.getElementById('fbPhone').value='';document.getElementById('fbMessage').value='';}
 else{status.textContent=data.message;status.className='feedback-status error';}
-}).catch(()=>{status.textContent=cl==='am'?'መልእክት መላክ አልተቻለም':'Failed to send. Please try again.';status.className='feedback-status error';});
+}).catch(()=>{status.textContent=cl==='am'?'መላክ አልተቻለም':'Failed to send. Please try again.';status.className='feedback-status error';});
 }
 function submitSubscribe(){
 const email=document.getElementById('subEmail').value.trim();
 const status=document.getElementById('subStatus');
 const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-if(!email||!emailRegex.test(email)){status.textContent=cl==='am'?'የሚሠራ ኢሜል ያስገቡ':'Please enter a valid email';status.className='subscribe-status error';status.style.display='block';return;}
-status.textContent=cl==='am'?'እየላኩ ነው...':'Subscribing...';status.className='subscribe-status';status.style.display='block';
+if(!email||!emailRegex.test(email)){status.textContent=cl==='am'?'እባክዎ የሚሠራ ኢሜል ያስገቡ':'Please enter a valid email';status.className='subscribe-status error';status.style.display='block';return;}
+status.textContent=cl==='am'?'በመመዝገብ ላይ...':'Subscribing...';status.className='subscribe-status';status.style.display='block';
 const formData=new FormData();
 formData.append('email',email);formData.append('lang',cl);
 fetch('subscribe.php',{method:'POST',body:formData}).then(r=>r.json()).then(data=>{

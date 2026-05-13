@@ -1,0 +1,173 @@
+═══════════════════════════════════════════════════════════════════════════════
+  ZAD CAFE - PRICE UPDATE LOG
+═══════════════════════════════════════════════════════════════════════════════
+
+Date: 2026-05-12
+Source: Physical Menu (Photos provided)
+Updated By: Admin
+
+═══════════════════════════════════════════════════════════════════════════════
+  PRICES CORRECTED
+═══════════════════════════════════════════════════════════════════════════════
+
+1. MANGO JUICE
+   Old Price: 200 Birr
+   New Price: 220 Birr ✓
+   Category: Juice
+
+2. SCRAMBLED EGGS
+   Old Price: 220 Birr
+   New Price: 250 Birr ✓
+   Category: Breakfast
+
+═══════════════════════════════════════════════════════════════════════════════
+  VERIFICATION SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Items Checked: 82
+Items Updated: 2
+Items Verified Correct: 80
+
+All prices now match the physical menu exactly.
+
+═══════════════════════════════════════════════════════════════════════════════
+  CURRENT PRICE LIST (BY CATEGORY)
+═══════════════════════════════════════════════════════════════════════════════
+
+PASTA:
+├─ Pasta with Sauce: 300 Birr
+├─ Pasta with Tuna: 400 Birr
+├─ Pasta with Chicken: 500 Birr
+└─ Pasta with Vegetables: 300 Birr
+
+RICE:
+├─ Rice with Tuna: 370 Birr
+├─ Rice with Chicken: 450 Birr
+├─ Rice with Sauce: 300 Birr
+└─ Rice with Vegetable: 300 Birr
+
+SANDWICH:
+├─ Club Sandwich: 460 Birr
+├─ Tuna Sandwich: 400 Birr
+├─ Tuna Club Sandwich: 450 Birr
+├─ Egg Sandwich (with chips): 300 Birr
+├─ Egg Sandwich (no chips): 250 Birr
+├─ Veg Sandwich (with chips): 300 Birr
+├─ Veg Sandwich (no chips): 250 Birr
+└─ Chips: 200 Birr
+
+BURGER:
+├─ Normal Burger: 400 Birr
+├─ Double Special Burger: 650 Birr
+├─ Single Special Burger: 500 Birr
+└─ Cheese Burger: 300 Birr
+
+PIZZA:
+├─ Zad Special Pizza: 700 Birr
+├─ Normal Pizza: 500 Birr
+├─ Special Pizza: 650 Birr
+├─ Margherita Pizza: 500 Birr
+├─ Chicken Pizza: 600 Birr
+├─ Tuna Pizza (with cheese): 600 Birr
+└─ Vegetable Pizza: 450 Birr
+
+EXTRAS:
+├─ Mayonnaise: 80 Birr
+├─ Ketchup: 40 Birr
+├─ Bread: 35 Birr
+├─ Injera: 25 Birr
+├─ Tea Cup: 20 Birr
+├─ Juice Cup: 30 Birr
+├─ Burger/Pizza Box: 50 Birr
+└─ Aluminum Foil: 40 Birr
+
+FRESH DRINKS:
+├─ Tea: 40 Birr
+├─ Coffee: 40 Birr
+├─ Milk: 70 Birr
+├─ Milk with Coffee: 80 Birr
+├─ Milk with Peanut: 95 Birr
+├─ Cappuccino: 100 Birr
+├─ Hot Chocolate: 110 Birr
+├─ Macchiato: 110 Birr
+├─ Fasting Macchiato: 90 Birr
+├─ Double Macchiato: 100 Birr
+├─ Peanut Tea: 110 Birr
+├─ Peanut with Ginger: 80 Birr
+├─ Peanut with Coffee: 90 Birr
+├─ Ginger Tea: 90 Birr
+├─ Lemon Tea: 60 Birr
+├─ Spris: 50 Birr
+├─ Special Tea (Large): 80 Birr
+├─ Orange Tea: 120 Birr
+├─ Pineapple Tea: 75 Birr
+└─ Mango Tea: 75 Birr
+
+COLD DRINKS:
+├─ Soft Drink: 60 Birr
+├─ 1 Liter Water: 50 Birr
+├─ 0.5 Liter Water: 35 Birr
+└─ Ambo Water: 60 Birr
+
+JUICE:
+├─ Papaya Juice: 200 Birr
+├─ Avocado Juice: 200 Birr
+├─ Mango Juice: 220 Birr ✓ UPDATED
+├─ Strawberry Juice: 300 Birr
+├─ Watermelon Juice: 250 Birr
+├─ Special Juice: 350 Birr
+├─ Spritz Juice: 250 Birr
+├─ Avocado Shake: 350 Birr
+├─ Strawberry Milkshake: 350 Birr
+├─ Avocado Strawberry: 250 Birr
+├─ Special Watermelon Juice: 350 Birr
+└─ Special Fasting Juice: 300 Birr
+
+BREAKFAST:
+├─ Normal Chechebsa: 280 Birr
+├─ Special Chechebsa: 400 Birr
+├─ Normal Fetira: 300 Birr
+├─ Special Fetira: 400 Birr
+├─ Egg Stew: 250 Birr
+├─ Scrambled Eggs: 250 Birr ✓ UPDATED
+├─ Normal Ful: 230 Birr
+├─ Special Ful: 300 Birr
+├─ Ful with Avocado: 270 Birr
+├─ Eggs with Avocado: 300 Birr
+└─ Tomato Slices: 240 Birr
+
+═══════════════════════════════════════════════════════════════════════════════
+  PRICE STATISTICS
+═══════════════════════════════════════════════════════════════════════════════
+
+Lowest Price: 20 Birr (Tea Cup)
+Highest Price: 700 Birr (Zad Special Pizza)
+Average Price: ~215 Birr
+
+Price Range by Category:
+├─ Pasta: 300-500 Birr
+├─ Rice: 300-450 Birr
+├─ Sandwich: 200-460 Birr
+├─ Burger: 300-650 Birr
+├─ Pizza: 450-700 Birr
+├─ Extras: 20-80 Birr
+├─ Fresh Drinks: 40-120 Birr
+├─ Cold Drinks: 35-60 Birr
+├─ Juice: 200-350 Birr
+└─ Breakfast: 230-400 Birr
+
+═══════════════════════════════════════════════════════════════════════════════
+  NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Prices updated in menu_data.json
+✓ All prices verified against physical menu
+✓ Database ready for admin panel use
+
+To apply changes to your website:
+1. Login to admin panel: http://localhost/ZAD/admin.php
+2. Password: admin@zad
+3. Changes are already live in the database
+4. Refresh your website to see updated prices
+
+═══════════════════════════════════════════════════════════════════════════════

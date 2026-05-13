@@ -1,0 +1,667 @@
+{
+  "pasta": [
+    {
+      "n": "Pasta with Sauce",
+      "a": "ፓስታ ስጎ",
+      "p": 300,
+      "d": "Classic pasta in rich tomato sauce",
+      "i": "images/placeholder.jpg",
+      "nut": {
+        "cal": 520,
+        "pro": 18,
+        "carb": 72,
+        "fat": 14
+      }
+    },
+    {
+      "n": "Pasta with Tuna",
+      "a": "ፓስታ ቱና",
+      "p": 400,
+      "d": "Pasta tossed with premium tuna",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Pasta with Chicken",
+      "a": "ፓስታ ዶሮ",
+      "p": 500,
+      "d": "Creamy pasta with grilled chicken",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Pasta with Vegetables",
+      "a": "ፓስታ አትክልት",
+      "p": 300,
+      "d": "Fresh veggies with al dente pasta",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v"
+      ]
+    }
+  ],
+  "rice": [
+    {
+      "n": "Rice with Tuna",
+      "a": "ሩዝ ቱና",
+      "p": 370,
+      "d": "Fluffy rice paired with tuna",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Rice with Chicken",
+      "a": "ሩዝ ዶሮ",
+      "p": 450,
+      "d": "Savory rice with tender chicken",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Rice with Sauce",
+      "a": "ሩዝ ስጎ",
+      "p": 300,
+      "d": "Steamed rice in special sauce",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Rice with Vegetable",
+      "a": "ሩዝ አትክልት",
+      "p": 300,
+      "d": "Healthy rice with fresh vegetables",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v",
+        "gf"
+      ]
+    }
+  ],
+  "sandwich": [
+    {
+      "n": "Club Sandwich",
+      "a": "ክለብ ሳንድዊች",
+      "p": 460,
+      "d": "Triple-decker with fresh ingredients",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Tuna Sandwich",
+      "a": "ቱና ሳንድዊች",
+      "p": 400,
+      "d": "Classic tuna on toasted bread",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Tuna Club Sandwich",
+      "a": "ቱና ክለብ ሳንድዊች",
+      "p": 450,
+      "d": "Tuna club with extra goodness",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Egg Sandwich (with chips)",
+      "a": "እንቁላል ሳንድዊች ከቺፕስ ጋር",
+      "p": 300,
+      "d": "Egg sandwich served with crispy chips",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Egg Sandwich (no chips)",
+      "a": "እንቁላል ሳንድዊች ያለ ቺፕስ",
+      "p": 250,
+      "d": "Simple and satisfying egg sandwich",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Veg Sandwich (with chips)",
+      "a": "አትክልት ሳንድዊች ከቺፕስ ጋር",
+      "p": 300,
+      "d": "Garden fresh with a side of chips",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v"
+      ]
+    },
+    {
+      "n": "Veg Sandwich (no chips)",
+      "a": "አትክልት ሳንድዊች ያለ ቺፕስ",
+      "p": 250,
+      "d": "Light and healthy veggie delight",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Chips",
+      "a": "ቺፕስ",
+      "p": 200,
+      "d": "Crispy golden fries",
+      "i": "images/placeholder.jpg"
+    }
+  ],
+  "burger": [
+    {
+      "n": "Normal Burger",
+      "a": "ኖርማል ቡርገር",
+      "p": 400,
+      "d": "Classic beef burger with fixings",
+      "i": "images/placeholder.jpg",
+      "nut": {
+        "cal": 650,
+        "pro": 28,
+        "carb": 45,
+        "fat": 32
+      }
+    },
+    {
+      "n": "Double Special Burger",
+      "a": "ድርብ ስፔሻል ቡርገር",
+      "p": 650,
+      "d": "Double patty, double the joy",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Single Special Burger",
+      "a": "ሲንግል ስፔሻል ቡርገር",
+      "p": 500,
+      "d": "Our signature special recipe",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Cheese Burger",
+      "a": "ቺዝ ቡርገር",
+      "p": 300,
+      "d": "Melted cheese on juicy patty",
+      "i": "images/placeholder.jpg"
+    }
+  ],
+  "pizza": [
+    {
+      "n": "Zad Special Pizza",
+      "a": "ዛድ ስፔሻል ፒዛ",
+      "p": 700,
+      "d": "Our chef&#039;s masterpiece creation",
+      "i": "images/placeholder.jpg",
+      "b": "Chef&#039;s Pick",
+      "nut": {
+        "cal": 850,
+        "pro": 35,
+        "carb": 95,
+        "fat": 38
+      }
+    },
+    {
+      "n": "Normal Pizza",
+      "a": "ኖርማል ፒዛ",
+      "p": 500,
+      "d": "Classic pizza done right",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Pizza",
+      "a": "ስፔሻል ፒዛ",
+      "p": 650,
+      "d": "Loaded with premium toppings",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Chicken Pizza",
+      "a": "ቺከን ፒዛ",
+      "p": 600,
+      "d": "Savory chicken topped pizza",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Vegetable Pizza",
+      "a": "ቬጀቴብል ፒዛ",
+      "p": 450,
+      "d": "Garden fresh veggie pizza",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v"
+      ]
+    },
+    {
+      "n": "Margherita Pizza",
+      "a": "ማርጋሪታ ፒዛ",
+      "p": 500,
+      "d": "Simple elegance: tomato &amp; basil",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Tuna Pizza (with cheese)",
+      "a": "ቱና ፒዛ ከቺዝ ጋር",
+      "p": 600,
+      "d": "Tuna delight with cheesy goodness",
+      "i": "images/placeholder.jpg"
+    }
+  ],
+  "extra": [
+    {
+      "n": "Mayonnaise",
+      "a": "ማዮኔዝ",
+      "p": 80,
+      "d": "Creamy mayo dip",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Ketchup",
+      "a": "ካቻፕ",
+      "p": 40,
+      "d": "Classic tomato ketchup",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Bread",
+      "a": "ዳቦ",
+      "p": 35,
+      "d": "Fresh baked bread roll",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Injera",
+      "a": "እንጀራ",
+      "p": 25,
+      "d": "Traditional Ethiopian flatbread",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Tea Cup",
+      "a": "የሻይ ኩባያ",
+      "p": 20,
+      "d": "Extra cup for sharing",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Juice Cup",
+      "a": "የጁስ ኩባያ",
+      "p": 30,
+      "d": "Extra cup for your juice",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Burger/Pizza Box",
+      "a": "የበርገር/ፒዛ ካርቶን",
+      "p": 50,
+      "d": "Takeaway packaging",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Aluminum Foil",
+      "a": "የአሉሚኒየም ወረቀት",
+      "p": 40,
+      "d": "For wrapping your goodies",
+      "i": "images/placeholder.jpg"
+    }
+  ],
+  "fresh": [
+    {
+      "n": "Tea",
+      "a": "ሻይ",
+      "p": 40,
+      "d": "Classic Ethiopian tea",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Coffee",
+      "a": "ቡና",
+      "p": 40,
+      "d": "Rich Ethiopian coffee",
+      "i": "images/placeholder.jpg",
+      "nut": {
+        "cal": 5,
+        "pro": 0,
+        "carb": 1,
+        "fat": 0
+      }
+    },
+    {
+      "n": "Milk",
+      "a": "ወተት",
+      "p": 70,
+      "d": "Warm fresh milk",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Milk with Coffee",
+      "a": "ወተት ከቡና ጋር",
+      "p": 80,
+      "d": "Perfect morning blend",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Milk with Peanut",
+      "a": "ወተት ለውዝ",
+      "p": 95,
+      "d": "Nutty creamy goodness",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Cappuccino",
+      "a": "ካፑቺኖ",
+      "p": 100,
+      "d": "Frothy and delightful",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Hot Chocolate",
+      "a": "ትኩስ ቸኮሌት",
+      "p": 110,
+      "d": "Decadent chocolate warmth",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Macchiato",
+      "a": "ማኪያቶ",
+      "p": 110,
+      "d": "Bold espresso with a touch of milk",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Fasting Macchiato",
+      "a": "የጾም ማኪያቶ",
+      "p": 90,
+      "d": "Plant-based macchiato",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v"
+      ]
+    },
+    {
+      "n": "Double Macchiato",
+      "a": "ድርብ ማኪያቶ",
+      "p": 100,
+      "d": "Extra strong for extra energy",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Peanut Tea",
+      "a": "ለውዝ ሻይ",
+      "p": 110,
+      "d": "Nutty traditional tea",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Peanut with Ginger",
+      "a": "ለውዝ ከዝንጅብል ጋር",
+      "p": 80,
+      "d": "Spiced nutty warmth",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Peanut with Coffee",
+      "a": "ለውዝ ከቡና ጋር",
+      "p": 90,
+      "d": "Nutty coffee fusion",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Ginger Tea",
+      "a": "ዝንጅብል ሻይ",
+      "p": 60,
+      "d": "Warming ginger spice",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "sp"
+      ]
+    },
+    {
+      "n": "Lemon Tea",
+      "a": "የሎሚ ሻይ",
+      "p": 60,
+      "d": "Zesty and refreshing",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Spris",
+      "a": "ስፕሪስ",
+      "p": 50,
+      "d": "Layered juice delight",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Tea (Large)",
+      "a": "ስፔሻል ሻይ ትልቅ",
+      "p": 80,
+      "d": "Bigger cup, bigger comfort",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Orange Tea",
+      "a": "የብርቱካን ሻይ",
+      "p": 120,
+      "d": "Citrus infused tea",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Pineapple Tea",
+      "a": "የአናናስ ሻይ",
+      "p": 75,
+      "d": "Tropical tea twist",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Mango Tea",
+      "a": "የማንጐ ሻይ",
+      "p": 75,
+      "d": "Sweet mango infusion",
+      "i": "images/placeholder.jpg"
+    }
+  ],
+  "cold": [
+    {
+      "n": "Soft Drink",
+      "a": "ለስላሳ መጠጥ",
+      "p": 60,
+      "d": "Chilled carbonated refreshment",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "1 Liter Water",
+      "a": "1 ሊትር ውሃ",
+      "p": 50,
+      "d": "Pure hydration",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v",
+        "gf"
+      ]
+    },
+    {
+      "n": "0.5 Liter Water",
+      "a": "0.5 ሊትር ውሃ",
+      "p": 35,
+      "d": "Quick refreshment",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v",
+        "gf"
+      ]
+    },
+    {
+      "n": "Ambo Water",
+      "a": "አምቦ ውሃ",
+      "p": 60,
+      "d": "Sparkling mineral water",
+      "i": "images/placeholder.jpg"
+    }
+  ],
+  "juice": [
+    {
+      "n": "Papaya Juice",
+      "a": "ፓፓያ ጁስ",
+      "p": 200,
+      "d": "Tropical papaya delight",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Avocado Juice",
+      "a": "አቮካዶ ጁስ",
+      "p": 200,
+      "d": "Creamy avocado goodness",
+      "i": "images/placeholder.jpg",
+      "nut": {
+        "cal": 380,
+        "pro": 5,
+        "carb": 25,
+        "fat": 22
+      }
+    },
+    {
+      "n": "Mango Juice",
+      "a": "ማንጐ ጁስ",
+      "p": 220,
+      "d": "Sweet mango freshness",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Strawberry Juice",
+      "a": "ስትሮቤሪ ጁስ",
+      "p": 300,
+      "d": "Berry burst of flavor",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Watermelon Juice",
+      "a": "ሃብሃብ ጁስ",
+      "p": 250,
+      "d": "Summer in a glass",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Juice",
+      "a": "ስፔሻል ጁስ",
+      "p": 350,
+      "d": "Our signature blend",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Spritz Juice",
+      "a": "ስፕሪትዝ ጁስ",
+      "p": 250,
+      "d": "Fruity spritz refreshment",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Avocado Shake",
+      "a": "አቮካዶ ሼክ",
+      "p": 350,
+      "d": "Thick and creamy shake",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Strawberry Milkshake",
+      "a": "ስትሮቤሪ ሚልክሼክ",
+      "p": 350,
+      "d": "Berry milkshake bliss",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Avocado Strawberry",
+      "a": "አቮካዶ ስትሮቤሪ",
+      "p": 250,
+      "d": "Perfect fruity pairing",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Watermelon Juice",
+      "a": "ስፔሻል ሃብሃብ ጁስ",
+      "p": 350,
+      "d": "Upgraded watermelon treat",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Fasting Juice",
+      "a": "ስፔሻል የጾም ጁስ",
+      "p": 300,
+      "d": "Plant-based special blend",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "v",
+        "gf"
+      ]
+    }
+  ],
+  "breakfast": [
+    {
+      "n": "Normal Chechebsa",
+      "a": "ኖርማል ጨጨብሳ",
+      "p": 280,
+      "d": "Traditional Ethiopian breakfast",
+      "i": "images/placeholder.jpg",
+      "nut": {
+        "cal": 480,
+        "pro": 12,
+        "carb": 65,
+        "fat": 18
+      }
+    },
+    {
+      "n": "Special Chechebsa",
+      "a": "ስፔሻል ጨጨብሳ",
+      "p": 400,
+      "d": "Chechebsa with extra love",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Normal Fetira",
+      "a": "ኖርማል ፈጢራ",
+      "p": 300,
+      "d": "Classic layered pastry",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Fetira",
+      "a": "ስፔሻል ፈጢራ",
+      "p": 400,
+      "d": "Loaded special fetira",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Egg Stew",
+      "a": "የእንቁላል ወጥ",
+      "p": 250,
+      "d": "Comforting egg curry",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Scrambled Eggs",
+      "a": "እንቁላል ፍርፍር",
+      "p": 250,
+      "d": "Fluffy scrambled perfection",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Normal Ful",
+      "a": "ኖርማል ፉል",
+      "p": 230,
+      "d": "Classic fava beans",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Special Ful",
+      "a": "ስፔሻል ፉል",
+      "p": 300,
+      "d": "Ful with the works",
+      "i": "images/placeholder.jpg",
+      "dt": [
+        "sp"
+      ]
+    },
+    {
+      "n": "Ful with Avocado",
+      "a": "ፉል ከአቮካዶ ጋር",
+      "p": 270,
+      "d": "Creamy avocado meets ful",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Eggs with Avocado",
+      "a": "እንቁላል ከአቮካዶ ጋር",
+      "p": 300,
+      "d": "Nutritious morning combo",
+      "i": "images/placeholder.jpg"
+    },
+    {
+      "n": "Tomato Slices",
+      "a": "የቲማቲም ቁርጥ",
+      "p": 240,
+      "d": "Fresh tomato side",
+      "i": "images/placeholder.jpg"
+    }
+  ]
+}
