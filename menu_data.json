@@ -5,37 +5,30 @@
       "a": "ፓስታ ስጎ",
       "p": 300,
       "d": "Classic pasta in rich tomato sauce",
-      "i": "images/placeholder.jpg",
-      "nut": {
-        "cal": 520,
-        "pro": 18,
-        "carb": 72,
-        "fat": 14
-      }
+      "i": "https://source.unsplash.com/400x300/?pasta,tomato-sauce",
+      "nut": { "cal": 520, "pro": 18, "carb": 72, "fat": 14 }
     },
     {
       "n": "Pasta with Tuna",
       "a": "ፓስታ ቱና",
       "p": 400,
       "d": "Pasta tossed with premium tuna",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?pasta,tuna"
     },
     {
       "n": "Pasta with Chicken",
       "a": "ፓስታ ዶሮ",
       "p": 500,
       "d": "Creamy pasta with grilled chicken",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?pasta,chicken"
     },
     {
       "n": "Pasta with Vegetables",
       "a": "ፓስታ አትክልት",
       "p": 300,
       "d": "Fresh veggies with al dente pasta",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v"
-      ]
+      "i": "https://source.unsplash.com/400x300/?pasta,vegetables",
+      "dt": ["v"]
     }
   ],
   "rice": [
@@ -44,32 +37,29 @@
       "a": "ሩዝ ቱና",
       "p": 370,
       "d": "Fluffy rice paired with tuna",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?rice,tuna"
     },
     {
       "n": "Rice with Chicken",
       "a": "ሩዝ ዶሮ",
       "p": 450,
       "d": "Savory rice with tender chicken",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?rice,chicken"
     },
     {
       "n": "Rice with Sauce",
       "a": "ሩዝ ስጎ",
       "p": 300,
       "d": "Steamed rice in special sauce",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?rice,sauce"
     },
     {
       "n": "Rice with Vegetable",
       "a": "ሩዝ አትክልት",
       "p": 300,
       "d": "Healthy rice with fresh vegetables",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v",
-        "gf"
-      ]
+      "i": "https://source.unsplash.com/400x300/?rice,vegetables",
+      "dt": ["v", "gf"]
     }
   ],
   "sandwich": [
@@ -78,59 +68,57 @@
       "a": "ክለብ ሳንድዊች",
       "p": 460,
       "d": "Triple-decker with fresh ingredients",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?club-sandwich"
     },
     {
       "n": "Tuna Sandwich",
       "a": "ቱና ሳንድዊች",
       "p": 400,
       "d": "Classic tuna on toasted bread",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?tuna,sandwich"
     },
     {
       "n": "Tuna Club Sandwich",
       "a": "ቱና ክለብ ሳንድዊች",
       "p": 450,
       "d": "Tuna club with extra goodness",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?sandwich,tuna,toast"
     },
     {
       "n": "Egg Sandwich (with chips)",
       "a": "እንቁላል ሳንድዊች ከቺፕስ ጋር",
       "p": 300,
       "d": "Egg sandwich served with crispy chips",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?egg,sandwich,fries"
     },
     {
       "n": "Egg Sandwich (no chips)",
       "a": "እንቁላል ሳንድዊች ያለ ቺፕስ",
       "p": 250,
       "d": "Simple and satisfying egg sandwich",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?egg,sandwich"
     },
     {
       "n": "Veg Sandwich (with chips)",
       "a": "አትክልት ሳንድዊች ከቺፕስ ጋር",
       "p": 300,
       "d": "Garden fresh with a side of chips",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v"
-      ]
+      "i": "https://source.unsplash.com/400x300/?vegetable,sandwich,fries",
+      "dt": ["v"]
     },
     {
       "n": "Veg Sandwich (no chips)",
       "a": "አትክልት ሳንድዊች ያለ ቺፕስ",
       "p": 250,
       "d": "Light and healthy veggie delight",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?vegetable,sandwich"
     },
     {
       "n": "Chips",
       "a": "ቺፕስ",
       "p": 200,
       "d": "Crispy golden fries",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?french-fries,chips"
     }
   ],
   "burger": [
@@ -139,34 +127,29 @@
       "a": "ኖርማል ቡርገር",
       "p": 400,
       "d": "Classic beef burger with fixings",
-      "i": "images/placeholder.jpg",
-      "nut": {
-        "cal": 650,
-        "pro": 28,
-        "carb": 45,
-        "fat": 32
-      }
+      "i": "https://source.unsplash.com/400x300/?burger,beef",
+      "nut": { "cal": 650, "pro": 28, "carb": 45, "fat": 32 }
     },
     {
       "n": "Double Special Burger",
       "a": "ድርብ ስፔሻል ቡርገር",
       "p": 650,
       "d": "Double patty, double the joy",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?double,burger"
     },
     {
       "n": "Single Special Burger",
       "a": "ሲንግል ስፔሻል ቡርገር",
       "p": 500,
       "d": "Our signature special recipe",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?gourmet,burger"
     },
     {
       "n": "Cheese Burger",
       "a": "ቺዝ ቡርገር",
       "p": 300,
       "d": "Melted cheese on juicy patty",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?cheeseburger"
     }
   ],
   "pizza": [
@@ -175,59 +158,52 @@
       "a": "ዛድ ስፔሻል ፒዛ",
       "p": 700,
       "d": "Our chef&#039;s masterpiece creation",
-      "i": "images/placeholder.jpg",
+      "i": "https://source.unsplash.com/400x300/?pizza,special",
       "b": "Chef&#039;s Pick",
-      "nut": {
-        "cal": 850,
-        "pro": 35,
-        "carb": 95,
-        "fat": 38
-      }
+      "nut": { "cal": 850, "pro": 35, "carb": 95, "fat": 38 }
     },
     {
       "n": "Normal Pizza",
       "a": "ኖርማል ፒዛ",
       "p": 500,
       "d": "Classic pizza done right",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?pizza,classic"
     },
     {
       "n": "Special Pizza",
       "a": "ስፔሻል ፒዛ",
       "p": 650,
       "d": "Loaded with premium toppings",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?pizza,toppings"
     },
     {
       "n": "Chicken Pizza",
       "a": "ቺከን ፒዛ",
       "p": 600,
       "d": "Savory chicken topped pizza",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?chicken,pizza"
     },
     {
       "n": "Vegetable Pizza",
       "a": "ቬጀቴብል ፒዛ",
       "p": 450,
       "d": "Garden fresh veggie pizza",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v"
-      ]
+      "i": "https://source.unsplash.com/400x300/?vegetable,pizza",
+      "dt": ["v"]
     },
     {
       "n": "Margherita Pizza",
       "a": "ማርጋሪታ ፒዛ",
       "p": 500,
       "d": "Simple elegance: tomato &amp; basil",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?margherita,pizza"
     },
     {
       "n": "Tuna Pizza (with cheese)",
       "a": "ቱና ፒዛ ከቺዝ ጋር",
       "p": 600,
       "d": "Tuna delight with cheesy goodness",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?tuna,pizza,cheese"
     }
   ],
   "extra": [
@@ -236,56 +212,56 @@
       "a": "ማዮኔዝ",
       "p": 80,
       "d": "Creamy mayo dip",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?mayonnaise,sauce"
     },
     {
       "n": "Ketchup",
       "a": "ካቻፕ",
       "p": 40,
       "d": "Classic tomato ketchup",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?ketchup,tomato"
     },
     {
       "n": "Bread",
       "a": "ዳቦ",
       "p": 35,
       "d": "Fresh baked bread roll",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?bread,roll"
     },
     {
       "n": "Injera",
       "a": "እንጀራ",
       "p": 25,
       "d": "Traditional Ethiopian flatbread",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?injera,ethiopian,flatbread"
     },
     {
       "n": "Tea Cup",
       "a": "የሻይ ኩባያ",
       "p": 20,
       "d": "Extra cup for sharing",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?tea,cup"
     },
     {
       "n": "Juice Cup",
       "a": "የጁስ ኩባያ",
       "p": 30,
       "d": "Extra cup for your juice",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?juice,glass,cup"
     },
     {
       "n": "Burger/Pizza Box",
       "a": "የበርገር/ፒዛ ካርቶን",
       "p": 50,
       "d": "Takeaway packaging",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?takeaway,food,box"
     },
     {
       "n": "Aluminum Foil",
       "a": "የአሉሚኒየም ወረቀት",
       "p": 40,
       "d": "For wrapping your goodies",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?food,wrap,packaging"
     }
   ],
   "fresh": [
@@ -294,152 +270,143 @@
       "a": "ሻይ",
       "p": 40,
       "d": "Classic Ethiopian tea",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?tea,hot,cup"
     },
     {
       "n": "Coffee",
       "a": "ቡና",
       "p": 40,
       "d": "Rich Ethiopian coffee",
-      "i": "images/placeholder.jpg",
-      "nut": {
-        "cal": 5,
-        "pro": 0,
-        "carb": 1,
-        "fat": 0
-      }
+      "i": "https://source.unsplash.com/400x300/?ethiopian,coffee",
+      "nut": { "cal": 5, "pro": 0, "carb": 1, "fat": 0 }
     },
     {
       "n": "Milk",
       "a": "ወተት",
       "p": 70,
       "d": "Warm fresh milk",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?milk,glass,warm"
     },
     {
       "n": "Milk with Coffee",
       "a": "ወተት ከቡና ጋር",
       "p": 80,
       "d": "Perfect morning blend",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?latte,milk,coffee"
     },
     {
       "n": "Milk with Peanut",
       "a": "ወተት ለውዝ",
       "p": 95,
       "d": "Nutty creamy goodness",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?peanut,milk,drink"
     },
     {
       "n": "Cappuccino",
       "a": "ካፑቺኖ",
       "p": 100,
       "d": "Frothy and delightful",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?cappuccino,coffee"
     },
     {
       "n": "Hot Chocolate",
       "a": "ትኩስ ቸኮሌት",
       "p": 110,
       "d": "Decadent chocolate warmth",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?hot,chocolate,drink"
     },
     {
       "n": "Macchiato",
       "a": "ማኪያቶ",
       "p": 110,
       "d": "Bold espresso with a touch of milk",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?macchiato,espresso"
     },
     {
       "n": "Fasting Macchiato",
       "a": "የጾም ማኪያቶ",
       "p": 90,
       "d": "Plant-based macchiato",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v"
-      ]
+      "i": "https://source.unsplash.com/400x300/?black,coffee,espresso",
+      "dt": ["v"]
     },
     {
       "n": "Double Macchiato",
       "a": "ድርብ ማኪያቶ",
       "p": 100,
       "d": "Extra strong for extra energy",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?double,espresso,coffee"
     },
     {
       "n": "Peanut Tea",
       "a": "ለውዝ ሻይ",
       "p": 110,
       "d": "Nutty traditional tea",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?peanut,tea"
     },
     {
       "n": "Peanut with Ginger",
       "a": "ለውዝ ከዝንጅብል ጋር",
       "p": 80,
       "d": "Spiced nutty warmth",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?ginger,peanut,drink"
     },
     {
       "n": "Peanut with Coffee",
       "a": "ለውዝ ከቡና ጋር",
       "p": 90,
       "d": "Nutty coffee fusion",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?peanut,coffee"
     },
     {
       "n": "Ginger Tea",
       "a": "ዝንጅብል ሻይ",
       "p": 60,
       "d": "Warming ginger spice",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "sp"
-      ]
+      "i": "https://source.unsplash.com/400x300/?ginger,tea",
+      "dt": ["sp"]
     },
     {
       "n": "Lemon Tea",
       "a": "የሎሚ ሻይ",
       "p": 60,
       "d": "Zesty and refreshing",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?lemon,tea"
     },
     {
       "n": "Spris",
       "a": "ስፕሪስ",
       "p": 50,
       "d": "Layered juice delight",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?layered,juice,colorful"
     },
     {
       "n": "Special Tea (Large)",
       "a": "ስፔሻል ሻይ ትልቅ",
       "p": 80,
       "d": "Bigger cup, bigger comfort",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?herbal,tea,large"
     },
     {
       "n": "Orange Tea",
       "a": "የብርቱካን ሻይ",
       "p": 120,
       "d": "Citrus infused tea",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?orange,tea,citrus"
     },
     {
       "n": "Pineapple Tea",
       "a": "የአናናስ ሻይ",
       "p": 75,
       "d": "Tropical tea twist",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?pineapple,tea,tropical"
     },
     {
       "n": "Mango Tea",
       "a": "የማንጐ ሻይ",
       "p": 75,
       "d": "Sweet mango infusion",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?mango,tea"
     }
   ],
   "cold": [
@@ -448,36 +415,30 @@
       "a": "ለስላሳ መጠጥ",
       "p": 60,
       "d": "Chilled carbonated refreshment",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?soda,cold,drink"
     },
     {
       "n": "1 Liter Water",
       "a": "1 ሊትር ውሃ",
       "p": 50,
       "d": "Pure hydration",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v",
-        "gf"
-      ]
+      "i": "https://source.unsplash.com/400x300/?water,bottle",
+      "dt": ["v", "gf"]
     },
     {
       "n": "0.5 Liter Water",
       "a": "0.5 ሊትር ውሃ",
       "p": 35,
       "d": "Quick refreshment",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v",
-        "gf"
-      ]
+      "i": "https://source.unsplash.com/400x300/?water,small,bottle",
+      "dt": ["v", "gf"]
     },
     {
       "n": "Ambo Water",
       "a": "አምቦ ውሃ",
       "p": 60,
       "d": "Sparkling mineral water",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?sparkling,water,mineral"
     }
   ],
   "juice": [
@@ -486,94 +447,86 @@
       "a": "ፓፓያ ጁስ",
       "p": 200,
       "d": "Tropical papaya delight",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?papaya,juice"
     },
     {
       "n": "Avocado Juice",
       "a": "አቮካዶ ጁስ",
       "p": 200,
       "d": "Creamy avocado goodness",
-      "i": "images/placeholder.jpg",
-      "nut": {
-        "cal": 380,
-        "pro": 5,
-        "carb": 25,
-        "fat": 22
-      }
+      "i": "https://source.unsplash.com/400x300/?avocado,juice,smoothie",
+      "nut": { "cal": 380, "pro": 5, "carb": 25, "fat": 22 }
     },
     {
       "n": "Mango Juice",
       "a": "ማንጐ ጁስ",
       "p": 220,
       "d": "Sweet mango freshness",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?mango,juice"
     },
     {
       "n": "Strawberry Juice",
       "a": "ስትሮቤሪ ጁስ",
       "p": 300,
       "d": "Berry burst of flavor",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?strawberry,juice"
     },
     {
       "n": "Watermelon Juice",
       "a": "ሃብሃብ ጁስ",
       "p": 250,
       "d": "Summer in a glass",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?watermelon,juice"
     },
     {
       "n": "Special Juice",
       "a": "ስፔሻል ጁስ",
       "p": 350,
       "d": "Our signature blend",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?mixed,fruit,juice"
     },
     {
       "n": "Spritz Juice",
       "a": "ስፕሪትዝ ጁስ",
       "p": 250,
       "d": "Fruity spritz refreshment",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?fruit,spritz,drink"
     },
     {
       "n": "Avocado Shake",
       "a": "አቮካዶ ሼክ",
       "p": 350,
       "d": "Thick and creamy shake",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?avocado,shake,smoothie"
     },
     {
       "n": "Strawberry Milkshake",
       "a": "ስትሮቤሪ ሚልክሼክ",
       "p": 350,
       "d": "Berry milkshake bliss",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?strawberry,milkshake"
     },
     {
       "n": "Avocado Strawberry",
       "a": "አቮካዶ ስትሮቤሪ",
       "p": 250,
       "d": "Perfect fruity pairing",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?avocado,strawberry,smoothie"
     },
     {
       "n": "Special Watermelon Juice",
       "a": "ስፔሻል ሃብሃብ ጁስ",
       "p": 350,
       "d": "Upgraded watermelon treat",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?watermelon,special,drink"
     },
     {
       "n": "Special Fasting Juice",
       "a": "ስፔሻል የጾም ጁስ",
       "p": 300,
       "d": "Plant-based special blend",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "v",
-        "gf"
-      ]
+      "i": "https://source.unsplash.com/400x300/?vegan,fruit,juice",
+      "dt": ["v", "gf"]
     }
   ],
   "breakfast": [
@@ -582,86 +535,79 @@
       "a": "ኖርማል ጨጨብሳ",
       "p": 280,
       "d": "Traditional Ethiopian breakfast",
-      "i": "images/placeholder.jpg",
-      "nut": {
-        "cal": 480,
-        "pro": 12,
-        "carb": 65,
-        "fat": 18
-      }
+      "i": "https://source.unsplash.com/400x300/?ethiopian,breakfast,flatbread",
+      "nut": { "cal": 480, "pro": 12, "carb": 65, "fat": 18 }
     },
     {
       "n": "Special Chechebsa",
       "a": "ስፔሻል ጨጨብሳ",
       "p": 400,
       "d": "Chechebsa with extra love",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?ethiopian,food,breakfast"
     },
     {
       "n": "Normal Fetira",
       "a": "ኖርማል ፈጢራ",
       "p": 300,
       "d": "Classic layered pastry",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?flatbread,pastry,layered"
     },
     {
       "n": "Special Fetira",
       "a": "ስፔሻል ፈጢራ",
       "p": 400,
       "d": "Loaded special fetira",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?pastry,special,bread"
     },
     {
       "n": "Egg Stew",
       "a": "የእንቁላል ወጥ",
       "p": 250,
       "d": "Comforting egg curry",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?egg,stew,curry"
     },
     {
       "n": "Scrambled Eggs",
       "a": "እንቁላል ፍርፍር",
       "p": 250,
       "d": "Fluffy scrambled perfection",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?scrambled,eggs,breakfast"
     },
     {
       "n": "Normal Ful",
       "a": "ኖርማል ፉል",
       "p": 230,
       "d": "Classic fava beans",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?fava,beans,ful"
     },
     {
       "n": "Special Ful",
       "a": "ስፔሻል ፉል",
       "p": 300,
       "d": "Ful with the works",
-      "i": "images/placeholder.jpg",
-      "dt": [
-        "sp"
-      ]
+      "i": "https://source.unsplash.com/400x300/?beans,stew,special",
+      "dt": ["sp"]
     },
     {
       "n": "Ful with Avocado",
       "a": "ፉል ከአቮካዶ ጋር",
       "p": 270,
       "d": "Creamy avocado meets ful",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?avocado,beans,breakfast"
     },
     {
       "n": "Eggs with Avocado",
       "a": "እንቁላል ከአቮካዶ ጋር",
       "p": 300,
       "d": "Nutritious morning combo",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?eggs,avocado,breakfast"
     },
     {
       "n": "Tomato Slices",
       "a": "የቲማቲም ቁርጥ",
       "p": 240,
       "d": "Fresh tomato side",
-      "i": "images/placeholder.jpg"
+      "i": "https://source.unsplash.com/400x300/?tomato,sliced,fresh"
     }
   ]
 }
