@@ -1,23 +1,23 @@
 {
   "pasta": [
-    {"n":"Pasta with Sauce","a":"ፓስታ ስጎ","p":300,"d":"Classic pasta in rich tomato sauce","i":"images/pasta_sauce.jpg","nut":{"cal":520,"pro":18,"carb":72,"fat":14}},
-    {"n":"Pasta with Tuna","a":"ፓስታ ቱና","p":400,"d":"Pasta tossed with premium tuna","i":"images/pasta_tuna.jpg"},
-    {"n":"Pasta with Chicken","a":"ፓስታ ዶሮ","p":500,"d":"Creamy pasta with grilled chicken","i":"images/pasta_chicken.jpg"},
-    {"n":"Pasta with Vegetables","a":"ፓስታ አትክልት","p":300,"d":"Fresh veggies with al dente pasta","i":"images/pasta_veg.jpg","dt":["v"]}
+    {"n":"Pasta with Sauce","a":"ፓስታ በ ስጎ","p":300,"d":"Classic pasta in rich tomato sauce","i":"images/pasta_sauce.jpg","nut":{"cal":520,"pro":18,"carb":72,"fat":14}},
+    {"n":"Pasta with Tuna","a":"ፓስታ በ ቱና","p":400,"d":"Pasta tossed with premium tuna","i":"images/pasta_tuna.jpg"},
+    {"n":"Pasta with Chicken","a":"ፓስታ በ ዶሮ","p":500,"d":"Creamy pasta with grilled chicken","i":"images/pasta_chicken.jpg"},
+    {"n":"Pasta with Vegetables","a":"ፓስታ በ አትክልት","p":300,"d":"Fresh veggies with al dente pasta","i":"images/pasta_veg.jpg","dt":["v"]}
   ],
   "rice": [
-    {"n":"Rice with Tuna","a":"ሩዝ ቱና","p":370,"d":"Fluffy rice paired with tuna","i":"images/rice_tuna.jpg"},
-    {"n":"Rice with Chicken","a":"ሩዝ ዶሮ","p":450,"d":"Savory rice with tender chicken","i":"images/rice_chicken.jpg"},
-    {"n":"Rice with Sauce","a":"ሩዝ ስጎ","p":300,"d":"Steamed rice in special sauce","i":"images/rice_sauce.jpg"},
-    {"n":"Rice with Vegetable","a":"ሩዝ አትክልት","p":300,"d":"Healthy rice with fresh vegetables","i":"images/rice_veg.jpg","dt":["v","gf"]}
+    {"n":"Rice with Tuna","a":"ሩዝ በ ቱና","p":370,"d":"Fluffy rice paired with tuna","i":"images/rice_tuna.jpg"},
+    {"n":"Rice with Chicken","a":"ሩዝ በ ዶሮ","p":450,"d":"Savory rice with tender chicken","i":"images/rice_chicken.jpg"},
+    {"n":"Rice with Sauce","a":"ሩዝ በ ስጎ","p":300,"d":"Steamed rice in special sauce","i":"images/rice_sauce.jpg"},
+    {"n":"Rice with Vegetable","a":"ሩዝ በ አትክልት","p":300,"d":"Healthy rice with fresh vegetables","i":"images/rice_veg.jpg","dt":["v","gf"]}
   ],
   "sandwich": [
     {"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/sandwich_club.jpg"},
     {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/sandwich_tuna.jpg"},
     {"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/sandwich_tuna.jpg"},
-    {"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች ከቺፕስ ጋር","p":300,"d":"Egg sandwich served with crispy chips","i":"images/sandwich_egg.jpg"},
+    {"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/sandwich_egg.jpg"},
     {"n":"Egg Sandwich (no chips)","a":"እንቁላል ሳንድዊች ያለ ቺፕስ","p":250,"d":"Simple and satisfying egg sandwich","i":"images/sandwich_egg.jpg"},
-    {"n":"Veg Sandwich (with chips)","a":"አትክልት ሳንድዊች ከቺፕስ ጋር","p":300,"d":"Garden fresh with a side of chips","i":"images/sandwich_veg.jpg","dt":["v"]},
+    {"n":"Veg Sandwich (with chips)","a":"አትክልት ሳንድዊች በ ቺፕስ","p":300,"d":"Garden fresh with a side of chips","i":"images/sandwich_veg.jpg","dt":["v"]},
     {"n":"Veg Sandwich (no chips)","a":"አትክልት ሳንድዊች ያለ ቺፕስ","p":250,"d":"Light and healthy veggie delight","i":"images/sandwich_veg.jpg"},
     {"n":"Chips","a":"ቺፕስ","p":200,"d":"Crispy golden fries","i":"images/chips.jpg"}
   ],
@@ -34,7 +34,7 @@
     {"n":"Chicken Pizza","a":"ቺከን ፒዛ","p":600,"d":"Savory chicken topped pizza","i":"images/pizza_chicken.jpg"},
     {"n":"Vegetable Pizza","a":"ቬጀቴብል ፒዛ","p":450,"d":"Garden fresh veggie pizza","i":"images/pizza_veg.jpg","dt":["v"]},
     {"n":"Margherita Pizza","a":"ማርጋሪታ ፒዛ","p":500,"d":"Simple elegance: tomato & basil","i":"images/pizza_margherita.jpg"},
-    {"n":"Tuna Pizza (with cheese)","a":"ቱና ፒዛ ከቺዝ ጋር","p":600,"d":"Tuna delight with cheesy goodness","i":"images/pizza_tuna.jpg"}
+    {"n":"Tuna Pizza (with cheese)","a":"ቱና ፒዛ በ ቺዝ","p":600,"d":"Tuna delight with cheesy goodness","i":"images/pizza_tuna.jpg"}
   ],
   "extra": [
     {"n":"Mayonnaise","a":"ማዮኔዝ","p":80,"d":"Creamy mayo dip","i":"images/mayo.jpg"},
@@ -50,16 +50,16 @@
     {"n":"Tea","a":"ሻይ","p":40,"d":"Classic Ethiopian tea","i":"images/tea.jpg"},
     {"n":"Coffee","a":"ቡና","p":40,"d":"Rich Ethiopian coffee","i":"images/coffee.jpg","nut":{"cal":5,"pro":0,"carb":1,"fat":0}},
     {"n":"Milk","a":"ወተት","p":70,"d":"Warm fresh milk","i":"images/milk.jpg"},
-    {"n":"Milk with Coffee","a":"ወተት ከቡና ጋር","p":80,"d":"Perfect morning blend","i":"images/latte.jpg"},
-    {"n":"Milk with Peanut","a":"ወተት ለውዝ","p":95,"d":"Nutty creamy goodness","i":"images/peanut_milk.jpg"},
+    {"n":"Milk with Coffee","a":"ወተት በ ቡና","p":80,"d":"Perfect morning blend","i":"images/latte.jpg"},
+    {"n":"Milk with Peanut","a":"ወተት በ ለውዝ","p":95,"d":"Nutty creamy goodness","i":"images/peanut_milk.jpg"},
     {"n":"Cappuccino","a":"ካፑቺኖ","p":100,"d":"Frothy and delightful","i":"images/cappuccino.jpg"},
     {"n":"Hot Chocolate","a":"ትኩስ ቸኮሌት","p":110,"d":"Decadent chocolate warmth","i":"images/hot_choc.jpg"},
     {"n":"Macchiato","a":"ማኪያቶ","p":110,"d":"Bold espresso with a touch of milk","i":"images/macchiato.jpg"},
     {"n":"Fasting Macchiato","a":"የጾም ማኪያቶ","p":90,"d":"Plant-based macchiato","i":"images/espresso.jpg","dt":["v"]},
     {"n":"Double Macchiato","a":"ድርብ ማኪያቶ","p":100,"d":"Extra strong for extra energy","i":"images/espresso.jpg"},
     {"n":"Peanut Tea","a":"ለውዝ ሻይ","p":110,"d":"Nutty traditional tea","i":"images/tea.jpg"},
-    {"n":"Peanut with Ginger","a":"ለውዝ ከዝንጅብል ጋር","p":80,"d":"Spiced nutty warmth","i":"images/ginger_tea.jpg"},
-    {"n":"Peanut with Coffee","a":"ለውዝ ከቡና ጋር","p":90,"d":"Nutty coffee fusion","i":"images/coffee.jpg"},
+    {"n":"Peanut with Ginger","a":"ለውዝ በ ዝንጅብል","p":80,"d":"Spiced nutty warmth","i":"images/ginger_tea.jpg"},
+    {"n":"Peanut with Coffee","a":"ለውዝ በ ቡና","p":90,"d":"Nutty coffee fusion","i":"images/coffee.jpg"},
     {"n":"Ginger Tea","a":"ዝንጅብል ሻይ","p":60,"d":"Warming ginger spice","i":"images/ginger_tea.jpg","dt":["sp"]},
     {"n":"Lemon Tea","a":"የሎሚ ሻይ","p":60,"d":"Zesty and refreshing","i":"images/lemon_tea.jpg"},
     {"n":"Spris","a":"ስፕሪስ","p":50,"d":"Layered juice delight","i":"images/juice_mix.jpg"},
@@ -97,8 +97,8 @@
     {"n":"Scrambled Eggs","a":"እንቁላል ፍርፍር","p":250,"d":"Fluffy scrambled perfection","i":"images/scrambled_eggs.jpg"},
     {"n":"Normal Ful","a":"ኖርማል ፉል","p":230,"d":"Classic fava beans","i":"images/injera.jpg"},
     {"n":"Special Ful","a":"ስፔሻል ፉል","p":300,"d":"Ful with the works","i":"images/egg_stew.jpg","dt":["sp"]},
-    {"n":"Ful with Avocado","a":"ፉል ከአቮካዶ ጋር","p":270,"d":"Creamy avocado meets ful","i":"images/avocado_eggs.jpg"},
-    {"n":"Eggs with Avocado","a":"እንቁላል ከአቮካዶ ጋር","p":300,"d":"Nutritious morning combo","i":"images/avocado_eggs.jpg"},
+    {"n":"Ful with Avocado","a":"ፉል በ አቮካዶ","p":270,"d":"Creamy avocado meets ful","i":"images/avocado_eggs.jpg"},
+    {"n":"Eggs with Avocado","a":"እንቁላል በ አቮካዶ","p":300,"d":"Nutritious morning combo","i":"images/avocado_eggs.jpg"},
     {"n":"Tomato Slices","a":"የቲማቲም ቁርጥ","p":240,"d":"Fresh tomato side","i":"images/tomato.jpg"}
   ]
 }
