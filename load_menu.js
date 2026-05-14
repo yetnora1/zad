@@ -20,21 +20,13 @@ async function loadMenuData() {
         md = await response.json();
         menuLoaded = true;
         
-        // Trigger menu render if the function exists
-        if (typeof renderMenu === 'function') {
-            renderMenu();
-        }
-        
-        // Trigger other initializations
-        if (typeof initializeApp === 'function') {
-            initializeApp();
-        }
-        
         console.log('✅ Menu data loaded successfully from menu_data.json');
+        console.log('📊 Total categories:', Object.keys(md).length);
+        console.log('🍽️ Total items:', Object.values(md).reduce((sum, items) => sum + items.length, 0));
+        
         return md;
     } catch (error) {
         console.error('❌ Error loading menu data:', error);
-        // Fallback: you can add hardcoded data here as backup
         alert('Failed to load menu. Please refresh the page.');
         return null;
     }
