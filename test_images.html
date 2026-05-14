@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZAD Image Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .test-card { background: white; border-radius: 8px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .test-img { width: 100%; height: 150px; background-size: cover; background-position: center; border-radius: 4px; margin-bottom: 8px; }
+        .test-name { font-size: 14px; font-weight: bold; }
+        .test-path { font-size: 11px; color: #666; margin-top: 4px; }
+        .error { background: #ffebee; color: #c62828; }
+        .success { background: #e8f5e9; color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>ZAD Cafe - Image Loading Test</h1>
+    <p>Testing all menu item images...</p>
+    <div class="test-grid" id="testGrid"></div>
+
+    <script>
+        const md = {"pasta":[{"n":"Pasta with Sauce","i":"images/pasta_sauce.jpg"},{"n":"Pasta with Tuna","i":"images/pasta_tuna.jpg"},{"n":"Pasta with Chicken","i":"images/pasta_chicken.jpg"},{"n":"Pasta with Vegetables","i":"images/pasta_veg.jpg"}],"rice":[{"n":"Rice with Tuna","i":"images/rice_tuna.jpg"},{"n":"Rice with Chicken","i":"images/rice_chicken.jpg"},{"n":"Rice with Sauce","i":"images/rice_sauce.jpg"},{"n":"Rice with Vegetable","i":"images/rice_veg.jpg"}],"sandwich":[{"n":"Club Sandwich","i":"images/sandwich_club.jpg"},{"n":"Tuna Sandwich","i":"images/sandwich_tuna.jpg"},{"n":"Egg Sandwich","i":"images/sandwich_egg.jpg"},{"n":"Veg Sandwich","i":"images/sandwich_veg.jpg"},{"n":"Chips","i":"images/chips.jpg"}],"burger":[{"n":"Normal Burger","i":"images/burger_normal.jpg"},{"n":"Double Special Burger","i":"images/burger_double.jpg"},{"n":"Single Special Burger","i":"images/burger_special.jpg"},{"n":"Cheese Burger","i":"images/burger_cheese.jpg"}],"pizza":[{"n":"Zad Special Pizza","i":"images/pizza_special.jpg"},{"n":"Normal Pizza","i":"images/pizza_normal.jpg"},{"n":"Special Pizza","i":"images/pizza_loaded.jpg"},{"n":"Chicken Pizza","i":"images/pizza_chicken.jpg"},{"n":"Vegetable Pizza","i":"images/pizza_veg.jpg"},{"n":"Margherita Pizza","i":"images/pizza_margherita.jpg"},{"n":"Tuna Pizza","i":"images/pizza_tuna.jpg"}],"extra":[{"n":"Mayonnaise","i":"images/mayo.jpg"},{"n":"Ketchup","i":"images/tomato.jpg"},{"n":"Bread","i":"images/bread.jpg"},{"n":"Injera","i":"images/injera.jpg"},{"n":"Tea Cup","i":"images/tea.jpg"},{"n":"Juice Cup","i":"images/juice_cup.jpg"},{"n":"Burger/Pizza Box","i":"images/placeholder.jpg"},{"n":"Aluminum Foil","i":"images/placeholder.jpg"}],"fresh":[{"n":"Tea","i":"images/tea.jpg"},{"n":"Coffee","i":"images/coffee.jpg"},{"n":"Milk","i":"images/milk.jpg"},{"n":"Milk with Coffee","i":"images/latte.jpg"},{"n":"Milk with Peanut","i":"images/peanut_milk.jpg"},{"n":"Cappuccino","i":"images/cappuccino.jpg"},{"n":"Hot Chocolate","i":"images/hot_choc.jpg"},{"n":"Macchiato","i":"images/macchiato.jpg"},{"n":"Fasting Macchiato","i":"images/espresso.jpg"},{"n":"Double Macchiato","i":"images/espresso.jpg"},{"n":"Peanut Tea","i":"images/tea.jpg"},{"n":"Peanut with Ginger","i":"images/ginger_tea.jpg"},{"n":"Peanut with Coffee","i":"images/coffee.jpg"},{"n":"Ginger Tea","i":"images/ginger_tea.jpg"},{"n":"Lemon Tea","i":"images/lemon_tea.jpg"},{"n":"Spris","i":"images/juice_mix.jpg"}],"cold":[{"n":"Soft Drink","i":"images/soft_drink.jpg"},{"n":"1 Liter Water","i":"images/water.jpg"},{"n":"0.5 Liter Water","i":"images/water.jpg"},{"n":"Ambo Water","i":"images/sparkling.jpg"}],"juice":[{"n":"Papaya Juice","i":"images/juice_mix.jpg"},{"n":"Avocado Juice","i":"images/avocado_juice.jpg"},{"n":"Mango Juice","i":"images/mango_juice.jpg"},{"n":"Strawberry Juice","i":"images/juice_mix.jpg"},{"n":"Watermelon Juice","i":"images/watermelon.jpg"},{"n":"Special Juice","i":"images/juice_cup.jpg"},{"n":"Spritz Juice","i":"images/juice_mix.jpg"},{"n":"Avocado Shake","i":"images/avocado_juice.jpg"},{"n":"Strawberry Milkshake","i":"images/milkshake.jpg"},{"n":"Avocado Strawberry","i":"images/avocado_juice.jpg"},{"n":"Special Watermelon Juice","i":"images/watermelon.jpg"},{"n":"Special Fasting Juice","i":"images/juice_cup.jpg"}],"breakfast":[{"n":"Normal Chechebsa","i":"images/injera.jpg"},{"n":"Special Chechebsa","i":"images/injera.jpg"},{"n":"Normal Fetira","i":"images/bread.jpg"},{"n":"Special Fetira","i":"images/bread.jpg"},{"n":"Egg Stew","i":"images/egg_stew.jpg"},{"n":"Scrambled Eggs","i":"images/scrambled_eggs.jpg"},{"n":"Normal Ful","i":"images/injera.jpg"},{"n":"Special Ful","i":"images/egg_stew.jpg"},{"n":"Ful with Avocado","i":"images/avocado_eggs.jpg"},{"n":"Eggs with Avocado","i":"images/avocado_eggs.jpg"},{"n":"Tomato Slices","i":"images/tomato.jpg"}]};
+
+        const grid = document.getElementById('testGrid');
+        let loaded = 0;
+        let failed = 0;
+        let total = 0;
+
+        for (const [cat, items] of Object.entries(md)) {
+            items.forEach(item => {
+                total++;
+                const card = document.createElement('div');
+                card.className = 'test-card';
+                
+                const img = document.createElement('div');
+                img.className = 'test-img';
+                img.style.backgroundImage = `url('${item.i}')`;
+                
+                const name = document.createElement('div');
+                name.className = 'test-name';
+                name.textContent = item.n;
+                
+                const path = document.createElement('div');
+                path.className = 'test-path';
+                path.textContent = item.i;
+                
+                card.appendChild(img);
+                card.appendChild(name);
+                card.appendChild(path);
+                grid.appendChild(card);
+
+                // Test if image loads
+                const testImg = new Image();
+                testImg.onload = () => {
+                    loaded++;
+                    card.classList.add('success');
+                    updateStats();
+                };
+                testImg.onerror = () => {
+                    failed++;
+                    card.classList.add('error');
+                    path.textContent += ' ❌ FAILED';
+                    updateStats();
+                };
+                testImg.src = item.i;
+            });
+        }
+
+        function updateStats() {
+            document.querySelector('p').textContent = 
+                `Testing ${total} images... ✅ Loaded: ${loaded} | ❌ Failed: ${failed} | ⏳ Pending: ${total - loaded - failed}`;
+        }
+    </script>
+</body>
+</html>
