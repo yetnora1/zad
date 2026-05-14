@@ -1111,16 +1111,25 @@ setLanguage(cl);
 setTheme(ct);
 generateQRCodes();
 // Wait for menu data to load before rendering
+let attempts = 0;
+const maxAttempts = 100; // 5 seconds max wait
 const checkMenuLoaded = setInterval(() => {
+  attempts++;
   if (window.isMenuLoaded && window.isMenuLoaded()) {
     clearInterval(checkMenuLoaded);
     md = window.getMenuData();
     renderMenu();
     renderFavorites();
     renderRecent();
+    setTimeout(()=>document.getElementById('loader').classList.add('hidden'),500);
+  } else if (attempts >= maxAttempts) {
+    clearInterval(checkMenuLoaded);
+    console.error('Failed to load menu data after 5 seconds');
+    // Hide loader anyway to show the page
+    document.getElementById('loader').classList.add('hidden');
+    alert('Failed to load menu data. Please refresh the page.');
   }
 }, 50);
-setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1200);
 const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.menu-card').forEach(c=>c.style.animationPlayState='running');}});},{threshold:0.1});
 document.querySelectorAll('.menu-section').forEach(s=>obs.observe(s));
 const cobs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCounters();cobs.unobserve(e.target);}});},{threshold:0.5});
