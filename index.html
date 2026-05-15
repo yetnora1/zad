@@ -278,8 +278,8 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 .card-fav{position:absolute;top:8px;left:8px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;font-size:.9rem;backdrop-filter:blur(3px);}
 .card-fav:hover{background:rgba(231,76,60,.8);}
 .card-fav.active{background:rgba(231,76,60,.9);color:#fff;}
-.fav-section,.recent-section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
-.fav-grid,.recent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.fav-section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
+.fav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
 .empty-state{text-align:center;color:var(--mu);padding:2rem;font-style:italic;}
 .item-modal-price{font-size:1.5rem;font-weight:600;color:var(--or);margin-bottom:1.5rem;}
 .item-modal-btn{width:100%;padding:1rem;background:var(--or);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:.3s;}
@@ -305,37 +305,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 .whatsapp-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 5px 20px rgba(37,211,102,.3);}
 .whatsapp-btn i{font-size:1.1rem;}
 
-/* Events */
-.events-section{background:var(--bg);padding:5rem 1.5rem;}
-.events-inner{max-width:1000px;margin:0 auto;}
-.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
-.event-card{background:var(--ca);border-radius:20px;padding:1.5rem;border:1px solid var(--br);display:flex;gap:1.5rem;align-items:flex-start;transition:.3s;cursor:pointer;}
-.event-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px var(--sh);}
-.event-date{flex-shrink:0;width:60px;height:60px;background:var(--or);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;}
-.event-date .day{font-size:1.4rem;font-weight:700;line-height:1;}
-.event-date .month{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;}
-.event-info{flex:1;}
-.event-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cr);margin-bottom:.3rem;}
-.event-time{font-size:.8rem;color:var(--or);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;}
-.event-desc{font-size:.85rem;color:var(--mu);line-height:1.5;}
-
-/* Customizer */
-.customizer-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;}
-.customizer-inner{max-width:900px;margin:0 auto;}
-.customizer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-@media(max-width:768px){.customizer-grid{grid-template-columns:1fr;}}
-.customizer-group{background:var(--ca);border-radius:16px;padding:1.5rem;border:1px solid var(--br);}
-.customizer-group h4{font-size:1rem;color:var(--cr);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
-.option-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;}
-.option-btn{padding:.6rem .8rem;border:1px solid var(--br);background:var(--bg);border-radius:10px;color:var(--tx);cursor:pointer;transition:.3s;font-size:.85rem;font-family:'Poppins',sans-serif;text-align:left;}
-.option-btn:hover{border-color:var(--or);}
-.option-btn.active{background:var(--or);color:#fff;border-color:var(--or);box-shadow:0 5px 15px rgba(232,120,74,.3);}
-.customizer-total{display:flex;align-items:center;justify-content:space-between;background:var(--ca);border-radius:16px;padding:1.5rem;border:1px solid var(--br);margin-top:1.5rem;}
-.total-label{font-size:1rem;color:var(--mu);}
-.total-price{font-family:'Playfair Display',serif;font-size:2rem;color:var(--or);}
-.customizer-add{padding:.8rem 2rem;background:var(--or);color:#fff;border:none;border-radius:50px;font-weight:600;cursor:pointer;transition:.3s;font-family:'Poppins',sans-serif;}
-.customizer-add:hover{background:var(--gd);}
-
 /* Seasonal */
 .seasonal-section{background:var(--bg);padding:5rem 1.5rem;}
 .seasonal-inner{max-width:1000px;margin:0 auto;}
@@ -350,13 +319,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 .seasonal-footer{display:flex;align-items:center;justify-content:space-between;}
 .seasonal-price{font-size:1.2rem;font-weight:600;color:var(--or);}
 
-/* Social */
-.social-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;}
-.social-inner{max-width:800px;margin:0 auto;text-align:center;}
-.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:2rem;}
-.social-item{aspect-ratio:1;border-radius:12px;background:var(--ca);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;color:var(--mu);font-size:2rem;transition:.3s;}
-.social-item:hover{color:var(--or);transform:scale(1.03);}
-
 /* Sustainability */
 .sustain-section{background:var(--bg);padding:5rem 1.5rem;}
 .sustain-inner{max-width:1000px;margin:0 auto;}
@@ -369,26 +331,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 
 /* Feedback */
 .feedback-section{max-width:800px;margin:0 auto;padding:5rem 1.5rem;}
-
-/* Subscribe */
-.subscribe-section{background:linear-gradient(135deg,var(--cm),var(--cl));padding:5rem 1.5rem;position:relative;overflow:hidden;}
-.subscribe-section::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(232,120,74,.08),transparent 70%);border-radius:50%;}
-.subscribe-container{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1;}
-.subscribe-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--cr);margin-bottom:.5rem;}
-.subscribe-subtitle{color:var(--mu);margin-bottom:2rem;font-size:1rem;}
-.subscribe-box{display:flex;gap:.5rem;background:var(--ca);padding:.5rem;border-radius:50px;border:1px solid var(--br);box-shadow:0 10px 40px var(--sh);}
-.subscribe-box input{flex:1;border:none;background:transparent;padding:.8rem 1.2rem;color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;outline:none;}
-.subscribe-box input::placeholder{color:var(--mu);}
-.subscribe-box button{padding:.8rem 1.8rem;border-radius:50px;background:var(--or);color:#fff;border:none;font-weight:600;cursor:pointer;transition:.3s;font-family:'Poppins',sans-serif;}
-.subscribe-box button:hover{background:var(--gd);}
-.subscribe-status{margin-top:1.5rem;padding:1rem;border-radius:12px;font-size:.9rem;display:none;}
-.subscribe-status.success{background:rgba(39,174,96,.1);color:#27ae60;border:1px solid rgba(39,174,96,.2);}
-.subscribe-status.error{background:rgba(231,76,60,.1);color:#e74c3c;border:1px solid rgba(231,76,60,.2);}
-.discount-code{display:inline-block;background:var(--or);color:#fff;padding:.4rem 1rem;border-radius:8px;font-weight:700;font-size:1.1rem;margin-top:.5rem;letter-spacing:2px;}
-.feedback-form{background:var(--ca);border-radius:24px;padding:2.5rem;border:1px solid var(--br);}
-.feedback-status{padding:1rem;border-radius:12px;margin-bottom:1.5rem;display:none;font-size:.9rem;}
-.feedback-status.success{background:rgba(0,166,81,.1);color:#00c853;border:1px solid rgba(0,166,81,.2);}
-.feedback-status.error{background:rgba(232,120,74,.1);color:var(--or);border:1px solid rgba(232,120,74,.2);}
 
 /* Animations */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
@@ -518,47 +460,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <section class="menu-section" id="juice"><div class="section-header"><div class="section-icon"><i class="fas fa-glass-citrus"></i></div><h2 class="section-title" data-i18n="cat_juice">Juice</h2><p class="section-subtitle" data-i18n="sub_juice">Squeezed fresh, just for you</p></div><div class="menu-grid" id="juice-grid"></div></section>
 <section class="menu-section" id="breakfast"><div class="section-header"><div class="section-icon"><i class="fas fa-sun"></i></div><h2 class="section-title" data-i18n="cat_breakfast">Breakfast</h2><p class="section-subtitle" data-i18n="sub_breakfast">Start your day the ZAD way</p></div><div class="menu-grid" id="breakfast-grid"></div></section>
 
-<section class="customizer-section" id="customizer">
-<div class="customizer-inner">
-<div class="section-header"><div class="section-icon"><i class="fas fa-flask"></i></div><h2 class="section-title" data-i18n="cust_title">Build Your Drink</h2><p class="section-subtitle" data-i18n="cust_subtitle">Craft your perfect cup, your way</p></div>
-<div class="customizer-grid">
-<div class="customizer-group"><h4><i class="fas fa-mug-hot" style="color:var(--or)"></i> <span data-i18n="cust_base">Base Drink</span></h4><div class="option-grid">
-<button class="option-btn active" onclick="setCustomOption('base',this,40)" data-name="Coffee" data-name-am="ቡና">Coffee - 40 Birr</button>
-<button class="option-btn" onclick="setCustomOption('base',this,40)" data-name="Tea" data-name-am="ሻይ">Tea - 40 Birr</button>
-<button class="option-btn" onclick="setCustomOption('base',this,110)" data-name="Hot Chocolate" data-name-am="ትኩስ ቸኮሌት">Hot Chocolate - 110 Birr</button>
-<button class="option-btn" onclick="setCustomOption('base',this,100)" data-name="Cappuccino" data-name-am="ካፑቺኖ">Cappuccino - 100 Birr</button>
-<button class="option-btn" onclick="setCustomOption('base',this,90)" data-name="Fasting Macchiato" data-name-am="የጾም ማኪያቶ">Fasting Macchiato - 90 Birr</button>
-<button class="option-btn" onclick="setCustomOption('base',this,220)" data-name="Avocado Juice" data-name-am="አቮካዶ ጭምብል">Avocado Juice - 220 Birr</button>
-</div></div>
-<div class="customizer-group"><h4><i class="fas fa-droplet" style="color:var(--or)"></i> <span data-i18n="cust_milk">Milk</span></h4><div class="option-grid">
-<button class="option-btn active" onclick="setCustomOption('milk',this,0)" data-name="None" data-name-am="ወተት ሳይሆን">None</button>
-<button class="option-btn" onclick="setCustomOption('milk',this,10)" data-name="Regular Milk" data-name-am="መደበኛ ወተት">Regular Milk - 10 Birr</button>
-<button class="option-btn" onclick="setCustomOption('milk',this,20)" data-name="Oat Milk" data-name-am="የቀቅል ወተት">Oat Milk - 20 Birr</button>
-<button class="option-btn" onclick="setCustomOption('milk',this,25)" data-name="Almond Milk" data-name-am="የበለው ወተት">Almond Milk - 25 Birr</button>
-</div></div>
-<div class="customizer-group"><h4><i class="fas fa-cubes-stacked" style="color:var(--or)"></i> <span data-i18n="cust_sweet">Sweetness</span></h4><div class="option-grid">
-<button class="option-btn" onclick="setCustomOption('sweet',this,0)" data-name="No Sugar" data-name-am="ስኳር ያለ">No Sugar</button>
-<button class="option-btn active" onclick="setCustomOption('sweet',this,0)" data-name="Normal" data-name-am="መደበኛ">Normal</button>
-<button class="option-btn" onclick="setCustomOption('sweet',this,0)" data-name="Less Sugar" data-name-am="ትንሽ ስኳር">Less Sugar</button>
-<button class="option-btn" onclick="setCustomOption('sweet',this,0)" data-name="Extra Sugar" data-name-am="ተጨማሪ ስኳር">Extra Sugar</button>
-</div></div>
-<div class="customizer-group"><h4><i class="fas fa-plus" style="color:var(--or)"></i> <span data-i18n="cust_extra">Extras</span></h4><div class="option-grid">
-<button class="option-btn" onclick="toggleCustomExtra(this,15)" data-name="Ginger" data-name-am="ዝንጅብል">Ginger - 15 Birr</button>
-<button class="option-btn" onclick="toggleCustomExtra(this,10)" data-name="Cinnamon" data-name-am="ቀደም">Cinnamon - 10 Birr</button>
-<button class="option-btn" onclick="toggleCustomExtra(this,15)" data-name="Honey" data-name-am="ማር">Honey - 15 Birr</button>
-<button class="option-btn" onclick="toggleCustomExtra(this,20)" data-name="Peanut" data-name-am="ሽንብራ">Peanut - 20 Birr</button>
-</div></div>
-</div>
-<div class="customizer-total">
-<div><div class="total-label" data-i18n="cust_total">Your Custom Drink</div><div id="customName" style="font-size:.85rem;color:var(--mu);margin-top:.25rem;">Coffee</div></div>
-<div style="display:flex;align-items:center;gap:1.5rem;"><span class="total-price" id="customPrice">40 Birr</span></div>
-</div>
-</div>
-</section>
-
 <section class="fav-section" id="favorites"><div class="section-header"><div class="section-icon"><i class="fas fa-heart"></i></div><h2 class="section-title" data-i18n="fav_title">Your Favorites</h2><p class="section-subtitle" data-i18n="fav_subtitle">Quick access to the items you love</p></div><div class="fav-grid" id="fav-grid"></div></section>
-
-<section class="recent-section" id="recent"><div class="section-header"><div class="section-icon"><i class="fas fa-clock-rotate-left"></i></div><h2 class="section-title" data-i18n="recent_title">Recent Orders</h2><p class="section-subtitle" data-i18n="recent_subtitle">Items you have ordered recently</p></div><div class="recent-grid" id="recent-grid"></div></section>
 
 <section class="gallery-section" id="gallery">
 <div class="section-header"><div class="section-icon"><i class="fas fa-images"></i></div><h2 class="section-title" data-i18n="gallery_title">Gallery</h2><p class="section-subtitle" data-i18n="gallery_subtitle">Moments from ZAD Cafe</p></div>
@@ -587,7 +489,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 <div class="seasonal-card">
 <span class="seasonal-badge">Limited</span>
-<div class="seasonal-img" style="background-image:url('images/tropical_juice.jpg')"></div>
+<div class="seasonal-img" style="background-image:url('images/Tropical Sunrise Juice.jpg')"></div>
 <div class="seasonal-content">
 <div class="seasonal-title" data-i18n="sp2_title">Tropical Sunrise Juice</div>
 <div class="seasonal-desc" data-i18n="sp2_desc">Mango, papaya, and orange blend with a ginger kick.</div>
@@ -614,41 +516,17 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <div class="testimonial-card">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
 <p data-i18n="review1">"The best Chechebsa I have ever had! ZAD Cafe has become my weekend tradition. The atmosphere is warm and the staff is incredibly friendly."</p>
-<div class="testimonial-author"><img src="images/avatar1.jpg" alt="Sarah T."><div><h4>Sarah T.</h4><span>Regular Customer</span></div></div>
+<div class="testimonial-author"><div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;font-weight:700;">S</div><div><h4>Sarah T.</h4><span>Regular Customer</span></div></div>
 </div>
 <div class="testimonial-card">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
 <p data-i18n="review2">"Amazing pizza and the payment via Telebirr QR is so convenient. Perfect place to hang out with friends after work."</p>
-<div class="testimonial-author"><img src="images/avatar2.jpg" alt="Dawit K."><div><h4>Dawit K.</h4><span>Food Blogger</span></div></div>
+<div class="testimonial-author"><div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;font-weight:700;">D</div><div><h4>Dawit K.</h4><span>Food Blogger</span></div></div>
 </div>
 <div class="testimonial-card">
 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
 <p data-i18n="review3">"Their breakfast combo is unbeatable. Fresh ful, warm bread, and a cup of Ethiopian coffee - the perfect start to any day."</p>
-<div class="testimonial-author"><img src="images/avatar3.jpg" alt="Helen M."><div><h4>Helen M.</h4><span>Local Resident</span></div></div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="events-section" id="events">
-<div class="events-inner">
-<div class="section-header"><div class="section-icon"><i class="fas fa-calendar-star"></i></div><h2 class="section-title" data-i18n="events_title">Upcoming Events</h2><p class="section-subtitle" data-i18n="events_subtitle">Join us for special moments at ZAD</p></div>
-<div class="events-grid">
-<div class="event-card">
-<div class="event-date"><span class="day">15</span><span class="month">MAY</span></div>
-<div class="event-info"><div class="event-title" data-i18n="ev1_title">Coffee Tasting Workshop</div><div class="event-time"><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</div><div class="event-desc" data-i18n="ev1_desc">Discover Ethiopian coffee origins and brewing techniques with our expert barista.</div></div>
-</div>
-<div class="event-card">
-<div class="event-date"><span class="day">18</span><span class="month">MAY</span></div>
-<div class="event-info"><div class="event-title" data-i18n="ev2_title">Live Jazz Night</div><div class="event-time"><i class="fas fa-clock"></i> 7:00 PM - 10:00 PM</div><div class="event-desc" data-i18n="ev2_desc">Smooth jazz, great food, and the best atmosphere in Addis Ababa.</div></div>
-</div>
-<div class="event-card">
-<div class="event-date"><span class="day">25</span><span class="month">MAY</span></div>
-<div class="event-info"><div class="event-title" data-i18n="ev3_title">Ethiopian Coffee Ceremony</div><div class="event-time"><i class="fas fa-clock"></i> 4:00 PM - 6:00 PM</div><div class="event-desc" data-i18n="ev3_desc">Experience the traditional bunna ceremony with fresh roasting and incense.</div></div>
-</div>
-<div class="event-card">
-<div class="event-date"><span class="day">28</span><span class="month">MAY</span></div>
-<div class="event-info"><div class="event-title" data-i18n="ev4_title">Pizza & Pasta Night</div><div class="event-time"><i class="fas fa-clock"></i> 6:00 PM - 9:00 PM</div><div class="event-desc" data-i18n="ev4_desc">Half-price on all pasta and pizza items. Bring your friends!</div></div>
+<div class="testimonial-author"><div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;font-weight:700;">H</div><div><h4>Helen M.</h4><span>Local Resident</span></div></div>
 </div>
 </div>
 </div>
@@ -672,20 +550,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <div class="qr-placeholder" id="cbe-qr"></div>
 <div class="account-info"><label data-i18n="label_account">Account Number</label><input type="text" value="1000231406558" readonly onclick="this.select()"></div>
 </div>
-</div>
-</div>
-</section>
-
-<section class="social-section" id="social">
-<div class="social-inner">
-<div class="section-header"><div class="section-icon"><i class="fas fa-share-nodes"></i></div><h2 class="section-title" data-i18n="social_title">Follow Our Journey</h2><p class="section-subtitle" data-i18n="social_subtitle">Stay connected with ZAD Cafe</p></div>
-<div class="social-grid">
-<a href="#" class="social-item"><i class="fab fa-facebook-f"></i></a>
-<a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
-<a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
-<a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
-<a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
-<a href="#" class="social-item"><i class="fab fa-twitter"></i></a>
 </div>
 </div>
 </section>
@@ -728,27 +592,15 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 </section>
 
-<section class="subscribe-section" id="subscribe">
-<div class="subscribe-container">
-<h2 class="subscribe-title" data-i18n="sub_title">Join the ZAD Family</h2>
-<p class="subscribe-subtitle" data-i18n="sub_subtitle">Subscribe for updates and get <strong>10% off</strong> your first order</p>
-<div class="subscribe-box">
-<input type="email" id="subEmail" placeholder="etcoder27@gmail.com" data-i18n-placeholder="sub_placeholder" required>
-<button onclick="submitSubscribe()" data-i18n="sub_btn">Subscribe</button>
-</div>
-<div class="subscribe-status" id="subStatus"></div>
-</div>
-</section>
-
 <footer>
 <div class="footer-grid">
 <div class="footer-col">
 <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;"><img src="images/ZAD.jpg" alt="ZAD" style="width:42px;height:42px;object-fit:cover;border-radius:50%;"><h4 style="margin:0;">ZAD CAFE</h4></div>
 <p data-i18n="footer_desc">Where every bite feels like home. Serving Addis Ababa since 2020.</p>
 <div class="social-links">
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-telegram"></i></a>
+<a href="https://www.facebook.com/zadcafe" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/zadcafe" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://t.me/zadcafe" target="_blank" rel="noopener noreferrer" title="Join us on Telegram"><i class="fab fa-telegram"></i></a>
 </div>
 </div>
 <div class="footer-col">
@@ -823,7 +675,7 @@ function setTheme(th){ct=th;localStorage.setItem('zad-theme',th);document.docume
 function toggleTheme(){setTheme(ct==='light'?'dark':'light');}
 
 // Menu data loaded from menu_data.json
-const md={"pasta":[{"n":"Pasta with Sauce","a":"ፓስታ በ ስጎ","p":300,"d":"Classic pasta in rich tomato sauce","i":"images/pasta_sauce.jpg","nut":{"cal":520,"pro":18,"carb":72,"fat":14}},{"n":"Pasta with Tuna","a":"ፓስታ በ ቱና","p":400,"d":"Pasta tossed with premium tuna","i":"images/pasta_tuna.jpg"},{"n":"Pasta with Chicken","a":"ፓስታ በ ዶሮ","p":500,"d":"Creamy pasta with grilled chicken","i":"images/pasta_chicken.jpg"},{"n":"Pasta with Vegetables","a":"ፓስታ በ አትክልት","p":300,"d":"Fresh veggies with al dente pasta","i":"images/pasta_veg.jpg","dt":["v"]}],"rice":[{"n":"Rice with Tuna","a":"ሩዝ በ ቱና","p":370,"d":"Fluffy rice paired with tuna","i":"images/rice_tuna.jpg"},{"n":"Rice with Chicken","a":"ሩዝ በ ዶሮ","p":450,"d":"Savory rice with tender chicken","i":"images/rice_chicken.jpg"},{"n":"Rice with Sauce","a":"ሩዝ በ ስጎ","p":300,"d":"Steamed rice in special sauce","i":"images/rice_sauce.jpg"},{"n":"Rice with Vegetable","a":"ሩዝ በ አትክልት","p":300,"d":"Healthy rice with fresh vegetables","i":"images/rice_veg.jpg","dt":["v","gf"]}],"sandwich":[{"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/sandwich_club.jpg"},{"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/sandwich_tuna.jpg"},{"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/sandwich_tuna.jpg"},{"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/sandwich_egg.jpg"},{"n":"Egg Sandwich (no chips)","a":"እንቁላል ሳንድዊች ያለ ቺፕስ","p":250,"d":"Simple and satisfying egg sandwich","i":"images/sandwich_egg.jpg"},{"n":"Veg Sandwich (with chips)","a":"አትክልት ሳንድዊች በ ቺፕስ","p":300,"d":"Garden fresh with a side of chips","i":"images/sandwich_veg.jpg","dt":["v"]},{"n":"Veg Sandwich (no chips)","a":"አትክልት ሳንድዊች ያለ ቺፕስ","p":250,"d":"Light and healthy veggie delight","i":"images/sandwich_veg.jpg"},{"n":"Chips","a":"ቺፕስ","p":200,"d":"Crispy golden fries","i":"images/chips.jpg"}],"burger":[{"n":"Normal Burger","a":"ኖርማል ቡርገር","p":400,"d":"Classic beef burger with fixings","i":"images/burger_normal.jpg","nut":{"cal":650,"pro":28,"carb":45,"fat":32}},{"n":"Double Special Burger","a":"ድርብ ስፔሻል ቡርገር","p":650,"d":"Double patty, double the joy","i":"images/burger_double.jpg"},{"n":"Single Special Burger","a":"ሲንግል ስፔሻል ቡርገር","p":500,"d":"Our signature special recipe","i":"images/burger_special.jpg"},{"n":"Cheese Burger","a":"ቺዝ ቡርገር","p":300,"d":"Melted cheese on juicy patty","i":"images/burger_cheese.jpg"}],"pizza":[{"n":"Zad Special Pizza","a":"ዛድ ስፔሻል ፒዛ","p":700,"d":"Our chef's masterpiece creation","i":"images/pizza_special.jpg","b":"Chef's Pick","nut":{"cal":850,"pro":35,"carb":95,"fat":38}},{"n":"Normal Pizza","a":"ኖርማል ፒዛ","p":500,"d":"Classic pizza done right","i":"images/pizza_normal.jpg"},{"n":"Special Pizza","a":"ስፔሻል ፒዛ","p":650,"d":"Loaded with premium toppings","i":"images/pizza_loaded.jpg"},{"n":"Chicken Pizza","a":"ቺከን ፒዛ","p":600,"d":"Savory chicken topped pizza","i":"images/pizza_chicken.jpg"},{"n":"Vegetable Pizza","a":"ቬጀቴብል ፒዛ","p":450,"d":"Garden fresh veggie pizza","i":"images/pizza_veg.jpg","dt":["v"]},{"n":"Margherita Pizza","a":"ማርጋሪታ ፒዛ","p":500,"d":"Simple elegance: tomato & basil","i":"images/pizza_margherita.jpg"},{"n":"Tuna Pizza (with cheese)","a":"ቱና ፒዛ በ ቺዝ","p":600,"d":"Tuna delight with cheesy goodness","i":"images/pizza_tuna.jpg"}],"extra":[{"n":"Mayonnaise","a":"ማዮኔዝ","p":80,"d":"Creamy mayo dip","i":"images/mayo.jpg"},{"n":"Ketchup","a":"ካቻፕ","p":40,"d":"Classic tomato ketchup","i":"images/tomato.jpg"},{"n":"Bread","a":"ዳቦ","p":35,"d":"Fresh baked bread roll","i":"images/bread.jpg"},{"n":"Injera","a":"እንጀራ","p":25,"d":"Traditional Ethiopian flatbread","i":"images/injera.jpg"},{"n":"Tea Cup","a":"የሻይ ኩባያ","p":20,"d":"Extra cup for sharing","i":"images/tea.jpg"},{"n":"Juice Cup","a":"የጁስ ኩባያ","p":30,"d":"Extra cup for your juice","i":"images/juice_cup.jpg"},{"n":"Burger/Pizza Box","a":"የበርገር/ፒዛ ካርቶን","p":50,"d":"Takeaway packaging","i":"images/placeholder.jpg"},{"n":"Aluminum Foil","a":"የአሉሚኒየም ወረቀት","p":40,"d":"For wrapping your goodies","i":"images/placeholder.jpg"}],"fresh":[{"n":"Tea","a":"ሻይ","p":40,"d":"Classic Ethiopian tea","i":"images/tea.jpg"},{"n":"Coffee","a":"ቡና","p":40,"d":"Rich Ethiopian coffee","i":"images/coffee.jpg","nut":{"cal":5,"pro":0,"carb":1,"fat":0}},{"n":"Milk","a":"ወተት","p":70,"d":"Warm fresh milk","i":"images/milk.jpg"},{"n":"Milk with Coffee","a":"ወተት በ ቡና","p":80,"d":"Perfect morning blend","i":"images/latte.jpg"},{"n":"Milk with Peanut","a":"ወተት በ ለውዝ","p":95,"d":"Nutty creamy goodness","i":"images/peanut_milk.jpg"},{"n":"Cappuccino","a":"ካፑቺኖ","p":100,"d":"Frothy and delightful","i":"images/cappuccino.jpg"},{"n":"Hot Chocolate","a":"ትኩስ ቸኮሌት","p":110,"d":"Decadent chocolate warmth","i":"images/hot_choc.jpg"},{"n":"Macchiato","a":"ማኪያቶ","p":110,"d":"Bold espresso with a touch of milk","i":"images/macchiato.jpg"},{"n":"Fasting Macchiato","a":"የጾም ማኪያቶ","p":90,"d":"Plant-based macchiato","i":"images/espresso.jpg","dt":["v"]},{"n":"Double Macchiato","a":"ድርብ ማኪያቶ","p":100,"d":"Extra strong for extra energy","i":"images/espresso.jpg"},{"n":"Peanut Tea","a":"ለውዝ ሻይ","p":110,"d":"Nutty traditional tea","i":"images/tea.jpg"},{"n":"Peanut with Ginger","a":"ለውዝ በ ዝንጅብል","p":80,"d":"Spiced nutty warmth","i":"images/ginger_tea.jpg"},{"n":"Peanut with Coffee","a":"ለውዝ በ ቡና","p":90,"d":"Nutty coffee fusion","i":"images/coffee.jpg"},{"n":"Ginger Tea","a":"ዝንጅብል ሻይ","p":60,"d":"Warming ginger spice","i":"images/ginger_tea.jpg","dt":["sp"]},{"n":"Lemon Tea","a":"የሎሚ ሻይ","p":60,"d":"Zesty and refreshing","i":"images/lemon_tea.jpg"},{"n":"Spris","a":"ስፕሪስ","p":50,"d":"Layered juice delight","i":"images/juice_mix.jpg"},{"n":"Special Tea (Large)","a":"ስፔሻል ሻይ ትልቅ","p":80,"d":"Bigger cup, bigger comfort","i":"images/tea.jpg"},{"n":"Orange Tea","a":"የብርቱካን ሻይ","p":120,"d":"Citrus infused tea","i":"images/lemon_tea.jpg"},{"n":"Pineapple Tea","a":"የአናናስ ሻይ","p":75,"d":"Tropical tea twist","i":"images/juice_mix.jpg"},{"n":"Mango Tea","a":"የማንጐ ሻይ","p":75,"d":"Sweet mango infusion","i":"images/lemon_tea.jpg"}],"cold":[{"n":"Soft Drink","a":"ለስላሳ መጠጥ","p":60,"d":"Chilled carbonated refreshment","i":"images/soft_drink.jpg"},{"n":"1 Liter Water","a":"1 ሊትር ውሃ","p":50,"d":"Pure hydration","i":"images/water.jpg","dt":["v","gf"]},{"n":"0.5 Liter Water","a":"0.5 ሊትር ውሃ","p":35,"d":"Quick refreshment","i":"images/water.jpg","dt":["v","gf"]},{"n":"Ambo Water","a":"አምቦ ውሃ","p":60,"d":"Sparkling mineral water","i":"images/sparkling.jpg"}],"juice":[{"n":"Papaya Juice","a":"ፓፓያ ጁስ","p":200,"d":"Tropical papaya delight","i":"images/juice_mix.jpg"},{"n":"Avocado Juice","a":"አቮካዶ ጁስ","p":200,"d":"Creamy avocado goodness","i":"images/avocado_juice.jpg","nut":{"cal":380,"pro":5,"carb":25,"fat":22}},{"n":"Mango Juice","a":"ማንጐ ጁስ","p":220,"d":"Sweet mango freshness","i":"images/mango_juice.jpg"},{"n":"Strawberry Juice","a":"ስትሮቤሪ ጁስ","p":300,"d":"Berry burst of flavor","i":"images/juice_mix.jpg"},{"n":"Watermelon Juice","a":"ሃብሃብ ጁስ","p":250,"d":"Summer in a glass","i":"images/watermelon.jpg"},{"n":"Special Juice","a":"ስፔሻል ጁስ","p":350,"d":"Our signature blend","i":"images/juice_cup.jpg"},{"n":"Spritz Juice","a":"ስፕሪትዝ ጁስ","p":250,"d":"Fruity spritz refreshment","i":"images/juice_mix.jpg"},{"n":"Avocado Shake","a":"አቮካዶ ሼክ","p":350,"d":"Thick and creamy shake","i":"images/avocado_juice.jpg"},{"n":"Strawberry Milkshake","a":"ስትሮቤሪ ሚልክሼክ","p":350,"d":"Berry milkshake bliss","i":"images/milkshake.jpg"},{"n":"Avocado Strawberry","a":"አቮካዶ ስትሮቤሪ","p":250,"d":"Perfect fruity pairing","i":"images/avocado_juice.jpg"},{"n":"Special Watermelon Juice","a":"ስፔሻል ሃብሃብ ጁስ","p":350,"d":"Upgraded watermelon treat","i":"images/watermelon.jpg"},{"n":"Special Fasting Juice","a":"ስፔሻል የጾም ጁስ","p":300,"d":"Plant-based special blend","i":"images/juice_cup.jpg","dt":["v","gf"]}],"breakfast":[{"n":"Normal Chechebsa","a":"ኖርማል ጨጨብሳ","p":280,"d":"Traditional Ethiopian breakfast","i":"images/injera.jpg","nut":{"cal":480,"pro":12,"carb":65,"fat":18}},{"n":"Special Chechebsa","a":"ስፔሻል ጨጨብሳ","p":400,"d":"Chechebsa with extra love","i":"images/injera.jpg"},{"n":"Normal Fetira","a":"ኖርማል ፈጢራ","p":300,"d":"Classic layered pastry","i":"images/bread.jpg"},{"n":"Special Fetira","a":"ስፔሻል ፈጢራ","p":400,"d":"Loaded special fetira","i":"images/bread.jpg"},{"n":"Egg Stew","a":"የእንቁላል ወጥ","p":250,"d":"Comforting egg curry","i":"images/egg_stew.jpg"},{"n":"Scrambled Eggs","a":"እንቁላል ፍርፍር","p":250,"d":"Fluffy scrambled perfection","i":"images/scrambled_eggs.jpg"},{"n":"Normal Ful","a":"ኖርማል ፉል","p":230,"d":"Classic fava beans","i":"images/injera.jpg"},{"n":"Special Ful","a":"ስፔሻል ፉል","p":300,"d":"Ful with the works","i":"images/egg_stew.jpg","dt":["sp"]},{"n":"Ful with Avocado","a":"ፉል በ አቮካዶ","p":270,"d":"Creamy avocado meets ful","i":"images/avocado_eggs.jpg"},{"n":"Eggs with Avocado","a":"እንቁላል በ አቮካዶ","p":300,"d":"Nutritious morning combo","i":"images/avocado_eggs.jpg"},{"n":"Tomato Slices","a":"የቲማቲም ቁርጥ","p":240,"d":"Fresh tomato side","i":"images/tomato.jpg"}]};
+const md={"pasta":[{"n":"Pasta with Sauce","a":"ፓስታ በ ስጎ","p":300,"d":"Classic pasta in rich tomato sauce","i":"images/pasta_sauce.jpg","nut":{"cal":520,"pro":18,"carb":72,"fat":14}},{"n":"Pasta with Tuna","a":"ፓስታ በ ቱና","p":400,"d":"Pasta tossed with premium tuna","i":"images/tuna-pasta.jpg"},{"n":"Pasta with Chicken","a":"ፓስታ በ ዶሮ","p":500,"d":"Creamy pasta with grilled chicken","i":"images/pasta_chicken.jpg"},{"n":"Pasta with Vegetables","a":"ፓስታ በ አትክልት","p":300,"d":"Fresh veggies with al dente pasta","i":"images/pasta with vegetables.jpg","dt":["v"]}],"rice":[{"n":"Rice with Tuna","a":"ሩዝ በ ቱና","p":370,"d":"Fluffy rice paired with tuna","i":"images/rice_tuna.jpg"},{"n":"Rice with Chicken","a":"ሩዝ በ ዶሮ","p":450,"d":"Savory rice with tender chicken","i":"images/rice with chicken.jpg"},{"n":"Rice with Sauce","a":"ሩዝ በ ስጎ","p":300,"d":"Steamed rice in special sauce","i":"images/rice_sauce.jpg"},{"n":"Rice with Vegetable","a":"ሩዝ በ አትክልት","p":300,"d":"Healthy rice with fresh vegetables","i":"images/rice_veg.jpg","dt":["v","gf"]}],"sandwich":[{"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/sw_club.jpg"},{"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/sw_tuna.jpg"},{"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/tuna club sandwich.jpg"},{"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/sw_egg_chips.jpg"},{"n":"Egg Sandwich (no chips)","a":"እንቁላል ሳንድዊች ያለ ቺፕስ","p":250,"d":"Simple and satisfying egg sandwich","i":"images/egg sandwich.jpg"},{"n":"Veg Sandwich (with chips)","a":"አትክልት ሳንድዊች በ ቺፕስ","p":300,"d":"Garden fresh with a side of chips","i":"images/vegetable sandwich with chips.jpg","dt":["v"]},{"n":"Veg Sandwich (no chips)","a":"አትክልት ሳንድዊች ያለ ቺፕስ","p":250,"d":"Light and healthy veggie delight","i":"images/vegetable sandwich.jpg"},{"n":"Chips","a":"ቺፕስ","p":200,"d":"Crispy golden fries","i":"images/chips.jpg"}],"burger":[{"n":"Normal Burger","a":"ኖርማል ቡርገር","p":400,"d":"Classic beef burger with fixings","i":"images/burger_normal.jpg","nut":{"cal":650,"pro":28,"carb":45,"fat":32}},{"n":"Double Special Burger","a":"ድርብ ስፔሻል ቡርገር","p":650,"d":"Double patty,double the joy","i":"images/burger_double.jpg"},{"n":"Single Special Burger","a":"ሲንግል ስፔሻል ቡርገር","p":500,"d":"Our signature special recipe","i":"images/burger_special.jpg"},{"n":"Cheese Burger","a":"ቺዝ ቡርገር","p":300,"d":"Melted cheese on juicy patty","i":"images/burger_cheese.jpg"}],"pizza":[{"n":"Zad Special Pizza","a":"ዛድ ስፔሻል ፒዛ","p":700,"d":"Our chef's masterpiece creation","i":"images/pizza_special.jpg","b":"Chef's Pick","nut":{"cal":850,"pro":35,"carb":95,"fat":38}},{"n":"Normal Pizza","a":"ኖርማል ፒዛ","p":500,"d":"Classic pizza done right","i":"images/pizza_normal.jpg"},{"n":"Special Pizza","a":"ስፔሻል ፒዛ","p":650,"d":"Loaded with premium toppings","i":"images/pizza_loaded.jpg"},{"n":"Chicken Pizza","a":"ቺከን ፒዛ","p":600,"d":"Savory chicken topped pizza","i":"images/pizza_chicken.jpg"},{"n":"Vegetable Pizza","a":"ቬጀቴብል ፒዛ","p":450,"d":"Garden fresh veggie pizza","i":"images/pizza_veg.jpg","dt":["v"]},{"n":"Margherita Pizza","a":"ማርጋሪታ ፒዛ","p":500,"d":"Simple elegance:tomato & basil","i":"images/pizza_margherita.jpg"},{"n":"Tuna Pizza (with cheese)","a":"ቱና ፒዛ በ ቺዝ","p":600,"d":"Tuna delight with cheesy goodness","i":"images/pizza_tuna.jpg"}],"extra":[{"n":"Mayonnaise","a":"ማዮኔዝ","p":80,"d":"Creamy mayo dip","i":"images/mayonise.jpg"},{"n":"Ketchup","a":"ካቻፕ","p":40,"d":"Classic tomato ketchup","i":"images/ketchap.jpg"},{"n":"Bread","a":"ዳቦ","p":35,"d":"Fresh baked bread roll","i":"images/bread.jpg"},{"n":"Injera","a":"እንጀራ","p":25,"d":"Traditional Ethiopian flatbread","i":"images/injera.jpg"},{"n":"Tea Cup","a":"የሻይ ኩባያ","p":20,"d":"Extra cup for sharing","i":"images/tea_cup.jpg"},{"n":"Juice Cup","a":"የጁስ ኩባያ","p":30,"d":"Extra cup for your juice","i":"images/juice_cup.jpg"},{"n":"Burger/Pizza Box","a":"የበርገር/ፒዛ ካርቶን","p":50,"d":"Takeaway packaging","i":"images/burger pizza box.webp"},{"n":"Aluminum Foil","a":"የአሉሚኒየም ወረቀት","p":40,"d":"For wrapping your goodies","i":"images/alumunium foil.webp"}],"fresh":[{"n":"Tea","a":"ሻይ","p":40,"d":"Classic Ethiopian tea","i":"images/tea.jpg"},{"n":"Coffee","a":"ቡና","p":40,"d":"Rich Ethiopian coffee","i":"images/coffee_eth.jpg","nut":{"cal":5,"pro":0,"carb":1,"fat":0}},{"n":"Milk","a":"ወተት","p":70,"d":"Warm fresh milk","i":"images/milk.jpg"},{"n":"Milk with Coffee","a":"ወተት በ ቡና","p":80,"d":"Perfect morning blend","i":"images/milk_coffee.jpg"},{"n":"Milk with Peanut","a":"ወተት በ ለውዝ","p":95,"d":"Nutty creamy goodness","i":"images/milk_peanut.jpg"},{"n":"Cappuccino","a":"ካፑቺኖ","p":100,"d":"Frothy and delightful","i":"images/cappuccino.jpg"},{"n":"Hot Chocolate","a":"ትኩስ ቸኮሌት","p":110,"d":"Decadent chocolate warmth","i":"images/hot_choc.jpg"},{"n":"Macchiato","a":"ማኪያቶ","p":110,"d":"Bold espresso with a touch of milk","i":"images/macchiato.jpg"},{"n":"Fasting Macchiato","a":"የጾም ማኪያቶ","p":90,"d":"Plant-based macchiato","i":"images/macchiato_fast.jpg","dt":["v"]},{"n":"Double Macchiato","a":"ድርብ ማኪያቶ","p":100,"d":"Extra strong for extra energy","i":"images/macchiato_dbl.jpg"},{"n":"Peanut Tea","a":"ለውዝ ሻይ","p":110,"d":"Nutty traditional tea","i":"images/peanut tea.jpg"},{"n":"Peanut with Ginger","a":"ለውዝ በ ዝንጅብል","p":80,"d":"Spiced nutty warmth","i":"images/ginger-peanut.jpg"},{"n":"Peanut with Coffee","a":"ለውዝ በ ቡና","p":90,"d":"Nutty coffee fusion","i":"images/peanut with coffee.jpg"},{"n":"Ginger Tea","a":"ዝንጅብል ሻይ","p":60,"d":"Warming ginger spice","i":"images/ginger tea.webp","dt":["sp"]},{"n":"Lemon Tea","a":"የሎሚ ሻይ","p":60,"d":"Zesty and refreshing","i":"images/lemon tea.jpg"},{"n":"Spris","a":"ስፕሪስ","p":50,"d":"Layered juice delight","i":"images/spris.jpg"},{"n":"Special Tea (Large)","a":"ስፔሻል ሻይ ትልቅ","p":80,"d":"Bigger cup,bigger comfort","i":"images/special tea large.jpg"},{"n":"Orange Tea","a":"የብርቱካን ሻይ","p":120,"d":"Citrus infused tea","i":"images/orange tea.jpg"},{"n":"Pineapple Tea","a":"የአናናስ ሻይ","p":75,"d":"Tropical tea twist","i":"images/pineapple tea.jpg"},{"n":"Mango Tea","a":"የማንጐ ሻይ","p":75,"d":"Sweet mango infusion","i":"images/mango tea.jpg"}],"cold":[{"n":"Soft Drink","a":"ለስላሳ መጠጥ","p":60,"d":"Chilled carbonated refreshment","i":"images/soft drinks.jpg"},{"n":"1 Liter Water","a":"1 ሊትር ውሃ","p":50,"d":"Pure hydration","i":"images/1 litre water.jpg","dt":["v","gf"]},{"n":"0.5 Liter Water","a":"0.5 ሊትር ውሃ","p":35,"d":"Quick refreshment","i":"images/0.5 litre water.jpg","dt":["v","gf"]},{"n":"Ambo Water","a":"አምቦ ውሃ","p":60,"d":"Sparkling mineral water","i":"images/ambo water.jpg"}],"juice":[{"n":"Papaya Juice","a":"ፓፓያ ጁስ","p":200,"d":"Tropical papaya delight","i":"images/Papaya Juice.jpg"},{"n":"Avocado Juice","a":"አቮካዶ ጁስ","p":200,"d":"Creamy avocado goodness","i":"images/Avocado Juice.jpg","nut":{"cal":380,"pro":5,"carb":25,"fat":22}},{"n":"Mango Juice","a":"ማንጐ ጁስ","p":220,"d":"Sweet mango freshness","i":"images/Mango Juice.jpg"},{"n":"Strawberry Juice","a":"ስትሮቤሪ ጁስ","p":300,"d":"Berry burst of flavor","i":"images/Strawberry Juice.jpg"},{"n":"Watermelon Juice","a":"ሃብሃብ ጁስ","p":250,"d":"Summer in a glass","i":"images/Watermelon Juice.jpg"},{"n":"Special Juice","a":"ስፔሻል ጁስ","p":350,"d":"Our signature blend","i":"images/special juice.jpg"},{"n":"Spritz Juice","a":"ስፕሪትዝ ጁስ","p":250,"d":"Fruity spritz refreshment","i":"images/Spritz Juice.jpg"},{"n":"Avocado Shake","a":"አቮካዶ ሼክ","p":350,"d":"Thick and creamy shake","i":"images/Avocado Shake.jpg"},{"n":"Strawberry Milkshake","a":"ስትሮቤሪ ሚልክሼክ","p":350,"d":"Berry milkshake bliss","i":"images/Strawberry Milkshake.jpg"},{"n":"Avocado Strawberry","a":"አቮካዶ ስትሮቤሪ","p":250,"d":"Perfect fruity pairing","i":"images/juice_avo_straw.jpg"},{"n":"Special Watermelon Juice","a":"ስፔሻል ሃብሃብ ጁስ","p":350,"d":"Upgraded watermelon treat","i":"images/juice_wm_sp.jpg"},{"n":"Special Fasting Juice","a":"ስፔሻል የጾም ጁስ","p":300,"d":"Plant-based special blend","i":"images/juice_fasting.jpg","dt":["v","gf"]}],"breakfast":[{"n":"Normal Chechebsa","a":"ኖርማል ጨጨብሳ","p":280,"d":"Traditional Ethiopian breakfast","i":"images/Normal Chechebsa.jpg","nut":{"cal":480,"pro":12,"carb":65,"fat":18}},{"n":"Special Chechebsa","a":"ስፔሻል ጨጨብሳ","p":400,"d":"Chechebsa with extra love","i":"images/Special Chechebsa.webp"},{"n":"Normal Fetira","a":"ኖርማል ፈጢራ","p":300,"d":"Classic layered pastry","i":"images/Normal Fetira.jpg"},{"n":"Special Fetira","a":"ስፔሻል ፈጢራ","p":400,"d":"Loaded special fetira","i":"images/Special Fetira.jpg"},{"n":"Egg Stew","a":"የእንቁላል ወጥ","p":250,"d":"Comforting egg curry","i":"images/Egg Stew.jpg"},{"n":"Scrambled Eggs","a":"እንቁላል ፍርፍር","p":250,"d":"Fluffy scrambled perfection","i":"images/Scrambled Eggs.jpg"},{"n":"Normal Ful","a":"ኖርማል ፉል","p":230,"d":"Classic fava beans","i":"images/Normal Ful.jpg"},{"n":"Special Ful","a":"ስፔሻል ፉል","p":300,"d":"Ful with the works","i":"images/Special Ful.jpg","dt":["sp"]},{"n":"Ful with Avocado","a":"ፉል በ አቮካዶ","p":270,"d":"Creamy avocado meets ful","i":"images/Ful with Avocado.jpg"},{"n":"Eggs with Avocado","a":"እንቁላል በ አቮካዶ","p":300,"d":"Nutritious morning combo","i":"images/eggs_avocado.jpg"},{"n":"Tomato Slices","a":"የቲማቲም ቁርጥ","p":240,"d":"Fresh tomato side","i":"images/Tomato Slices.jpg"}]} ;
 
 let currentModalItem=null;
 

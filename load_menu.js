@@ -24,7 +24,8 @@ async function loadMenuData() {
         return md;
     } catch (error) {
         console.error('❌ Error loading menu data:', error);
-        menuLoaded = false;
+        // If fetch fails (e.g. CORS from file:// protocol), we still need to stop the loader
+        menuLoaded = true;
         return null;
     }
 }
