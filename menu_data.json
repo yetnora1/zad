@@ -22,16 +22,16 @@
     {"n":"Chips","a":"ቺፕስ","p":200,"d":"Crispy golden fries","i":"images/chips.jpg"}
   ],
   "burger": [
-    {"n":"Normal Burger","a":"ኖርማል ቡርገር","p":400,"d":"Classic beef burger with fixings","i":"images/burger_normal.jpg","nut":{"cal":650,"pro":28,"carb":45,"fat":32}},
-    {"n":"Double Special Burger","a":"ድርብ ስፔሻል ቡርገር","p":650,"d":"Double patty, double the joy","i":"images/burger_double.jpg"},
-    {"n":"Single Special Burger","a":"ሲንግል ስፔሻል ቡርገር","p":500,"d":"Our signature special recipe","i":"images/burger_special.jpg"},
-    {"n":"Cheese Burger","a":"ቺዝ ቡርገር","p":300,"d":"Melted cheese on juicy patty","i":"images/burger_cheese.jpg"}
+    {"n":"Normal Burger","a":"ኖርማል በርገር","p":400,"d":"Classic beef burger with fixings","i":"images/burger_normal.jpg","nut":{"cal":650,"pro":28,"carb":45,"fat":32}},
+    {"n":"Double Special Burger","a":"ድርብ ስፔሻል በርገር","p":650,"d":"Double patty, double the joy","i":"images/burger_double.jpg"},
+    {"n":"Single Special Burger","a":"ሲንግል ስፔሻል በርገር","p":500,"d":"Our signature special recipe","i":"images/burger_special.jpg"},
+    {"n":"Cheese Burger","a":"ቺዝ በርገር","p":300,"d":"Melted cheese on juicy patty","i":"images/burger_cheese.jpg"}
   ],
   "pizza": [
     {"n":"Zad Special Pizza","a":"ዛድ ስፔሻል ፒዛ","p":700,"d":"Our chef's masterpiece creation","i":"images/pizza_special.jpg","b":"Chef's Pick","nut":{"cal":850,"pro":35,"carb":95,"fat":38}},
     {"n":"Normal Pizza","a":"ኖርማል ፒዛ","p":500,"d":"Classic pizza done right","i":"images/pizza_normal.jpg"},
     {"n":"Special Pizza","a":"ስፔሻል ፒዛ","p":650,"d":"Loaded with premium toppings","i":"images/pizza_loaded.jpg"},
-    {"n":"Chicken Pizza","a":"ቺከን ፒዛ","p":600,"d":"Savory chicken topped pizza","i":"images/pizza_chicken.jpg"},
+    {"n":"Chicken Pizza","a":"ቺክን ፒዛ","p":600,"d":"Savory chicken topped pizza","i":"images/pizza_chicken.jpg"},
     {"n":"Vegetable Pizza","a":"ቬጀቴብል ፒዛ","p":450,"d":"Garden fresh veggie pizza","i":"images/pizza_veg.jpg","dt":["v"]},
     {"n":"Margherita Pizza","a":"ማርጋሪታ ፒዛ","p":500,"d":"Simple elegance: tomato & basil","i":"images/pizza_margherita.jpg"},
     {"n":"Tuna Pizza (with cheese)","a":"ቱና ፒዛ በ ቺዝ","p":600,"d":"Tuna delight with cheesy goodness","i":"images/pizza_tuna.jpg"}
