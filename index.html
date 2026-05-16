@@ -676,8 +676,10 @@ function toggleLanguage(){setLanguage(cl==='en'?'am':'en');}
 function setTheme(th){ct=th;localStorage.setItem('zad-theme',th);document.documentElement.setAttribute('data-theme',th);const i=document.getElementById('themeIcon');if(i)i.className=th==='light'?'fas fa-sun':'fas fa-moon';}
 function toggleTheme(){setTheme(ct==='light'?'dark':'light');}
 
-// Menu data will be loaded from menu_data.json by load_menu.js
+// Menu data loaded from menu_data.json by load_menu.js
 // The 'md' variable is declared in load_menu.js
+let md = {}; // Global reference
+
 function toggleCustomExtra(el,price){
 const name=el.getAttribute('data-name');const nameAm=el.getAttribute('data-name-am');
 if(el.classList.contains('active')){el.classList.remove('active');customState.extras=customState.extras.filter(e=>e.name!==name);}
@@ -784,6 +786,41 @@ function getDietHtml(dt){
   return `<div class="card-diet" style="margin-top:0.8rem;">${dt.map(d => 
     `<span class="diet-tag ${d}">${labels[d] || d}</span>`
   ).join('')}</div>`;
+}
+function addRecent(name, price, cat, idx) {
+  let recent = JSON.parse(localStorage.getItem('zad-recent') || '[]');
+  // Remove if already exists
+  recent = recent.filter(r => !(r.name === name && r.cat === cat));
+  // Add to beginning
+  recent.unshift({ name, price, cat, idx, time: Date.now() });
+  // Keep only last 10
+  recent = recent.slice(0, 10);
+  localStorage.setItem('zad-recent', JSON.stringify(recent));
+}
+function toggleFavorite(cat, name) {
+  let favs = JSON.parse(localStorage.getItem('zad-favorites') || '[]');
+  const idx = favs.findIndex(f => f.cat === cat && f.name === name);
+  if (idx > -1) {
+    favs.splice(idx, 1);
+  } else {
+    favs.push({ cat, name, time: Date.now() });
+  }
+  localStorage.setItem('zad-favorites', JSON.stringify(favs));
+  if (typeof renderFavorites === 'function') renderFavorites();
+  // Update button state
+  const btns = document.querySelectorAll(`[onclick*="toggleFavorite('${cat}','${name.replace(/'/g, "\\'")}')"]`);
+  btns.forEach(btn => {
+    const icon = btn.querySelector('i');
+    if (icon) {
+      if (idx > -1) {
+        icon.className = 'far fa-heart';
+        btn.classList.remove('active');
+      } else {
+        icon.className = 'fas fa-heart';
+        btn.classList.add('active');
+      }
+    }
+  });
 }
 function openItemModal(cat,idx){
 const it=md[cat][idx];
