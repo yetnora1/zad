@@ -7,11 +7,12 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>ZAD CAFE — Addis Ababa</title>
-<!-- Version 1.3 - Images updated: 2026-05-16 -->
+<!-- Version 1.4 - Fixes: load_menu.js included, cache bust 2026-05-16 -->
 <link rel="icon" type="image/jpeg" href="images/ZAD.jpg?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="load_menu.js"></script>
 <style>
 :root{--cd:#1a0f0a;--cm:#2C1810;--cl:#3D2317;--cr:#FFF5E6;--or:#E8784A;--gd:#D4A853;--tx:#F5E6D3;--mu:#C4A882;--ca:#25150e;--nv:rgba(26,15,10,0.95);--br:rgba(212,168,83,0.1);--sh:rgba(0,0,0,0.3);}
 [data-theme="light"]{--cd:#FDF6F0;--cm:#F5EBE0;--cl:#E8D5C4;--cr:#2C1810;--or:#C25E28;--gd:#B8922E;--tx:#3D2317;--mu:#7A5C3C;--ca:#fff;--nv:rgba(253,246,240,0.95);--br:rgba(212,168,83,0.2);--sh:rgba(0,0,0,0.08);}
@@ -684,7 +685,22 @@ else{el.classList.add('active');customState.extras.push({name,nameAm,price});}
 }
 function showToast(m){const x=document.getElementById('toast');if(!x)return;x.textContent=m;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2000);}
 function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));if(event&&event.target)event.target.classList.add('active');}
-function generateQRCodes(){new QRCode(document.getElementById('telebirr-qr'),{text:"telebirr://payment?phone=+2519XXXXXXXX",width:180,height:180,colorDark:"#00a651",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});new QRCode(document.getElementById('cbe-qr'),{text:"cbe://payment?account=1000XXXXXX",width:180,height:180,colorDark:"#1a3a6c",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});}
+function generateQRCodes(){
+  // Telebirr: QR encodes the merchant phone number — scan with Telebirr app to pay
+  new QRCode(document.getElementById('telebirr-qr'),{
+    text:"+251985154985",
+    width:180,height:180,
+    colorDark:"#00a651",colorLight:"#ffffff",
+    correctLevel:QRCode.CorrectLevel.H
+  });
+  // CBE Birr: QR encodes the CBE account number — scan with CBE Birr app to pay
+  new QRCode(document.getElementById('cbe-qr'),{
+    text:"1000231406558",
+    width:180,height:180,
+    colorDark:"#1a3a6c",colorLight:"#ffffff",
+    correctLevel:QRCode.CorrectLevel.H
+  });
+}
 let tableQRGenerated=false;
 function openTableQR(){
   const modal=document.getElementById('table-qr-modal');
