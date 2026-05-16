@@ -774,6 +774,17 @@ function getRecommendations(cat,idx){
   for(let i=related.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[related[i],related[j]]=[related[j],related[i]];}
   return related.slice(0,3);
 }
+function getDietHtml(dt){
+  if(!dt || !dt.length) return '';
+  const labels = {
+    v: cl === 'en' ? 'Vegan' : 'የጾም',
+    gf: cl === 'en' ? 'Gluten-Free' : 'የስንዴ ያልሆነ',
+    sp: cl === 'en' ? 'Spicy' : 'ጠንካራ'
+  };
+  return `<div class="card-diet" style="margin-top:0.8rem;">${dt.map(d => 
+    `<span class="diet-tag ${d}">${labels[d] || d}</span>`
+  ).join('')}</div>`;
+}
 function openItemModal(cat,idx){
 const it=md[cat][idx];
 const nm=cl==='en'?it.n:it.a;
