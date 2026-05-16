@@ -7,6 +7,13 @@
     }
   ],
   "rewrites": [
-    { "source": "/admin", "destination": "/admin.html" }
+    { "source": "/admin",              "destination": "/admin.html" },
+    { "source": "/api/admin/login",    "destination": "/api/admin/login.js" },
+    { "source": "/api/admin/logout",   "destination": "/api/admin/logout.js" },
+    { "source": "/api/admin/check",    "destination": "/api/admin/check.js" },
+    { "source": "/api/admin/menu",     "destination": "/api/admin/menu.js" },
+    { "source": "/api/admin/payment",  "destination": "/api/admin/payment.js" },
+    { "source": "/api/admin/upload",   "destination": "/api/admin/upload.js" },
+    { "source": "/api/admin/upload-qr","destination": "/api/admin/upload-qr.js" }
   ]
 }
