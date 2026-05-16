@@ -76,7 +76,17 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--light);
 .stat-card{background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:12px;padding:1.5rem;text-align:center;color:#fff;}
 .stat-card h3{font-size:2rem;margin-bottom:.3rem;}
 .stat-card p{font-size:.9rem;opacity:.9;}
-@media(max-width:768px){.form-grid{grid-template-columns:1fr;}.item-row{grid-template-columns:60px 1fr;}.item-actions{grid-column:1/-1;justify-content:flex-start;}.stats{grid-template-columns:repeat(2,1fr);}}
+.qr-upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;}
+.qr-upload-card{background:var(--bg);border-radius:16px;padding:2rem;border:2px dashed var(--border);text-align:center;transition:.3s;}
+.qr-upload-card:hover{border-color:var(--primary);}
+.qr-upload-card h3{color:var(--secondary);margin-bottom:1rem;font-size:1.1rem;}
+.qr-current{width:160px;height:160px;object-fit:contain;border-radius:12px;margin:0 auto 1rem;display:block;background:#fff;padding:8px;}
+.qr-placeholder{width:160px;height:160px;border-radius:12px;margin:0 auto 1rem;background:var(--dark);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:3rem;}
+.qr-upload-label{display:inline-block;padding:.7rem 1.5rem;background:var(--primary);color:#fff;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:.3s;margin-top:.5rem;}
+.qr-upload-label:hover{background:#c25e28;}
+.qr-status{font-size:.8rem;margin-top:.5rem;min-height:1.2em;}
+.qr-status.ok{color:#27ae60;}.qr-status.err{color:#e74c3c;}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr;}.item-row{grid-template-columns:60px 1fr;}.item-actions{grid-column:1/-1;justify-content:flex-start;}.stats{grid-template-columns:repeat(2,1fr);}.qr-upload-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -118,7 +128,29 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--light);
 
 <div id="paymentTab" class="tab-content">
 <div class="card">
-<h2>Payment Configuration</h2>
+<h2><i class="fas fa-qrcode"></i> QR Code Images</h2>
+<p style="color:var(--secondary);margin-bottom:1.5rem;font-size:.9rem;">Upload the real merchant QR code images from your Telebirr and CBE apps. These will appear immediately on the menu site.</p>
+<div class="qr-upload-grid">
+  <div class="qr-upload-card">
+    <h3><i class="fas fa-mobile-alt" style="color:#00a651"></i> Telebirr QR Code</h3>
+    <div id="telebirrQRPreview" class="qr-placeholder"><i class="fas fa-qrcode"></i></div>
+    <label class="qr-upload-label" style="background:#00a651;"><i class="fas fa-upload"></i> Upload Telebirr QR
+      <input type="file" accept="image/*" style="display:none" onchange="uploadQR(this,'telebirr')">
+    </label>
+    <div id="telebirrQRStatus" class="qr-status"></div>
+  </div>
+  <div class="qr-upload-card">
+    <h3><i class="fas fa-university" style="color:#1a3a6c"></i> CBE Birr QR Code</h3>
+    <div id="cbeQRPreview" class="qr-placeholder"><i class="fas fa-qrcode"></i></div>
+    <label class="qr-upload-label" style="background:#1a3a6c;"><i class="fas fa-upload"></i> Upload CBE QR
+      <input type="file" accept="image/*" style="display:none" onchange="uploadQR(this,'cbe')">
+    </label>
+    <div id="cbeQRStatus" class="qr-status"></div>
+  </div>
+</div>
+</div>
+<div class="card">
+<h2><i class="fas fa-credit-card"></i> Account Details</h2>
 <div id="paymentAlert"></div>
 <div class="form-grid">
 <div class="form-group">
@@ -146,7 +178,7 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--light);
 <input type="text" id="cbeHint" placeholder="Scan to pay with CBE">
 </div>
 </div>
-<button class="btn btn-primary" onclick="savePayment()"><i class="fas fa-save"></i> Save Payment Config</button>
+<button class="btn btn-primary" onclick="savePayment()"><i class="fas fa-save"></i> Save Account Details</button>
 </div>
 </div>
 
@@ -341,6 +373,13 @@ document.getElementById('telebirrHint').value = paymentData.telebirr?.hint || ''
 document.getElementById('cbeAccount').value = paymentData.cbe?.account || '';
 document.getElementById('cbeName').value = paymentData.cbe?.account_name || '';
 document.getElementById('cbeHint').value = paymentData.cbe?.hint || '';
+// Show existing QR images
+const tbImg = paymentData.telebirr?.qr_image;
+const cbeImg = paymentData.cbe?.qr_image;
+const tbPrev = document.getElementById('telebirrQRPreview');
+const cbePrev = document.getElementById('cbeQRPreview');
+if(tbImg) tbPrev.innerHTML = `<img src="${tbImg}?v=${Date.now()}" class="qr-current" alt="Telebirr QR">`;
+if(cbeImg) cbePrev.innerHTML = `<img src="${cbeImg}?v=${Date.now()}" class="qr-current" alt="CBE QR">`;
 }
 
 function switchTab(tab) {
@@ -473,6 +512,29 @@ showAlert('paymentAlert', 'Payment config saved!', 'success');
 } else {
 showAlert('paymentAlert', 'Failed: ' + result.error, 'error');
 }
+}
+
+async function uploadQR(input, provider) {
+    const file = input.files[0];
+    if (!file) return;
+    const statusEl = document.getElementById(provider === 'telebirr' ? 'telebirrQRStatus' : 'cbeQRStatus');
+    const prevEl   = document.getElementById(provider === 'telebirr' ? 'telebirrQRPreview' : 'cbeQRPreview');
+    statusEl.textContent = 'Uploading...';
+    statusEl.className = 'qr-status';
+    const fd = new FormData();
+    fd.append('qr_image', file);
+    fd.append('provider', provider);
+    const result = await api('upload_qr', fd);
+    if (result.ok) {
+        prevEl.innerHTML = `<img src="${result.path}?v=${Date.now()}" class="qr-current" alt="QR">`;
+        statusEl.textContent = '✓ QR uploaded! Live on site now.';
+        statusEl.className = 'qr-status ok';
+        paymentData[provider] = paymentData[provider] || {};
+        paymentData[provider].qr_image = result.path;
+    } else {
+        statusEl.textContent = '✗ ' + result.error;
+        statusEl.className = 'qr-status err';
+    }
 }
 
 async function uploadImage() {

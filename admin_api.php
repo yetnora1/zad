@@ -124,22 +124,56 @@ switch ($action) {
         if (!is_array($cfg)) {
             jsonResponse(['ok' => false, 'error' => 'Invalid JSON'], 400);
         }
+        // Preserve existing qr_image paths if not overridden
+        $existing = readJson(PAYMENT_FILE) ?? [];
         $clean = [
             'telebirr' => [
                 'phone'        => htmlspecialchars(trim($cfg['telebirr']['phone']        ?? ''), ENT_QUOTES, 'UTF-8'),
                 'account_name' => htmlspecialchars(trim($cfg['telebirr']['account_name'] ?? ''), ENT_QUOTES, 'UTF-8'),
                 'hint'         => htmlspecialchars(trim($cfg['telebirr']['hint']         ?? ''), ENT_QUOTES, 'UTF-8'),
+                'qr_image'     => $existing['telebirr']['qr_image'] ?? '',
             ],
             'cbe' => [
                 'account'      => htmlspecialchars(trim($cfg['cbe']['account']      ?? ''), ENT_QUOTES, 'UTF-8'),
                 'account_name' => htmlspecialchars(trim($cfg['cbe']['account_name'] ?? ''), ENT_QUOTES, 'UTF-8'),
                 'hint'         => htmlspecialchars(trim($cfg['cbe']['hint']         ?? ''), ENT_QUOTES, 'UTF-8'),
+                'qr_image'     => $existing['cbe']['qr_image'] ?? '',
             ],
         ];
         if (writeJson(PAYMENT_FILE, $clean)) {
             jsonResponse(['ok' => true]);
         }
         jsonResponse(['ok' => false, 'error' => 'Failed to write file'], 500);
+
+    // ── Upload QR code image ──────────────────────────────────────────────────
+    case 'upload_qr':
+        requireAuth();
+        $provider = trim($_POST['provider'] ?? '');
+        if (!in_array($provider, ['telebirr', 'cbe'])) {
+            jsonResponse(['ok' => false, 'error' => 'Invalid provider'], 400);
+        }
+        if (empty($_FILES['qr_image'])) {
+            jsonResponse(['ok' => false, 'error' => 'No file uploaded'], 400);
+        }
+        $file = $_FILES['qr_image'];
+        $allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+        if (!in_array($file['type'], $allowed)) {
+            jsonResponse(['ok' => false, 'error' => 'Only JPG, PNG, WebP, GIF allowed'], 400);
+        }
+        if ($file['size'] > 5 * 1024 * 1024) {
+            jsonResponse(['ok' => false, 'error' => 'File too large (max 5MB)'], 400);
+        }
+        $ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $name = $provider . '_qr.' . $ext;
+        $dest = __DIR__ . '/images/' . $name;
+        if (move_uploaded_file($file['tmp_name'], $dest)) {
+            // Update payment_config.json with new qr_image path
+            $cfg = readJson(PAYMENT_FILE) ?? [];
+            $cfg[$provider]['qr_image'] = 'images/' . $name;
+            writeJson(PAYMENT_FILE, $cfg);
+            jsonResponse(['ok' => true, 'path' => 'images/' . $name]);
+        }
+        jsonResponse(['ok' => false, 'error' => 'Upload failed'], 500);
 
     // ── Upload image ──────────────────────────────────────────────────────────
     case 'upload_image':
