@@ -12,10 +12,10 @@
     {"n":"Rice with Vegetable","a":"ሩዝ በ አትክልት","p":300,"d":"Healthy rice with fresh vegetables","i":"images/rice_veg.jpg","dt":["v","gf"]}
   ],
   "sandwich": [
-    {"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/sw_club.jpg"},
-    {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/sw_tuna.jpg"},
+    {"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/club sandwich.jpg"},
+    {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/tuna sandwich.webp"},
     {"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/tuna club sandwich.jpg"},
-    {"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/sw_egg_chips.jpg"},
+    {"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/egg sandwich with chips.jpg"},
     {"n":"Egg Sandwich (no chips)","a":"እንቁላል ሳንድዊች ያለ ቺፕስ","p":250,"d":"Simple and satisfying egg sandwich","i":"images/egg sandwich.jpg"},
     {"n":"Veg Sandwich (with chips)","a":"አትክልት ሳንድዊች በ ቺፕስ","p":300,"d":"Garden fresh with a side of chips","i":"images/vegetable sandwich with chips.jpg","dt":["v"]},
     {"n":"Veg Sandwich (no chips)","a":"አትክልት ሳንድዊች ያለ ቺፕስ","p":250,"d":"Light and healthy veggie delight","i":"images/vegetable sandwich.jpg"},
@@ -41,7 +41,7 @@
     {"n":"Ketchup","a":"ካቻፕ","p":40,"d":"Classic tomato ketchup","i":"images/ketchap.jpg"},
     {"n":"Bread","a":"ዳቦ","p":35,"d":"Fresh baked bread roll","i":"images/bread.jpg"},
     {"n":"Injera","a":"እንጀራ","p":25,"d":"Traditional Ethiopian flatbread","i":"images/injera.jpg"},
-    {"n":"Tea Cup","a":"የሻይ ኩባያ","p":20,"d":"Extra cup for sharing","i":"images/tea_cup.jpg"},
+    {"n":"Tea Cup","a":"የሻይ ኩባያ","p":20,"d":"Extra cup for sharing","i":"images/tea cup.png"},
     {"n":"Juice Cup","a":"የጁስ ኩባያ","p":30,"d":"Extra cup for your juice","i":"images/juice_cup.jpg"},
     {"n":"Burger/Pizza Box","a":"የበርገር/ፒዛ ካርቶን","p":50,"d":"Takeaway packaging","i":"images/burger pizza box.webp"},
     {"n":"Aluminum Foil","a":"የአሉሚኒየም ወረቀት","p":40,"d":"For wrapping your goodies","i":"images/alumunium foil.webp"}
@@ -86,7 +86,7 @@
     {"n":"Strawberry Milkshake","a":"ስትሮቤሪ ሚልክሼክ","p":350,"d":"Berry milkshake bliss","i":"images/Strawberry Milkshake.jpg"},
     {"n":"Avocado Strawberry","a":"አቮካዶ ስትሮቤሪ","p":250,"d":"Perfect fruity pairing","i":"images/juice_avo_straw.jpg"},
     {"n":"Special Watermelon Juice","a":"ስፔሻል ሃብሃብ ጁስ","p":350,"d":"Upgraded watermelon treat","i":"images/juice_wm_sp.jpg"},
-    {"n":"Special Fasting Juice","a":"ስፔሻል የጾም ጁስ","p":300,"d":"Plant-based special blend","i":"images/juice_fasting.jpg","dt":["v","gf"]}
+    {"n":"Special Fasting Juice","a":"ስፔሻል የጾም ጁስ","p":300,"d":"Plant-based special blend","i":"images/special fasting juice.jpg","dt":["v","gf"]}
   ],
   "breakfast": [
     {"n":"Normal Chechebsa","a":"ኖርማል ጨጨብሳ","p":280,"d":"Traditional Ethiopian breakfast","i":"images/Normal Chechebsa.jpg","nut":{"cal":480,"pro":12,"carb":65,"fat":18}},
