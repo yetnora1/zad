@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "ZAD Cafe menu and admin panel",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   }
 }
