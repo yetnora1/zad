@@ -12,8 +12,8 @@
     {"n":"Rice with Vegetable","a":"ሩዝ በ አትክልት","p":300,"d":"Healthy rice with fresh vegetables","i":"images/rice_veg.jpg","dt":["v","gf"]}
   ],
   "sandwich": [
-    {"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/club_sandwich_deluxe.jpg"},
-    {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/tuna_sandwich_fresh.jpg"},
+    {"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/club sandwich.jpg"},
+    {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/tuna sandwich.webp"},
     {"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/tuna club sandwich.jpg"},
     {"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/egg sandwich with chips.jpg"},
     {"n":"Egg Sandwich (no chips)","a":"እንቁላል ሳንድዊች ያለ ቺፕስ","p":250,"d":"Simple and satisfying egg sandwich","i":"images/egg sandwich.jpg"},
@@ -41,13 +41,13 @@
     {"n":"Ketchup","a":"ካቻፕ","p":40,"d":"Classic tomato ketchup","i":"images/ketchap.jpg"},
     {"n":"Bread","a":"ዳቦ","p":35,"d":"Fresh baked bread roll","i":"images/bread.jpg"},
     {"n":"Injera","a":"እንጀራ","p":25,"d":"Traditional Ethiopian flatbread","i":"images/injera.jpg"},
-    {"n":"Tea Cup","a":"የሻይ ኩባያ","p":20,"d":"Extra cup for sharing","i":"images/tea cup.png"},
+    {"n":"Tea Cup","a":"የሻይ ኩባያ","p":20,"d":"Extra cup for sharing","i":"images/juice_cup.jpg"},
     {"n":"Juice Cup","a":"የጁስ ኩባያ","p":30,"d":"Extra cup for your juice","i":"images/juice_cup.jpg"},
     {"n":"Burger/Pizza Box","a":"የበርገር/ፒዛ ካርቶን","p":50,"d":"Takeaway packaging","i":"images/burger pizza box.webp"},
     {"n":"Aluminum Foil","a":"የአሉሚኒየም ወረቀት","p":40,"d":"For wrapping your goodies","i":"images/alumunium foil.webp"}
   ],
   "fresh": [
-    {"n":"Tea","a":"ሻይ","p":40,"d":"Classic Ethiopian tea","i":"images/tea_glass.jpg"},
+    {"n":"Tea","a":"ሻይ","p":40,"d":"Classic Ethiopian tea","i":"images/tea.jpg"},
     {"n":"Coffee","a":"ቡና","p":40,"d":"Rich Ethiopian coffee","i":"images/coffee_eth.jpg","nut":{"cal":5,"pro":0,"carb":1,"fat":0}},
     {"n":"Milk","a":"ወተት","p":70,"d":"Warm fresh milk","i":"images/milk.jpg"},
     {"n":"Milk with Coffee","a":"ወተት በ ቡና","p":80,"d":"Perfect morning blend","i":"images/milk_coffee.jpg"},
@@ -62,7 +62,7 @@
     {"n":"Peanut with Coffee","a":"ለውዝ በ ቡና","p":90,"d":"Nutty coffee fusion","i":"images/peanut with coffee.jpg"},
     {"n":"Ginger Tea","a":"ዝንጅብል ሻይ","p":60,"d":"Warming ginger spice","i":"images/ginger tea.webp","dt":["sp"]},
     {"n":"Lemon Tea","a":"የሎሚ ሻይ","p":60,"d":"Zesty and refreshing","i":"images/lemon tea.jpg"},
-    {"n":"Spris","a":"ስፕሪስ","p":50,"d":"Layered juice delight","i":"images/spris_layered.jpg"},
+    {"n":"Spris","a":"ስፕሪስ","p":50,"d":"Layered juice delight","i":"images/spris.jpg"},
     {"n":"Special Tea (Large)","a":"ስፔሻል ሻይ ትልቅ","p":80,"d":"Bigger cup, bigger comfort","i":"images/special tea large.jpg"},
     {"n":"Orange Tea","a":"የብርቱካን ሻይ","p":120,"d":"Citrus infused tea","i":"images/orange tea.jpg"},
     {"n":"Pineapple Tea","a":"የአናናስ ሻይ","p":75,"d":"Tropical tea twist","i":"images/pineapple tea.jpg"},
@@ -80,13 +80,13 @@
     {"n":"Mango Juice","a":"ማንጐ ጁስ","p":220,"d":"Sweet mango freshness","i":"images/Mango Juice.jpg"},
     {"n":"Strawberry Juice","a":"ስትሮቤሪ ጁስ","p":300,"d":"Berry burst of flavor","i":"images/Strawberry Juice.jpg"},
     {"n":"Watermelon Juice","a":"ሃብሃብ ጁስ","p":250,"d":"Summer in a glass","i":"images/Watermelon Juice.jpg"},
-    {"n":"Special Juice","a":"ስፔሻል ጁስ","p":350,"d":"Our signature blend","i":"images/special juice.jpg"},
-    {"n":"Spritz Juice","a":"ስፕሪትዝ ጁስ","p":250,"d":"Fruity spritz refreshment","i":"images/spritz_layered.jpg"},
+    {"n":"Special Juice","a":"ስፔሻል ጁስ","p":350,"d":"Our signature blend","i":"images/Tropical Sunrise Juice.jpg"},
+    {"n":"Spritz Juice","a":"ስፕሪትዝ ጁስ","p":250,"d":"Fruity spritz refreshment","i":"images/Spritz Juice.jpg"},
     {"n":"Avocado Shake","a":"አቮካዶ ሼክ","p":350,"d":"Thick and creamy shake","i":"images/Avocado Shake.jpg"},
     {"n":"Strawberry Milkshake","a":"ስትሮቤሪ ሚልክሼክ","p":350,"d":"Berry milkshake bliss","i":"images/Strawberry Milkshake.jpg"},
     {"n":"Avocado Strawberry","a":"አቮካዶ ስትሮቤሪ","p":250,"d":"Perfect fruity pairing","i":"images/juice_avo_straw.jpg"},
     {"n":"Special Watermelon Juice","a":"ስፔሻል ሃብሃብ ጁስ","p":350,"d":"Upgraded watermelon treat","i":"images/juice_wm_sp.jpg"},
-    {"n":"Special Fasting Juice","a":"ስፔሻል የጾም ጁስ","p":300,"d":"Plant-based special blend","i":"images/special fasting juice.jpg","dt":["v","gf"]}
+    {"n":"Special Fasting Juice","a":"ስፔሻል የጾም ጁስ","p":300,"d":"Plant-based special blend","i":"images/Tropical Sunrise Juice.jpg","dt":["v","gf"]}
   ],
   "breakfast": [
     {"n":"Normal Chechebsa","a":"ኖርማል ጨጨብሳ","p":280,"d":"Traditional Ethiopian breakfast","i":"images/Normal Chechebsa.jpg","nut":{"cal":480,"pro":12,"carb":65,"fat":18}},
