@@ -51,25 +51,33 @@ function renderMenu(query = '') {
             item.d.toLowerCase().includes(q)
         ) : items;
         
-        grid.innerHTML = filtered.map(item => `
+        // Check if item is favorited
+        const favs = JSON.parse(localStorage.getItem('zad-favorites') || '[]');
+        
+        grid.innerHTML = filtered.map(item => {
+            const isFav = favs.some(f => f.cat === cat && f.name === item.n);
+            return `
             <div class="menu-card" onclick="openItemModal('${cat}', '${item.n.replace(/'/g, "\\'")}')">
-                ${item.b ? `<div class="badge">${item.b}</div>` : ''}
-                <div class="card-image" style="background-image:url('${encodeURI(item.i)}')"></div>
-                <div class="menu-info">
-                    <h3 class="menu-name">${window.cl === 'en' ? item.n : item.a}</h3>
-                    <p class="menu-desc">${item.d}</p>
-                    ${item.dt ? `<div class="diet-tags">${item.dt.map(d => 
-                        `<span class="diet-tag">${d === 'v' ? '🌱' : d === 'gf' ? '🌾' : '🌶️'}</span>`
-                    ).join('')}</div>` : ''}
-                    <div class="menu-footer">
-                        <span class="menu-price">${item.p} Birr</span>
-                        <button class="btn-fav" onclick="event.stopPropagation();toggleFavorite('${cat}','${item.n.replace(/'/g, "\\'")}')">
-                            <i class="far fa-heart"></i>
-                        </button>
+                <div class="card-image" style="background-image:url('${encodeURI(item.i)}')">
+                    <button class="card-fav ${isFav ? 'active' : ''}" onclick="event.stopPropagation();toggleFavorite('${cat}','${item.n.replace(/'/g, "\\'")}')">
+                        <i class="${isFav ? 'fas' : 'far'} fa-heart"></i>
+                    </button>
+                    ${item.nut && item.nut.cal ? `<div class="card-cal">${item.nut.cal} cal</div>` : ''}
+                </div>
+                <div class="card-content">
+                    <div class="card-title">${window.cl === 'en' ? item.n : item.a}</div>
+                    <div class="card-amharic">${window.cl === 'en' ? item.a : item.n}</div>
+                    <div class="card-desc">${item.d}</div>
+                    ${item.dt ? `<div class="card-diet">${item.dt.map(d => {
+                        const labels = { v: 'Vegan', gf: 'GF', sp: 'Spicy' };
+                        return `<span class="diet-tag ${d}">${labels[d] || d}</span>`;
+                    }).join('')}</div>` : ''}
+                    <div class="card-footer">
+                        <div class="card-price">${item.p} <span>Birr</span></div>
                     </div>
                 </div>
             </div>
-        `).join('');
+        `}).join('');
         
         // Hide section if no items match
         const section = grid.closest('section');
@@ -100,15 +108,22 @@ function renderFavorites() {
         const fav = favs[idx];
         return `
             <div class="menu-card" onclick="openItemModal('${fav.cat}', '${item.n.replace(/'/g, "\\'")}')">
-                <div class="card-image" style="background-image:url('${encodeURI(item.i)}')"></div>
-                <div class="menu-info">
-                    <h3 class="menu-name">${window.cl === 'en' ? item.n : item.a}</h3>
-                    <p class="menu-desc">${item.d}</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">${item.p} Birr</span>
-                        <button class="btn-fav active" onclick="event.stopPropagation();toggleFavorite('${fav.cat}','${item.n.replace(/'/g, "\\'")}')">
-                            <i class="fas fa-heart"></i>
-                        </button>
+                <div class="card-image" style="background-image:url('${encodeURI(item.i)}')">
+                    <button class="card-fav active" onclick="event.stopPropagation();toggleFavorite('${fav.cat}','${item.n.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    ${item.nut && item.nut.cal ? `<div class="card-cal">${item.nut.cal} cal</div>` : ''}
+                </div>
+                <div class="card-content">
+                    <div class="card-title">${window.cl === 'en' ? item.n : item.a}</div>
+                    <div class="card-amharic">${window.cl === 'en' ? item.a : item.n}</div>
+                    <div class="card-desc">${item.d}</div>
+                    ${item.dt ? `<div class="card-diet">${item.dt.map(d => {
+                        const labels = { v: 'Vegan', gf: 'GF', sp: 'Spicy' };
+                        return `<span class="diet-tag ${d}">${labels[d] || d}</span>`;
+                    }).join('')}</div>` : ''}
+                    <div class="card-footer">
+                        <div class="card-price">${item.p} <span>Birr</span></div>
                     </div>
                 </div>
             </div>
@@ -133,18 +148,32 @@ function renderRecent() {
         return { ...items.find(item => item.n === rec.name), cat: rec.cat };
     }).filter(item => item.n);
     
-    recentGrid.innerHTML = recentItems.map(item => `
+    const favs = JSON.parse(localStorage.getItem('zad-favorites') || '[]');
+    
+    recentGrid.innerHTML = recentItems.map(item => {
+        const isFav = favs.some(f => f.cat === item.cat && f.name === item.n);
+        return `
         <div class="menu-card" onclick="openItemModal('${item.cat}', '${item.n.replace(/'/g, "\\'")}')">
-            <div class="card-image" style="background-image:url('${encodeURI(item.i)}')"></div>
-            <div class="menu-info">
-                <h3 class="menu-name">${window.cl === 'en' ? item.n : item.a}</h3>
-                <p class="menu-desc">${item.d}</p>
-                <div class="menu-footer">
-                    <span class="menu-price">${item.p} Birr</span>
+            <div class="card-image" style="background-image:url('${encodeURI(item.i)}')">
+                <button class="card-fav ${isFav ? 'active' : ''}" onclick="event.stopPropagation();toggleFavorite('${item.cat}','${item.n.replace(/'/g, "\\'")}')">
+                    <i class="${isFav ? 'fas' : 'far'} fa-heart"></i>
+                </button>
+                ${item.nut && item.nut.cal ? `<div class="card-cal">${item.nut.cal} cal</div>` : ''}
+            </div>
+            <div class="card-content">
+                <div class="card-title">${window.cl === 'en' ? item.n : item.a}</div>
+                <div class="card-amharic">${window.cl === 'en' ? item.a : item.n}</div>
+                <div class="card-desc">${item.d}</div>
+                ${item.dt ? `<div class="card-diet">${item.dt.map(d => {
+                    const labels = { v: 'Vegan', gf: 'GF', sp: 'Spicy' };
+                    return `<span class="diet-tag ${d}">${labels[d] || d}</span>`;
+                }).join('')}</div>` : ''}
+                <div class="card-footer">
+                    <div class="card-price">${item.p} <span>Birr</span></div>
                 </div>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 // Start loading immediately

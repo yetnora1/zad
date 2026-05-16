@@ -13,8 +13,8 @@
   ],
   "sandwich": [
     {"n":"Club Sandwich","a":"ክለብ ሳንድዊች","p":460,"d":"Triple-decker with fresh ingredients","i":"images/club sandwich.jpg"},
-    {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/sw_tuna.jpg"},
-    {"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/sw_tuna.jpg"},
+    {"n":"Tuna Sandwich","a":"ቱና ሳንድዊች","p":400,"d":"Classic tuna on toasted bread","i":"images/tuna sandwich.webp"},
+    {"n":"Tuna Club Sandwich","a":"ቱና ክለብ ሳንድዊች","p":450,"d":"Tuna club with extra goodness","i":"images/tuna club sandwich.jpg"},
     {"n":"Egg Sandwich (with chips)","a":"እንቁላል ሳንድዊች በ ቺፕስ","p":300,"d":"Egg sandwich served with crispy chips","i":"images/egg sandwich with chips.jpg"},
     {"n":"Egg Sandwich (no chips)","a":"እንቁላል ሳንድዊች ያለ ቺፕስ","p":250,"d":"Simple and satisfying egg sandwich","i":"images/egg sandwich.jpg"},
     {"n":"Veg Sandwich (with chips)","a":"አትክልት ሳንድዊች በ ቺፕስ","p":300,"d":"Garden fresh with a side of chips","i":"images/vegetable sandwich with chips.jpg","dt":["v"]},
@@ -48,7 +48,7 @@
   ],
   "fresh": [
     {"n":"Tea","a":"ሻይ","p":40,"d":"Classic Ethiopian tea","i":"images/tea.jpg"},
-    {"n":"Coffee","a":"ቡና","p":40,"d":"Rich Ethiopian coffee","i":"images/coffee_eth.jpg","nut":{"cal":5,"pro":0,"carb":1,"fat":0}},
+    {"n":"Coffee","a":"ቡና","p":40,"d":"Rich Ethiopian coffee","i":"images/coffee_1.webp","nut":{"cal":5,"pro":0,"carb":1,"fat":0}},
     {"n":"Milk","a":"ወተት","p":70,"d":"Warm fresh milk","i":"images/milk.jpg"},
     {"n":"Milk with Coffee","a":"ወተት በ ቡና","p":80,"d":"Perfect morning blend","i":"images/milk_coffee.jpg"},
     {"n":"Milk with Peanut","a":"ወተት በ ለውዝ","p":95,"d":"Nutty creamy goodness","i":"images/milk_peanut.jpg"},

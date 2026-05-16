@@ -799,30 +799,45 @@ function addRecent(name, price, cat, idx) {
 function toggleFavorite(cat, name) {
   let favs = JSON.parse(localStorage.getItem('zad-favorites') || '[]');
   const idx = favs.findIndex(f => f.cat === cat && f.name === name);
+  
   if (idx > -1) {
+    // Remove from favorites
     favs.splice(idx, 1);
+    showToast(cl === 'en' ? 'Removed from favorites' : 'ከተወዳጆች ተወግዷል');
   } else {
+    // Add to favorites
     favs.push({ cat, name, time: Date.now() });
+    showToast(cl === 'en' ? 'Added to favorites' : 'ወደ ተወዳጆች ታክሏል');
   }
+  
   localStorage.setItem('zad-favorites', JSON.stringify(favs));
+  
+  // Re-render all sections to update button states
+  if (typeof renderMenu === 'function') renderMenu(document.getElementById('searchInput')?.value || '');
   if (typeof renderFavorites === 'function') renderFavorites();
-  // Update button state
-  const btns = document.querySelectorAll(`[onclick*="toggleFavorite('${cat}','${name.replace(/'/g, "\\'")}')"]`);
-  btns.forEach(btn => {
-    const icon = btn.querySelector('i');
-    if (icon) {
-      if (idx > -1) {
-        icon.className = 'far fa-heart';
-        btn.classList.remove('active');
-      } else {
-        icon.className = 'fas fa-heart';
-        btn.classList.add('active');
-      }
-    }
-  });
+  if (typeof renderRecent === 'function') renderRecent();
 }
-function openItemModal(cat,idx){
-const it=md[cat][idx];
+function openItemModal(cat,nameOrIdx){
+// Handle both name (string) and index (number)
+let idx, it;
+if (typeof nameOrIdx === 'string') {
+  // Find item by name
+  const items = md[cat] || [];
+  idx = items.findIndex(item => item.n === nameOrIdx);
+  if (idx === -1) {
+    console.error('Item not found:', nameOrIdx, 'in category:', cat);
+    return;
+  }
+  it = items[idx];
+} else {
+  // Use index directly
+  idx = nameOrIdx;
+  it = md[cat][idx];
+}
+if (!it) {
+  console.error('Item not found at index:', idx, 'in category:', cat);
+  return;
+}
 const nm=cl==='en'?it.n:it.a;
 const am=cl==='en'?it.a:it.n;
 currentModalItem={cat,idx,name:it.n};
