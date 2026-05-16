@@ -54,7 +54,7 @@ function renderMenu(query = '') {
         grid.innerHTML = filtered.map(item => `
             <div class="menu-card" onclick="openItemModal('${cat}', '${item.n.replace(/'/g, "\\'")}')">
                 ${item.b ? `<div class="badge">${item.b}</div>` : ''}
-                <div class="menu-img" style="background-image:url('${encodeURI(item.i)}')"></div>
+                <div class="card-image" style="background-image:url('${encodeURI(item.i)}')"></div>
                 <div class="menu-info">
                     <h3 class="menu-name">${window.cl === 'en' ? item.n : item.a}</h3>
                     <p class="menu-desc">${item.d}</p>
@@ -100,7 +100,7 @@ function renderFavorites() {
         const fav = favs[idx];
         return `
             <div class="menu-card" onclick="openItemModal('${fav.cat}', '${item.n.replace(/'/g, "\\'")}')">
-                <div class="menu-img" style="background-image:url('${encodeURI(item.i)}')"></div>
+                <div class="card-image" style="background-image:url('${encodeURI(item.i)}')"></div>
                 <div class="menu-info">
                     <h3 class="menu-name">${window.cl === 'en' ? item.n : item.a}</h3>
                     <p class="menu-desc">${item.d}</p>
@@ -135,7 +135,7 @@ function renderRecent() {
     
     recentGrid.innerHTML = recentItems.map(item => `
         <div class="menu-card" onclick="openItemModal('${item.cat}', '${item.n.replace(/'/g, "\\'")}')">
-            <div class="menu-img" style="background-image:url('${encodeURI(item.i)}')"></div>
+            <div class="card-image" style="background-image:url('${encodeURI(item.i)}')"></div>
             <div class="menu-info">
                 <h3 class="menu-name">${window.cl === 'en' ? item.n : item.a}</h3>
                 <p class="menu-desc">${item.d}</p>
