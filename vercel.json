@@ -14,6 +14,7 @@
     { "source": "/api/admin/menu",     "destination": "/api/admin/menu.js" },
     { "source": "/api/admin/payment",  "destination": "/api/admin/payment.js" },
     { "source": "/api/admin/upload",   "destination": "/api/admin/upload.js" },
-    { "source": "/api/admin/upload-qr","destination": "/api/admin/upload-qr.js" }
+    { "source": "/api/admin/upload-qr","destination": "/api/admin/upload-qr.js" },
+    { "source": "/api/feedback",       "destination": "/api/feedback.js" }
   ]
 }

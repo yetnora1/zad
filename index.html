@@ -353,6 +353,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#menu" data-i18n="nav_menu">Menu</a>
 <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
 <a href="#payment" data-i18n="nav_payment">Payment</a>
+<a href="#feedback" data-i18n="nav_feedback">Feedback</a>
 
 <div class="nav-actions">
 <div class="search-box" id="searchBox">
@@ -376,6 +377,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#menu" onclick="toggleMobileMenu()" data-i18n="nav_menu">Menu</a>
 <a href="#gallery" onclick="toggleMobileMenu()" data-i18n="nav_gallery">Gallery</a>
 <a href="#payment" onclick="toggleMobileMenu()" data-i18n="nav_payment">Payment</a>
+<a href="#feedback" onclick="toggleMobileMenu()" data-i18n="nav_feedback">Feedback</a>
 <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--br);">
   <input type="text" id="mobileSearchInput" placeholder="Search menu..." style="width:100%;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--br);background:var(--cd);color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;" oninput="liveSearch(this.value);document.getElementById('searchInput').value=this.value;">
 </div>
@@ -525,6 +527,18 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 
 
 
+<section class="feedback-section" id="feedback">
+<div class="section-header"><div class="section-icon"><i class="fas fa-paper-plane"></i></div><h2 class="section-title" data-i18n="feedback_title">We Value Your Feedback</h2><p class="section-subtitle" data-i18n="feedback_subtitle">Share your experience with us</p></div>
+<div class="feedback-form">
+<div class="feedback-status" id="feedbackStatus"></div>
+<div class="form-row"><div class="form-group"><label data-i18n="label_name">Your Name</label><input type="text" id="fbName" placeholder="Your name"></div><div class="form-group"><label data-i18n="label_phone">Phone Number</label><input type="tel" id="fbPhone" placeholder="+251..."></div></div>
+<div class="form-group" style="margin-bottom:1.5rem"><label data-i18n="label_message">Your Message</label><textarea id="fbMessage" placeholder="Tell us about your experience..." data-i18n-placeholder="feedback_placeholder"></textarea></div>
+<button type="button" class="submit-btn" onclick="submitFeedback()" data-i18n="btn_send_feedback">
+  <i class="fab fa-telegram" style="margin-right:.5rem"></i>Send via Telegram
+</button>
+</div>
+</section>
+
 <footer>
 <div class="footer-grid">
 <div class="footer-col">
@@ -551,6 +565,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#menu" onclick="event.preventDefault();document.getElementById('menu').scrollIntoView({behavior:'smooth'})" data-i18n="nav_menu">Menu</a>
 <a href="#payment" onclick="event.preventDefault();document.getElementById('payment').scrollIntoView({behavior:'smooth'})" data-i18n="nav_payment">Payment</a>
 <a href="#gallery" onclick="event.preventDefault();document.getElementById('gallery').scrollIntoView({behavior:'smooth'})" data-i18n="nav_gallery">Gallery</a>
+<a href="#feedback" onclick="event.preventDefault();document.getElementById('feedback').scrollIntoView({behavior:'smooth'})" data-i18n="nav_feedback">Feedback</a>
 </div>
 </div>
 <div class="footer-bottom">
@@ -820,18 +835,36 @@ document.getElementById('item-modal').classList.add('active');
 function closeItemModal(){document.getElementById('item-modal').classList.remove('active');}
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');}
 function submitFeedback(){
-const name=document.getElementById('fbName').value.trim();
-const phone=document.getElementById('fbPhone').value.trim();
-const msg=document.getElementById('fbMessage').value.trim();
-const status=document.getElementById('feedbackStatus');
-if(!name||!msg){status.textContent=cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message';status.className='feedback-status error';status.style.display='block';return;}
-status.textContent=cl==='am'?'እየላከ ነው...':'Sending...';status.className='feedback-status';status.style.display='block';
-const formData=new FormData();
-formData.append('name',name);formData.append('phone',phone);formData.append('message',msg);formData.append('lang',cl);
-fetch('send_feedback.php',{method:'POST',body:formData}).then(r=>r.json()).then(data=>{
-if(data.success){status.textContent=data.message;status.className='feedback-status success';document.getElementById('fbName').value='';document.getElementById('fbPhone').value='';document.getElementById('fbMessage').value='';}
-else{status.textContent=data.message;status.className='feedback-status error';}
-}).catch(()=>{status.textContent=cl==='am'?'መላክ አልተቻለም':'Failed to send. Please try again.';status.className='feedback-status error';});
+  const name=document.getElementById('fbName').value.trim();
+  const phone=document.getElementById('fbPhone').value.trim();
+  const msg=document.getElementById('fbMessage').value.trim();
+  const status=document.getElementById('feedbackStatus');
+  if(!name||!msg){
+    status.textContent=cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message';
+    status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(231,76,60,.15);color:#e74c3c;margin-bottom:1rem;';
+    return;
+  }
+  status.textContent=cl==='am'?'እየላከ ነው... ⏳':'Sending... ⏳';
+  status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(212,168,83,.15);color:var(--gd);margin-bottom:1rem;';
+  fetch('/api/feedback',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name,phone,message:msg,lang:cl})
+  }).then(r=>r.json()).then(data=>{
+    if(data.ok){
+      status.textContent=data.message;
+      status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(39,174,96,.15);color:#27ae60;margin-bottom:1rem;';
+      document.getElementById('fbName').value='';
+      document.getElementById('fbPhone').value='';
+      document.getElementById('fbMessage').value='';
+    } else {
+      status.textContent=(cl==='am'?'መላክ አልተቻለም: ':'Failed: ')+data.error;
+      status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(231,76,60,.15);color:#e74c3c;margin-bottom:1rem;';
+    }
+  }).catch(()=>{
+    status.textContent=cl==='am'?'መላክ አልተቻለም። እንደገና ይሞክሩ።':'Failed to send. Please try again.';
+    status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(231,76,60,.15);color:#e74c3c;margin-bottom:1rem;';
+  });
 }
 function submitSubscribe(){
 const email=document.getElementById('subEmail').value.trim();
