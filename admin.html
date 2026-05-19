@@ -566,13 +566,15 @@ document.getElementById('telebirrHint').value = paymentData.telebirr?.hint || ''
 document.getElementById('cbeAccount').value = paymentData.cbe?.account || '';
 document.getElementById('cbeName').value = paymentData.cbe?.account_name || '';
 document.getElementById('cbeHint').value = paymentData.cbe?.hint || '';
-// Show existing QR images
-const tbImg = paymentData.telebirr?.qr_image;
-const cbeImg = paymentData.cbe?.qr_image;
+// Show existing QR images — strip any corrupted ?v= suffix
+let tbImg = paymentData.telebirr?.qr_image || '';
+let cbeImg = paymentData.cbe?.qr_image || '';
+if(tbImg.includes('?'))tbImg=tbImg.split('?')[0];
+if(cbeImg.includes('?'))cbeImg=cbeImg.split('?')[0];
 const tbPrev = document.getElementById('telebirrQRPreview');
 const cbePrev = document.getElementById('cbeQRPreview');
-if(tbImg) tbPrev.innerHTML = `<img src="${tbImg}?v=${Date.now()}" class="qr-current" alt="Telebirr QR">`;
-if(cbeImg) cbePrev.innerHTML = `<img src="${cbeImg}?v=${Date.now()}" class="qr-current" alt="CBE QR">`;
+if(tbImg && (tbImg.startsWith('data:')||tbImg.startsWith('images/')))tbPrev.innerHTML=`<img src="${tbImg}" class="qr-current" alt="Telebirr QR">`;
+if(cbeImg && (cbeImg.startsWith('data:')||cbeImg.startsWith('images/')))cbePrev.innerHTML=`<img src="${cbeImg}" class="qr-current" alt="CBE QR">`;
 }
 
 function switchTab(tab) {
