@@ -548,9 +548,9 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 <div class="footer-col">
 <h4 data-i18n="footer_links">Quick Links</h4>
-<a href="#menu" data-i18n="nav_menu">Menu</a>
-<a href="#payment" data-i18n="nav_payment">Payment</a>
-<a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+<a href="#menu" onclick="event.preventDefault();document.getElementById('menu').scrollIntoView({behavior:'smooth'})" data-i18n="nav_menu">Menu</a>
+<a href="#payment" onclick="event.preventDefault();document.getElementById('payment').scrollIntoView({behavior:'smooth'})" data-i18n="nav_payment">Payment</a>
+<a href="#gallery" onclick="event.preventDefault();document.getElementById('gallery').scrollIntoView({behavior:'smooth'})" data-i18n="nav_gallery">Gallery</a>
 </div>
 </div>
 <div class="footer-bottom">
@@ -602,7 +602,43 @@ let cl=localStorage.getItem('zad-lang')||'en';
 let ct=localStorage.getItem('zad-theme')||'dark';
 const usFlag=document.getElementById('langFlag')?document.getElementById('langFlag').src:'';
 const ethFlag="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 3'%3E%3Crect fill='%23078930' width='6' height='1'/%3E%3Crect fill='%23FCDD09' y='1' width='6' height='1'/%3E%3Crect fill='%23DA121A' y='2' width='6' height='1'/%3E%3C/svg%3E";
-function setLanguage(lang){cl=lang;localStorage.setItem('zad-lang',lang);document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[lang]&&t[lang][k])el.innerHTML=t[lang][k];});document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const k=el.getAttribute('data-i18n-placeholder');if(t[lang]&&t[lang][k])el.placeholder=t[lang][k];});const f=document.getElementById('langFlag');if(f)f.src=lang==='en'?usFlag:ethFlag;renderMenu(document.getElementById('searchInput')?document.getElementById('searchInput').value.trim():'');if(typeof renderFavorites==='function')renderFavorites();if(typeof renderRecent==='function')renderRecent();}
+function setLanguage(lang){
+  cl=lang;
+  window.cl=lang;
+  localStorage.setItem('zad-lang',lang);
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[lang]&&t[lang][k])el.innerHTML=t[lang][k];
+  });
+  // Update all placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-placeholder');
+    if(t[lang]&&t[lang][k])el.placeholder=t[lang][k];
+  });
+  // Update flag
+  const f=document.getElementById('langFlag');
+  if(f)f.src=lang==='en'?usFlag:ethFlag;
+  // Re-render menu cards (item names change EN↔AM)
+  const q=document.getElementById('searchInput')?document.getElementById('searchInput').value.trim():'';
+  if(typeof renderMenu==='function')renderMenu(q);
+  if(typeof renderFavorites==='function')renderFavorites();
+  if(typeof renderRecent==='function')renderRecent();
+  // Update category nav pills text
+  const catMap={pasta:lang==='en'?'Pasta':'ፓስታ',rice:lang==='en'?'Rice':'ሩዝ',sandwich:lang==='en'?'Sandwich':'ሳንድዊች',burger:lang==='en'?'Burger':'በርገር',pizza:lang==='en'?'Pizza':'ፒዛ',extra:lang==='en'?'Extras':'ተጨማሪ',fresh:lang==='en'?'Fresh Drinks':'ሞቅ ያሉ',cold:lang==='en'?'Cold Drinks':'ቀዝቃዛ',juice:lang==='en'?'Juice':'ጁስ',breakfast:lang==='en'?'Breakfast':'ቁርስ'};
+  document.querySelectorAll('.nav-pill [data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[lang]&&t[lang][k])el.textContent=t[lang][k];
+  });
+  // Update diet chips
+  document.querySelectorAll('.diet-chip[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[lang]&&t[lang][k]){
+      const dot=el.querySelector('.dot');
+      el.innerHTML=(dot?dot.outerHTML:'')+' '+(t[lang][k]||'');
+    }
+  });
+}
 function toggleLanguage(){setLanguage(cl==='en'?'am':'en');}
 function setTheme(th){ct=th;localStorage.setItem('zad-theme',th);document.documentElement.setAttribute('data-theme',th);const i=document.getElementById('themeIcon');if(i)i.className=th==='light'?'fas fa-sun':'fas fa-moon';}
 function toggleTheme(){setTheme(ct==='light'?'dark':'light');}
