@@ -658,8 +658,18 @@ async function generateQRCodes(){
   const tbEl=document.getElementById('telebirr-qr');
   const cbeEl=document.getElementById('cbe-qr');
   try{
-    const res=await fetch('payment_config.json?v='+Date.now());
-    const cfg=await res.json();
+    // Fetch via API to always get latest (bypasses Vercel static cache)
+    let cfg;
+    try {
+      const apiRes=await fetch('/api/admin/payment',{credentials:'include'});
+      const apiData=await apiRes.json();
+      cfg=apiData.ok?apiData.data:null;
+    } catch(e){ cfg=null; }
+    // Fallback to static file
+    if(!cfg){
+      const res=await fetch('payment_config.json?v='+Date.now());
+      cfg=await res.json();
+    }
     // Telebirr: use uploaded image or generate from phone
     if(cfg.telebirr?.qr_image){
       tbEl.innerHTML=`<img src="${cfg.telebirr.qr_image}" style="width:180px;height:180px;object-fit:contain;border-radius:8px;" alt="Telebirr QR">`;
@@ -673,7 +683,7 @@ async function generateQRCodes(){
       new QRCode(cbeEl,{text:cfg.cbe?.account||'1000231406558',width:180,height:180,colorDark:'#1a3a6c',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     }
     // Update displayed account numbers from config
-    const tbInput=document.querySelector('#payment .telebirr-logo~* input, .payment-card:first-child .account-info input');
+    const tbInput=document.querySelector('.payment-card:first-child .account-info input');
     if(tbInput&&cfg.telebirr?.phone)tbInput.value=cfg.telebirr.phone;
     const cbeInput=document.querySelector('.payment-card:last-child .account-info input');
     if(cbeInput&&cfg.cbe?.account)cbeInput.value=cfg.cbe.account;

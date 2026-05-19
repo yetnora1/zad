@@ -1,4 +1,4 @@
-const { isAuthed, readFile, writeFile, writeRawFile, getFileSha } = require('./_utils');
+const { isAuthed, readFile, writeFile } = require('./_utils');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).end();
@@ -13,20 +13,17 @@ module.exports = async (req, res) => {
     const fileExt = (ext || 'png').toLowerCase().replace('.','');
     if (!allowedExt.includes(fileExt)) return res.status(400).json({ ok: false, error: 'Invalid file type' });
 
-    const filePath = `images/${provider}_qr.${fileExt}`;
+    const mimeMap = { jpg:'image/jpeg', jpeg:'image/jpeg', png:'image/png', webp:'image/webp', gif:'image/gif' };
+    const mime = mimeMap[fileExt] || 'image/png';
 
-    // Get existing SHA if file exists (needed for GitHub update)
-    const sha = await getFileSha(filePath);
+    // Store as data URL directly in payment_config.json (no static file dependency)
+    const dataUrl = `data:${mime};base64,${base64Data}`;
 
-    // Commit image to GitHub repo
-    await writeRawFile(filePath, base64Data, sha, `Admin: upload ${provider} QR code`);
-
-    // Update payment_config.json with new QR image path
     const { data: cfg, sha: cfgSha } = await readFile('payment_config.json');
-    cfg[provider].qr_image = filePath;
-    await writeFile('payment_config.json', cfg, cfgSha, `Admin: set ${provider} QR image path`);
+    cfg[provider].qr_image = dataUrl;
+    await writeFile('payment_config.json', cfg, cfgSha, `Admin: upload ${provider} QR code`);
 
-    return res.json({ ok: true, path: filePath });
+    return res.json({ ok: true, path: dataUrl });
   } catch (e) {
     return res.status(500).json({ ok: false, error: e.message });
   }
