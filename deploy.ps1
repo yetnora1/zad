@@ -19,5 +19,5 @@ git push origin main
 Write-Host "⚡ Triggering Vercel deployment..." -ForegroundColor Cyan
 $result = Invoke-RestMethod -Uri $HOOK -Method POST
 Write-Host "✅ Deployment triggered! Job ID: $($result.job.id)" -ForegroundColor Green
-Write-Host "🌐 Site: https://zad-red.vercel.app" -ForegroundColor Green
-Write-Host "🔧 Admin: https://zad-red.vercel.app/admin" -ForegroundColor Green
+Write-Host "🌐 Site: https://zad-cafe.vercel.app" -ForegroundColor Green
+Write-Host "🔧 Admin: https://zad-cafe.vercel.app/admin" -ForegroundColor Green
