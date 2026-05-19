@@ -1,14 +1,1 @@
-{
-    "telebirr": {
-        "phone": "+251985154985",
-        "account_name": "ZAD Cafe",
-        "hint": "Scan to pay with Telebirr",
-        "qr_image": ""
-    },
-    "cbe": {
-        "account": "1000231406558",
-        "account_name": "ZAD Cafe",
-        "hint": "Scan to pay with CBE",
-        "qr_image": ""
-    }
-}
+{"telebirr":{"phone":"+251985154985","account_name":"ZAD Cafe","hint":"Scan to pay with Telebirr","qr_image":""},"cbe":{"account":"1000231406558","account_name":"ZAD Cafe","hint":"Scan to pay with CBE","qr_image":""}}
