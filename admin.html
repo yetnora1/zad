@@ -720,7 +720,7 @@ async function uploadQR(input, provider) {
   const ext  = file.name.split('.').pop();
   const result = await api('upload_qr', { data, ext, provider });
   if (result.ok) {
-    prevEl.innerHTML = `<img src="${result.path}?v=${Date.now()}" class="qr-current" alt="QR">`;
+    prevEl.innerHTML = `<img src="${result.path}" class="qr-current" alt="QR">`;
     statusEl.textContent = '✓ QR uploaded! Live on site now.';
     statusEl.className = 'qr-status ok';
     paymentData[provider] = paymentData[provider] || {};
