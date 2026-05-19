@@ -658,16 +658,18 @@ async function generateQRCodes(){
   const tbEl=document.getElementById('telebirr-qr');
   const cbeEl=document.getElementById('cbe-qr');
   try{
-    // Fetch via API to always get latest (bypasses Vercel static cache)
+    // Fetch from public config API (reads directly from GitHub, bypasses Vercel cache)
     let cfg;
     try {
-      const apiRes=await fetch('/api/admin/payment',{credentials:'include'});
+      const apiRes=await fetch('/api/config',{cache:'no-store'});
       const apiData=await apiRes.json();
-      cfg=apiData.ok?apiData.data:null;
+      if(apiData.ok && apiData.data){
+        cfg=apiData.data;
+      }
     } catch(e){ cfg=null; }
     // Fallback to static file
     if(!cfg){
-      const res=await fetch('payment_config.json?v='+Date.now());
+      const res=await fetch('payment_config.json?t='+Date.now(),{cache:'no-store'});
       cfg=await res.json();
     }
     // Telebirr: use uploaded image or generate from phone
