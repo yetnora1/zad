@@ -18,12 +18,17 @@ module.exports = async (req, res) => {
 
     // Store as data URL directly in payment_config.json (no static file dependency)
     const dataUrl = `data:${mime};base64,${base64Data}`;
+    // Ensure no query string corruption
+    const cleanDataUrl = dataUrl.split('?')[0];
 
     const { data: cfg, sha: cfgSha } = await readFile('payment_config.json');
-    cfg[provider].qr_image = dataUrl;
+    // Also clean any existing corrupted data
+    if(cfg.telebirr?.qr_image && cfg.telebirr.qr_image.includes('?'))cfg.telebirr.qr_image=cfg.telebirr.qr_image.split('?')[0];
+    if(cfg.cbe?.qr_image && cfg.cbe.qr_image.includes('?'))cfg.cbe.qr_image=cfg.cbe.qr_image.split('?')[0];
+    cfg[provider].qr_image = cleanDataUrl;
     await writeFile('payment_config.json', cfg, cfgSha, `Admin: upload ${provider} QR code`);
 
-    return res.json({ ok: true, path: dataUrl });
+    return res.json({ ok: true, path: cleanDataUrl });
   } catch (e) {
     return res.status(500).json({ ok: false, error: e.message });
   }

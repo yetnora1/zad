@@ -672,17 +672,27 @@ async function generateQRCodes(){
     }
     // Telebirr: use uploaded image or generate from phone
     if(cfg.telebirr?.qr_image){
-      const src=cfg.telebirr.qr_image;
-      const imgSrc=src.startsWith('data:')?src:src+'?v='+Date.now();
-      tbEl.innerHTML=`<img src="${imgSrc}" style="width:180px;height:180px;object-fit:contain;border-radius:8px;" alt="Telebirr QR">`;
+      // Strip any accidentally appended cache-bust query string from data URLs
+      let src=cfg.telebirr.qr_image;
+      if(src.startsWith('data:')&&src.includes('?v='))src=src.split('?v=')[0];
+      if(src.startsWith('data:')||src.startsWith('images/')){
+        tbEl.innerHTML=`<img src="${src}" style="width:180px;height:180px;object-fit:contain;border-radius:8px;" alt="Telebirr QR">`;
+      } else {
+        new QRCode(tbEl,{text:cfg.telebirr?.phone||'+251985154985',width:180,height:180,colorDark:'#00a651',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+      }
     } else {
       new QRCode(tbEl,{text:cfg.telebirr?.phone||'+251985154985',width:180,height:180,colorDark:'#00a651',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     }
     // CBE: use uploaded image or generate from account
     if(cfg.cbe?.qr_image){
-      const src=cfg.cbe.qr_image;
-      const imgSrc=src.startsWith('data:')?src:src+'?v='+Date.now();
-      cbeEl.innerHTML=`<img src="${imgSrc}" style="width:180px;height:180px;object-fit:contain;border-radius:8px;" alt="CBE QR">`;
+      // Strip any accidentally appended cache-bust query string from data URLs
+      let src=cfg.cbe.qr_image;
+      if(src.startsWith('data:')&&src.includes('?v='))src=src.split('?v=')[0];
+      if(src.startsWith('data:')||src.startsWith('images/')){
+        cbeEl.innerHTML=`<img src="${src}" style="width:180px;height:180px;object-fit:contain;border-radius:8px;" alt="CBE QR">`;
+      } else {
+        new QRCode(cbeEl,{text:cfg.cbe?.account||'1000231406558',width:180,height:180,colorDark:'#1a3a6c',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+      }
     } else {
       new QRCode(cbeEl,{text:cfg.cbe?.account||'1000231406558',width:180,height:180,colorDark:'#1a3a6c',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     }
