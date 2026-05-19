@@ -59,16 +59,19 @@ function ghReq(method, path, body) {
 }
 
 async function readFile(filePath) {
-  const r = await ghReq('GET', `/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}?ref=${GH_BRANCH}`);
+  const r = await ghReq('GET', `/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}?ref=${GH_BRANCH}&t=${Date.now()}`);
   if (r.message) throw new Error(r.message);
   return { data: JSON.parse(Buffer.from(r.content, 'base64').toString()), sha: r.sha };
 }
 
 async function writeFile(filePath, data, sha, msg) {
   const content = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
-  return ghReq('PUT', `/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}`, {
+  const r = await ghReq('PUT', `/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}`, {
     message: msg, content, sha, branch: GH_BRANCH
   });
+  // Check for GitHub API errors
+  if (r.message && !r.content) throw new Error(`GitHub write failed: ${r.message}`);
+  return r;
 }
 
 async function writeRawFile(filePath, base64Content, sha, msg) {
