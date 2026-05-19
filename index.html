@@ -530,7 +530,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <section class="feedback-section" id="feedback">
 <div class="section-header"><div class="section-icon"><i class="fas fa-paper-plane"></i></div><h2 class="section-title" data-i18n="feedback_title">We Value Your Feedback</h2><p class="section-subtitle" data-i18n="feedback_subtitle">Share your experience with us</p></div>
 <div class="feedback-form">
-<div class="feedback-status" id="feedbackStatus"></div>
 <div class="form-row"><div class="form-group"><label data-i18n="label_name">Your Name</label><input type="text" id="fbName" placeholder="Your name"></div><div class="form-group"><label data-i18n="label_phone">Phone Number</label><input type="tel" id="fbPhone" placeholder="+251..."></div></div>
 <div class="form-group" style="margin-bottom:1.5rem"><label data-i18n="label_message">Your Message</label><textarea id="fbMessage" placeholder="Tell us about your experience..." data-i18n-placeholder="feedback_placeholder"></textarea></div>
 <button type="button" class="submit-btn" onclick="submitFeedback()" data-i18n="btn_send_feedback">
@@ -838,33 +837,27 @@ function submitFeedback(){
   const name=document.getElementById('fbName').value.trim();
   const phone=document.getElementById('fbPhone').value.trim();
   const msg=document.getElementById('fbMessage').value.trim();
-  const status=document.getElementById('feedbackStatus');
   if(!name||!msg){
-    status.textContent=cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message';
-    status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(231,76,60,.15);color:#e74c3c;margin-bottom:1rem;';
+    showToast(cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message');
     return;
   }
-  status.textContent=cl==='am'?'እየላከ ነው... ⏳':'Sending... ⏳';
-  status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(212,168,83,.15);color:var(--gd);margin-bottom:1rem;';
-  fetch('/api/feedback',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name,phone,message:msg,lang:cl})
-  }).then(r=>r.json()).then(data=>{
-    if(data.ok){
-      status.textContent=data.message;
-      status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(39,174,96,.15);color:#27ae60;margin-bottom:1rem;';
-      document.getElementById('fbName').value='';
-      document.getElementById('fbPhone').value='';
-      document.getElementById('fbMessage').value='';
-    } else {
-      status.textContent=(cl==='am'?'መላክ አልተቻለም: ':'Failed: ')+data.error;
-      status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(231,76,60,.15);color:#e74c3c;margin-bottom:1rem;';
-    }
-  }).catch(()=>{
-    status.textContent=cl==='am'?'መላክ አልተቻለም። እንደገና ይሞክሩ።':'Failed to send. Please try again.';
-    status.style.cssText='display:block;padding:.8rem 1rem;border-radius:8px;background:rgba(231,76,60,.15);color:#e74c3c;margin-bottom:1rem;';
-  });
+  // Build the message text
+  const text=[
+    '📩 ZAD Cafe Feedback',
+    '',
+    '👤 Name: '+name,
+    phone?'📞 Phone: '+phone:'',
+    '💬 Message:',
+    msg
+  ].filter(Boolean).join('\n');
+  // Open Telegram app with pre-filled message to @posthinker
+  const url='https://t.me/posthinker?text='+encodeURIComponent(text);
+  window.open(url,'_blank');
+  // Clear form
+  document.getElementById('fbName').value='';
+  document.getElementById('fbPhone').value='';
+  document.getElementById('fbMessage').value='';
+  showToast(cl==='am'?'ቴሌግራም እየተከፈተ ነው...':'Opening Telegram...');
 }
 function submitSubscribe(){
 const email=document.getElementById('subEmail').value.trim();
