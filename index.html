@@ -353,8 +353,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#menu" data-i18n="nav_menu">Menu</a>
 <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
 <a href="#payment" data-i18n="nav_payment">Payment</a>
-<a href="#feedback" data-i18n="nav_feedback">Feedback</a>
-</div>
+
 <div class="nav-actions">
 <div class="search-box" id="searchBox">
   <i class="fas fa-search s-icon"></i>
@@ -377,7 +376,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#menu" onclick="toggleMobileMenu()" data-i18n="nav_menu">Menu</a>
 <a href="#gallery" onclick="toggleMobileMenu()" data-i18n="nav_gallery">Gallery</a>
 <a href="#payment" onclick="toggleMobileMenu()" data-i18n="nav_payment">Payment</a>
-<a href="#feedback" onclick="toggleMobileMenu()" data-i18n="nav_feedback">Feedback</a>
 <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--br);">
   <input type="text" id="mobileSearchInput" placeholder="Search menu..." style="width:100%;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--br);background:var(--cd);color:var(--tx);font-family:'Poppins',sans-serif;font-size:.9rem;" oninput="liveSearch(this.value);document.getElementById('searchInput').value=this.value;">
 </div>
@@ -476,40 +474,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 </section>
 
-<section class="seasonal-section" id="seasonal">
-<div class="seasonal-inner">
-<div class="section-header"><div class="section-icon"><i class="fas fa-leaf"></i></div><h2 class="section-title" data-i18n="season_title">Seasonal Specials</h2><p class="section-subtitle" data-i18n="season_subtitle">Limited-time delights crafted for the season</p></div>
-<div class="seasonal-grid">
-<div class="seasonal-card">
-<span class="seasonal-badge">Limited</span>
-<div class="seasonal-img" style="background-image:url('images/honey_latte.jpg')"></div>
-<div class="seasonal-content">
-<div class="seasonal-title" data-i18n="sp1_title">Spiced Honey Latte</div>
-<div class="seasonal-desc" data-i18n="sp1_desc">Warm espresso with cinnamon, honey, and steamed milk.</div>
-<div class="seasonal-footer"><span class="seasonal-price">120 Birr</span></div>
-</div>
-</div>
-<div class="seasonal-card">
-<span class="seasonal-badge">Limited</span>
-<div class="seasonal-img" style="background-image:url('images/Tropical Sunrise Juice.jpg')"></div>
-<div class="seasonal-content">
-<div class="seasonal-title" data-i18n="sp2_title">Tropical Sunrise Juice</div>
-<div class="seasonal-desc" data-i18n="sp2_desc">Mango, papaya, and orange blend with a ginger kick.</div>
-<div class="seasonal-footer"><span class="seasonal-price">280 Birr</span></div>
-</div>
-</div>
-<div class="seasonal-card">
-<span class="seasonal-badge">Chef Pick</span>
-<div class="seasonal-img" style="background-image:url('images/avocado_toast.jpg')"></div>
-<div class="seasonal-content">
-<div class="seasonal-title" data-i18n="sp3_title">Avocado & Egg Toast</div>
-<div class="seasonal-desc" data-i18n="sp3_desc">Sourdough topped with smashed avocado and poached egg.</div>
-<div class="seasonal-footer"><span class="seasonal-price">350 Birr</span></div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
 
 <section class="testimonials-section">
 <div class="testimonials-inner">
@@ -556,43 +521,9 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 </section>
 
-<section class="sustain-section" id="sustainability">
-<div class="sustain-inner">
-<div class="section-header"><div class="section-icon"><i class="fas fa-earth-africa"></i></div><h2 class="section-title" data-i18n="sustain_title">Our Commitment</h2><p class="section-subtitle" data-i18n="sustain_subtitle">Sustainability in every cup and plate</p></div>
-<div class="sustain-grid">
-<div class="sustain-card">
-<div class="sustain-icon"><i class="fas fa-seedling"></i></div>
-<div class="sustain-title" data-i18n="s1_title">Local Sourcing</div>
-<div class="sustain-desc" data-i18n="s1_desc">We partner with local farmers and suppliers to bring you the freshest ingredients while supporting our community.</div>
-</div>
-<div class="sustain-card">
-<div class="sustain-icon"><i class="fas fa-recycle"></i></div>
-<div class="sustain-title" data-i18n="s2_title">Eco-Friendly Packaging</div>
-<div class="sustain-desc" data-i18n="s2_desc">Our takeaway containers are biodegradable and made from sustainable materials.</div>
-</div>
-<div class="sustain-card">
-<div class="sustain-icon"><i class="fas fa-coffee-beans"></i></div>
-<div class="sustain-title" data-i18n="s3_title">Ethiopian Coffee</div>
-<div class="sustain-desc" data-i18n="s3_desc">We proudly serve premium Ethiopian coffee directly sourced from local growers.</div>
-</div>
-<div class="sustain-card">
-<div class="sustain-icon"><i class="fas fa-heart"></i></div>
-<div class="sustain-title" data-i18n="s4_title">Community Support</div>
-<div class="sustain-desc" data-i18n="s4_desc">We regularly participate in local events and support community initiatives.</div>
-</div>
-</div>
-</div>
-</section>
 
-<section class="feedback-section" id="feedback">
-<div class="section-header"><div class="section-icon"><i class="fas fa-comment-dots"></i></div><h2 class="section-title" data-i18n="feedback_title">We Value Your Feedback</h2><p class="section-subtitle" data-i18n="feedback_subtitle">Share your experience with us</p></div>
-<div class="feedback-form">
-<div class="feedback-status" id="feedbackStatus"></div>
-<div class="form-row"><div class="form-group"><label data-i18n="label_name">Your Name</label><input type="text" id="fbName" required></div><div class="form-group"><label data-i18n="label_phone">Phone Number</label><input type="tel" id="fbPhone"></div></div>
-<div class="form-group" style="margin-bottom:1.5rem"><label data-i18n="label_message">Your Message</label><textarea id="fbMessage" placeholder="Tell us about your experience..." data-i18n-placeholder="feedback_placeholder" required></textarea></div>
-<button type="button" class="submit-btn" onclick="submitFeedback()" data-i18n="btn_send_feedback">Send Feedback</button>
-</div>
-</section>
+
+
 
 <footer>
 <div class="footer-grid">
