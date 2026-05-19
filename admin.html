@@ -53,7 +53,6 @@ body::before{
 
 /* Logout */
 .logout-btn{
-  position:absolute;top:2rem;right:2rem;
   padding:.7rem 1.5rem;
   background:rgba(255,82,82,0.15);color:#ff5252;
   border:1px solid rgba(255,82,82,0.3);border-radius:10px;
@@ -281,12 +280,13 @@ body::before{
 </div>
 
 <div id="adminPanel" style="display:none;">
-<button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
-
 <div class="container">
-<div class="header">
+<div class="header" style="display:flex;justify-content:space-between;align-items:center;">
+<div>
 <h1><i class="fas fa-coffee"></i> ZAD Cafe Admin Panel</h1>
 <p>Manage your menu items and payment methods</p>
+</div>
+<button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
 </div>
 
 <div class="stats" id="stats"></div>
