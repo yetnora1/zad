@@ -64,7 +64,13 @@ body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-
 .search-dd-cat{font-size:.72rem;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-top:.1rem;}
 .search-dd-price{font-size:.9rem;color:var(--or);font-weight:600;flex-shrink:0;}
 .search-dd-empty{padding:1.5rem;text-align:center;color:var(--mu);font-size:.9rem;}
-@media(max-width:768px){.nav-links{display:none;}.mobile-menu-btn{display:flex;}.search-box input{width:100px;}.search-box input:focus{width:150px;}.search-dropdown{min-width:260px;}}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .mobile-menu-btn{display:flex;}
+  .search-box input{width:110px;}
+  .search-box input:focus{width:160px;}
+  .search-dropdown{min-width:260px;right:0;left:auto;}
+}
 .lang-flag{width:100%;height:100%;object-fit:cover;border-radius:50%;position:absolute;inset:0;}
 .mobile-menu-btn{display:none;}
 .mobile-menu{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--ca);z-index:2001;padding:2rem;transition:right .4s;border-left:1px solid var(--br);}
@@ -354,7 +360,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 <a href="#menu" data-i18n="nav_menu">Menu</a>
 <a href="#payment" data-i18n="nav_payment">Payment</a>
 <a href="#feedback" data-i18n="nav_feedback">Feedback</a>
-
+</div>
 <div class="nav-actions">
 <div class="search-box" id="searchBox">
   <i class="fas fa-search s-icon"></i>
@@ -463,10 +469,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 
 <section class="fav-section" id="favorites"><div class="section-header"><div class="section-icon"><i class="fas fa-heart"></i></div><h2 class="section-title" data-i18n="fav_title">Your Favorites</h2><p class="section-subtitle" data-i18n="fav_subtitle">Quick access to the items you love</p></div><div class="fav-grid" id="fav-grid"></div></section>
 
-
-
-
-
 <section class="testimonials-section">
 <div class="testimonials-inner">
 <div class="section-header"><div class="section-icon"><i class="fas fa-quote-left"></i></div><h2 class="section-title" data-i18n="testimonials_title">What People Say</h2><p class="section-subtitle" data-i18n="testimonials_subtitle">Words from our beloved customers</p></div>
@@ -512,10 +514,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 </section>
 
-
-
-
-
 <section class="feedback-section" id="feedback">
 <div class="section-header"><div class="section-icon"><i class="fas fa-paper-plane"></i></div><h2 class="section-title" data-i18n="feedback_title">We Value Your Feedback</h2><p class="section-subtitle" data-i18n="feedback_subtitle">Share your experience with us</p></div>
 <div class="feedback-form">
@@ -560,8 +558,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 </footer>
 
-
-
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 <button class="table-qr-btn" id="tableQrBtn" onclick="openTableQR()" title="Table QR Code"><i class="fas fa-qrcode"></i></button>
 
@@ -589,7 +585,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </div>
 </div>
 
-
 <div class="modal-overlay" id="item-modal" onclick="if(event.target===this)closeItemModal()">
 <div class="modal item-modal">
 <div class="modal-header"><h3 data-i18n="item_details">Item Details</h3><button class="modal-close" onclick="closeItemModal()">&times;</button></div>
@@ -608,31 +603,25 @@ function setLanguage(lang){
   cl=lang;
   window.cl=lang;
   localStorage.setItem('zad-lang',lang);
-  // Update all data-i18n elements
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
     if(t[lang]&&t[lang][k])el.innerHTML=t[lang][k];
   });
-  // Update all placeholders
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
     const k=el.getAttribute('data-i18n-placeholder');
     if(t[lang]&&t[lang][k])el.placeholder=t[lang][k];
   });
-  // Update flag
   const f=document.getElementById('langFlag');
   if(f)f.src=lang==='en'?usFlag:ethFlag;
-  // Re-render menu cards (item names change EN↔AM)
   const q=document.getElementById('searchInput')?document.getElementById('searchInput').value.trim():'';
   if(typeof renderMenu==='function')renderMenu(q);
   if(typeof renderFavorites==='function')renderFavorites();
   if(typeof renderRecent==='function')renderRecent();
-  // Update category nav pills text
   const catMap={pasta:lang==='en'?'Pasta':'ፓስታ',rice:lang==='en'?'Rice':'ሩዝ',sandwich:lang==='en'?'Sandwich':'ሳንድዊች',burger:lang==='en'?'Burger':'በርገር',pizza:lang==='en'?'Pizza':'ፒዛ',extra:lang==='en'?'Extras':'ተጨማሪ',fresh:lang==='en'?'Fresh Drinks':'ሞቅ ያሉ',cold:lang==='en'?'Cold Drinks':'ቀዝቃዛ',juice:lang==='en'?'Juice':'ጁስ',breakfast:lang==='en'?'Breakfast':'ቁርስ'};
   document.querySelectorAll('.nav-pill [data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
     if(t[lang]&&t[lang][k])el.textContent=t[lang][k];
   });
-  // Update diet chips
   document.querySelectorAll('.diet-chip[data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
     if(t[lang]&&t[lang][k]){
@@ -645,9 +634,6 @@ function toggleLanguage(){setLanguage(cl==='en'?'am':'en');}
 function setTheme(th){ct=th;localStorage.setItem('zad-theme',th);document.documentElement.setAttribute('data-theme',th);const i=document.getElementById('themeIcon');if(i)i.className=th==='light'?'fas fa-sun':'fas fa-moon';}
 function toggleTheme(){setTheme(ct==='light'?'dark':'light');}
 
-// Menu data loaded from menu_data.json by load_menu.js
-// The 'md' variable is declared in load_menu.js
-
 function toggleCustomExtra(el,price){
 const name=el.getAttribute('data-name');const nameAm=el.getAttribute('data-name-am');
 if(el.classList.contains('active')){el.classList.remove('active');customState.extras=customState.extras.filter(e=>e.name!==name);}
@@ -659,7 +645,6 @@ async function generateQRCodes(){
   const tbEl=document.getElementById('telebirr-qr');
   const cbeEl=document.getElementById('cbe-qr');
   try{
-    // Fetch from public config API (reads directly from GitHub, bypasses Vercel cache)
     let cfg;
     try {
       const apiRes=await fetch('/api/config',{cache:'no-store'});
@@ -668,14 +653,11 @@ async function generateQRCodes(){
         cfg=apiData.data;
       }
     } catch(e){ cfg=null; }
-    // Fallback to static file
     if(!cfg){
       const res=await fetch('payment_config.json?t='+Date.now(),{cache:'no-store'});
       cfg=await res.json();
     }
-    // Telebirr: use uploaded image or generate from phone
     if(cfg.telebirr?.qr_image){
-      // Strip any accidentally appended cache-bust query string from data URLs
       let src=cfg.telebirr.qr_image;
       if(src.startsWith('data:')&&src.includes('?v='))src=src.split('?v=')[0];
       if(src.startsWith('data:')||src.startsWith('images/')){
@@ -686,9 +668,7 @@ async function generateQRCodes(){
     } else {
       new QRCode(tbEl,{text:cfg.telebirr?.phone||'+251985154985',width:180,height:180,colorDark:'#00a651',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     }
-    // CBE: use uploaded image or generate from account
     if(cfg.cbe?.qr_image){
-      // Strip any accidentally appended cache-bust query string from data URLs
       let src=cfg.cbe.qr_image;
       if(src.startsWith('data:')&&src.includes('?v='))src=src.split('?v=')[0];
       if(src.startsWith('data:')||src.startsWith('images/')){
@@ -699,13 +679,11 @@ async function generateQRCodes(){
     } else {
       new QRCode(cbeEl,{text:cfg.cbe?.account||'1000231406558',width:180,height:180,colorDark:'#1a3a6c',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     }
-    // Update displayed account numbers from config
     const tbInput=document.querySelector('.payment-card:first-child .account-info input');
     if(tbInput&&cfg.telebirr?.phone)tbInput.value=cfg.telebirr.phone;
     const cbeInput=document.querySelector('.payment-card:last-child .account-info input');
     if(cbeInput&&cfg.cbe?.account)cbeInput.value=cfg.cbe.account;
   }catch(e){
-    // Fallback: generate QR from hardcoded values
     if(tbEl)new QRCode(tbEl,{text:'+251985154985',width:180,height:180,colorDark:'#00a651',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
     if(cbeEl)new QRCode(cbeEl,{text:'1000231406558',width:180,height:180,colorDark:'#1a3a6c',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
   }
@@ -731,7 +709,6 @@ function shareMenu(){
   if(navigator.share){navigator.share({title,text,url}).catch(()=>{});}
   else{navigator.clipboard.writeText(url).then(()=>showToast(cl==='en'?'Menu link copied!':'ሊንክ ተቀድቷል!')).catch(()=>showToast(url));}
 }
-// Gallery Lightbox
 const galleryImages=['images/cafe_interior.jpg','images/cafe_coffee.jpg','images/cafe_latte.jpg','images/cafe_food.jpg','images/macchiato.jpg','images/coffee_beans.jpg'];
 let lightboxIdx=0;
 function openLightbox(idx){
@@ -766,7 +743,6 @@ function getRecommendations(cat,idx){
   const catItems=md[cat]||[];
   const related=[];
   for(let i=0;i<catItems.length;i++){if(i!==idx)related.push({cat,idx:i,it:catItems[i]});}
-  // shuffle
   for(let i=related.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[related[i],related[j]]=[related[j],related[i]];}
   return related.slice(0,3);
 }
@@ -783,56 +759,38 @@ function getDietHtml(dt){
 }
 function addRecent(name, price, cat, idx) {
   let recent = JSON.parse(localStorage.getItem('zad-recent') || '[]');
-  // Remove if already exists
   recent = recent.filter(r => !(r.name === name && r.cat === cat));
-  // Add to beginning
   recent.unshift({ name, price, cat, idx, time: Date.now() });
-  // Keep only last 10
   recent = recent.slice(0, 10);
   localStorage.setItem('zad-recent', JSON.stringify(recent));
 }
 function toggleFavorite(cat, name) {
   let favs = JSON.parse(localStorage.getItem('zad-favorites') || '[]');
   const idx = favs.findIndex(f => f.cat === cat && f.name === name);
-  
   if (idx > -1) {
-    // Remove from favorites
     favs.splice(idx, 1);
     showToast(cl === 'en' ? 'Removed from favorites' : 'ከተወዳጆች ተወግዷል');
   } else {
-    // Add to favorites
     favs.push({ cat, name, time: Date.now() });
     showToast(cl === 'en' ? 'Added to favorites' : 'ወደ ተወዳጆች ታክሏል');
   }
-  
   localStorage.setItem('zad-favorites', JSON.stringify(favs));
-  
-  // Re-render all sections to update button states
   if (typeof renderMenu === 'function') renderMenu(document.getElementById('searchInput')?.value || '');
   if (typeof renderFavorites === 'function') renderFavorites();
   if (typeof renderRecent === 'function') renderRecent();
 }
 function openItemModal(cat,nameOrIdx){
-// Handle both name (string) and index (number)
 let idx, it;
 if (typeof nameOrIdx === 'string') {
-  // Find item by name
   const items = md[cat] || [];
   idx = items.findIndex(item => item.n === nameOrIdx);
-  if (idx === -1) {
-    console.error('Item not found:', nameOrIdx, 'in category:', cat);
-    return;
-  }
+  if (idx === -1) { console.error('Item not found:', nameOrIdx, 'in category:', cat); return; }
   it = items[idx];
 } else {
-  // Use index directly
   idx = nameOrIdx;
   it = md[cat][idx];
 }
-if (!it) {
-  console.error('Item not found at index:', idx, 'in category:', cat);
-  return;
-}
+if (!it) { console.error('Item not found at index:', idx, 'in category:', cat); return; }
 const nm=cl==='en'?it.n:it.a;
 const am=cl==='en'?it.a:it.n;
 currentModalItem={cat,idx,name:it.n};
@@ -855,7 +813,6 @@ function submitFeedback(){
     showToast(cl==='am'?'እባክዎ ስም እና መልእክት ያስገቡ':'Please fill in your name and message');
     return;
   }
-  // Build the message text
   const text=[
     '📩 ZAD Cafe Feedback',
     '',
@@ -864,10 +821,8 @@ function submitFeedback(){
     '💬 Message:',
     msg
   ].filter(Boolean).join('\n');
-  // Open Telegram app with pre-filled message to @posthinker
   const url='https://t.me/posthinker?text='+encodeURIComponent(text);
   window.open(url,'_blank');
-  // Clear form
   document.getElementById('fbName').value='';
   document.getElementById('fbPhone').value='';
   document.getElementById('fbMessage').value='';
@@ -887,7 +842,6 @@ else{status.textContent=data.message;status.className='subscribe-status error';}
 }).catch(()=>{status.textContent=cl==='am'?'ማለፍ አልተቻለም':'Failed to subscribe. Please try again.';status.className='subscribe-status error';});
 }
 
-// Counters
 function animateCounters(){
 document.querySelectorAll('.counter').forEach(c=>{
 const t=+c.getAttribute('data-target');
@@ -896,19 +850,15 @@ const upd=setInterval(()=>{s+=inc;if(s>=t){s=t;clearInterval(upd);}c.textContent
 });
 }
 
-// Live Search
 const catLabels={pasta:'Pasta',rice:'Rice',sandwich:'Sandwich',burger:'Burger',pizza:'Pizza',extra:'Extras',fresh:'Fresh Drinks',cold:'Cold Drinks',juice:'Juice',breakfast:'Breakfast'};
 function liveSearch(query){
   const inp=document.getElementById('searchInput');
   const dd=document.getElementById('searchDropdown');
   const clr=document.getElementById('searchClear');
   const q=query.trim().toLowerCase();
-  // toggle clear btn
   if(clr)clr.classList.toggle('visible',q.length>0);
-  // always filter the menu grids
   renderMenu(query);
   if(!q){dd.classList.remove('open');return;}
-  // collect all matches across all categories
   const results=[];
   for(const[cat,items] of Object.entries(md)){
     for(let i=0;i<items.length;i++){
@@ -921,7 +871,6 @@ function liveSearch(query){
     }
     if(results.length>=8)break;
   }
-  // build dropdown
   let h='';
   if(results.length===0){
     h=`<div class="search-dd-empty">${cl==='en'?'No items found for "'+query+'"':'ምንም አልተገኘም'}</div>`;
@@ -941,7 +890,6 @@ function liveSearch(query){
   }
   dd.innerHTML=h;
   dd.classList.add('open');
-  // scroll to menu section on first keypress
   const menuEl=document.getElementById('menu');
   if(menuEl&&window.scrollY<menuEl.offsetTop-200){menuEl.scrollIntoView({behavior:'smooth',block:'start'});}
 }
@@ -970,7 +918,6 @@ document.addEventListener('click',e=>{
   if(!document.getElementById('searchBox').contains(e.target))closeSearchDropdown();
 });
 
-// Nav scroll
 document.addEventListener('scroll',()=>{
 const n=document.getElementById('topNav');
 if(window.scrollY>50)n.classList.add('scrolled');else n.classList.remove('scrolled');
@@ -980,7 +927,6 @@ if(window.scrollY>500){b.classList.add('visible');if(q)q.classList.add('visible'
 else{b.classList.remove('visible');if(q)q.classList.remove('visible');}
 });
 
-// Init
 document.addEventListener('DOMContentLoaded', () => {
   try { setLanguage(cl); } catch(e) { console.error('Language error:', e); }
   try { setTheme(ct); } catch(e) { console.error('Theme error:', e); }
@@ -1003,7 +949,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 50);
 
-  // Fallback to hide loader if data fails entirely after 3 seconds
   setTimeout(() => {
     clearInterval(checkMenuLoaded);
     const loader = document.getElementById('loader');
@@ -1036,7 +981,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch(e) { console.error('Observer error:', e); }
 });
 
-// Ultimate fallback: hide loader when window fully loads or after 5s regardless
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loader = document.getElementById('loader');
