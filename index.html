@@ -94,7 +94,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cd);color:var(--tx);line-
 .steam-4{left:80%;bottom:12%;animation-delay:1s;height:35px;}
 @keyframes rise{0%{transform:translateY(0) scaleX(1);opacity:0;}20%{opacity:.4;}100%{transform:translateY(-120px) scaleX(2);opacity:0;}}
 .hero-content{position:relative;z-index:1;padding-top:60px;}
-.logo-circle{width:160px;height:160px;background:linear-gradient(135deg,var(--or),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 10px 40px rgba(232,120,74,.3);animation:float 3s ease-in-out infinite;}
+.logo-circle{width:220px;height:220px;background:linear-gradient(135deg,var(--or),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 10px 40px rgba(232,120,74,.3);animation:float 3s ease-in-out infinite;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 .logo-circle i{font-size:3rem;color:#fff;}
 .hero h1{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--cr);margin-bottom:.5rem;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
@@ -559,7 +559,6 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 </footer>
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
-<button class="table-qr-btn" id="tableQrBtn" onclick="openTableQR()" title="Table QR Code"><i class="fas fa-qrcode"></i></button>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
@@ -572,18 +571,7 @@ footer{background:var(--cd);padding:4rem 1.5rem 2rem;border-top:1px solid var(--
 
 <div class="toast" id="toast"></div>
 
-<!-- Table QR Modal -->
-<div class="modal-overlay" id="table-qr-modal" onclick="if(event.target===this)closeTableQR()">
-<div class="modal table-qr-modal">
-<div class="modal-header"><h3>Table QR Code</h3><button class="modal-close" onclick="closeTableQR()">&times;</button></div>
-<div class="modal-body">
-<div class="table-qr-title">Scan to View Our Menu</div>
-<div class="table-qr-sub">Share this QR with guests at your table</div>
-<div class="table-qr-box" id="table-qr-box"></div>
-<div class="table-qr-url" id="table-qr-url"></div>
-</div>
-</div>
-</div>
+
 
 <div class="modal-overlay" id="item-modal" onclick="if(event.target===this)closeItemModal()">
 <div class="modal item-modal">
@@ -923,8 +911,8 @@ const n=document.getElementById('topNav');
 if(window.scrollY>50)n.classList.add('scrolled');else n.classList.remove('scrolled');
 const b=document.getElementById('backToTop');
 const q=document.getElementById('tableQrBtn');
-if(window.scrollY>500){b.classList.add('visible');if(q)q.classList.add('visible');}
-else{b.classList.remove('visible');if(q)q.classList.remove('visible');}
+if(window.scrollY>500){b.classList.add('visible');}
+else{b.classList.remove('visible');}
 });
 
 document.addEventListener('DOMContentLoaded', () => {

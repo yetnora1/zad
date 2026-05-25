@@ -306,6 +306,15 @@ body::before{
 
 <div id="paymentTab" class="tab-content">
 <div class="card">
+<h2><i class="fas fa-qrcode"></i> Website QR Code</h2>
+<p style="color:var(--muted);margin-bottom:1.5rem;font-size:.9rem;">Share this QR code with guests to let them scan and view the menu on their phones.</p>
+<div style="text-align:center;">
+<div id="siteQRBox" style="width:200px;height:200px;margin:0 auto 1rem;background:#fff;border-radius:16px;padding:10px;display:flex;align-items:center;justify-content:center;"></div>
+<div style="font-size:.85rem;color:var(--muted);word-break:break-all;margin-bottom:1rem;" id="siteQRUrl"></div>
+<button class="btn btn-primary" onclick="downloadSiteQR()"><i class="fas fa-download"></i> Download QR</button>
+</div>
+</div>
+<div class="card">
 <h2><i class="fas fa-qrcode"></i> QR Code Images</h2>
 <p style="color:var(--secondary);margin-bottom:1.5rem;font-size:.9rem;">Upload the real merchant QR code images from your Telebirr and CBE apps. These will appear immediately on the menu site.</p>
 <div class="qr-upload-grid">
@@ -582,6 +591,7 @@ document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 event.target.classList.add('active');
 document.getElementById(tab + 'Tab').classList.add('active');
+if(tab==='payment')generateSiteQR();
 }
 
 function openAddModal(cat) {
@@ -755,6 +765,22 @@ setTimeout(() => el.innerHTML = '', 3000);
 }
 
 checkAuth();
+
+function generateSiteQR(){
+  const url='https://zad-cafe.vercel.app';
+  const box=document.getElementById('siteQRBox');
+  document.getElementById('siteQRUrl').textContent=url;
+  box.innerHTML='';
+  new QRCode(box,{text:url,width:180,height:180,colorDark:'#1a0f0a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+}
+function downloadSiteQR(){
+  const canvas=document.querySelector('#siteQRBox canvas');
+  if(!canvas){alert('QR not generated yet');return;}
+  const a=document.createElement('a');
+  a.download='zad-cafe-menu-qr.png';
+  a.href=canvas.toDataURL();
+  a.click();
+}
 </script>
 </body>
 </html>
